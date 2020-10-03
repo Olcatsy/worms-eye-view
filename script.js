@@ -46,6 +46,8 @@ function app() {
   // *** CANVAS SETUP *** -----------------------
   function canvasSetup(canvasId, layerNum) {
     const  canvas = document.getElementById(canvasId);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     const ctx = canvas.getContext('2d');
     
     
@@ -54,7 +56,8 @@ function app() {
     img.addEventListener('load', () => {
       ctx.drawImage(img, 0, 0);
     })
-    img.src = `./assets/img${layerNum}.jpg`
+    img.src = `./assets/layer_a_0${layerNum}.jpg`
+  
 
 
     // set up the brush and load drawing functions -------
@@ -79,6 +82,7 @@ function app() {
       if (isScratching) {
 
         // .getImageData returns a flat array representing RGBA values of each pixel in that order, so to get transparency values I need to iterate over every fourth value 
+        //! Uncaught DOMException: Index or size is negative or greater than the allowed amount
         pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
 
         // if checkTransparency returns 'true' set global isTransparent to true
@@ -92,7 +96,7 @@ function app() {
     // Draw an invisible square on the canvas in the same position as the clickable object below the canvas
     const rectangle = new Path2D();
     rectangle.rect(itemPos.left, itemPos.top, itemPos.width, itemPos.height);
-    ctx.fillStyle = 'rgba(0, 0, 0, 0, 1)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0)';
     ctx.fill(rectangle);
 
     // Using ctx.isPointInPath check if the click event is within the boundaries of the rectangle and check if the corresponding area is fully scratched off
@@ -108,7 +112,7 @@ function app() {
 
   canvasSetup('top-layer', 1);
   canvasSetup('middle-layer', 2);
-  canvasSetup('bottom-layer', 1);
+  canvasSetup('bottom-layer', 3);
 }
 
 app();
