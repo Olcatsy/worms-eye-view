@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  padding: 20px;
+  display: flex;
+}
+
+.canvas {
+  border: 1px solid black;
+  display: block;
+  top: 0;
+  left: 0; 
+  position: absolute;
+}
+
+#top-layer {
+  z-index: 100;
+}
+
+#middle-layer {
+  z-index: 80;
+}
+
+.item {
+  /* background-color: black; */
+  position: relative;
+}
+
+.item1 {
+  z-index: 90;
+  width: 300px;
+}
+
+.item2 {
+  z-index: 70;
+}
+
+.inventory {
+  border: 2px solid black;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 20px;
+  background: white;
+  z-index: 200
+}

@@ -47,7 +47,7 @@ function app() {
 
 
   // *** CANVAS SETUP *** -----------------------
-  function canvasSetup(canvasId, layerNum) {
+  function canvasSetup(canvasId, scene, layerNum) {
     const  canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
       canvas.width = window.innerWidth;
@@ -59,7 +59,7 @@ function app() {
     img.addEventListener('load', () => {
       ctx.drawImage(img, 0, 0);
     })
-    img.src = `./assets/img${layerNum}.jpg`
+    img.src = `./assets/layer_${scene}_0${layerNum}.jpg`
 
 
     // set up the brush and load drawing functions -------
@@ -112,9 +112,9 @@ function app() {
     })
   }
 
-  canvasSetup('top-layer', 1);
-  canvasSetup('middle-layer', 2);
-  canvasSetup('bottom-layer', 1);
+  canvasSetup('top-layer', 'a', 1);
+  canvasSetup('middle-layer', 'a', 2);
+  canvasSetup('bottom-layer', 'a', 3);
 }
 
 
