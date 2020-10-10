@@ -5,6 +5,13 @@ const inventory = document.querySelector('.inventory');
 let pixelsData; 
 let isScratching = false;
 let isTransparent = false; //keeps track of whether the image above the interactive object is fully scratched off
+// let itemPos = {
+//   top: 0,
+//   left: 0,
+//   width: 0,
+//   height: 0,
+// };
+let itemPos;
 
 
 // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's transparent (has alpha value of 0)
@@ -20,6 +27,7 @@ function checkTransparency(data) {
       return false;
     };
   }
+  console.log('transparent')
   return true;
 }
 
@@ -28,18 +36,21 @@ function checkTransparency(data) {
 // could be adapted to apply to every canvas if I pass canvas id into it 
 //! should refactor it into outside functions so that it only calls functions and adds event listeners (?)
 function app() {
+
   // *** ITEM SETUP --------------------------------
   const item = document.querySelector('.item1');
-  const itemRect = item.getBoundingClientRect();
-  //stores the position and dimensions of the interactive object
-  const itemPos = {
-    top: itemRect.top,
-    bottom: itemRect.bottom,
-    left: itemRect.left,
-    right: itemRect.right,
-    width: itemRect.right - itemRect.left,
-    height: itemRect.bottom - itemRect.top,
-  }
+  item.addEventListener('load', () => {
+    const itemRect = item.getBoundingClientRect();
+    //stores the position and dimensions of the interactive object
+    itemPos = {
+      top: itemRect.top,
+      left: itemRect.left,
+      width: itemRect.width,
+      height: itemRect.height,
+    }
+    console.table(itemPos);
+  })
+  
   //*--------------------------------------------
 
 
@@ -80,6 +91,7 @@ function app() {
 
         // .getImageData returns a flat array representing RGBA values of each pixel in that order, so to get transparency values I need to iterate over every fourth value 
         pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
+        console.log(pixelsData);
 
         // if checkTransparency returns 'true' set global isTransparent to true
         if (checkTransparency(pixelsData)) { isTransparent = true };
