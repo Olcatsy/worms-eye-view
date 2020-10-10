@@ -28,9 +28,7 @@
     }
 
     .item {
-      /* width: 150px;
-      height: 150px; */
-      background-color: black;
+      /* background-color: black; */
       position: relative;
     }
 
@@ -47,7 +45,9 @@
       position: absolute;
       right: 0;
       top: 0;
-      padding: 20px
+      padding: 20px;
+      background: white;
+      z-index: 200
     }
     
   </style>
@@ -56,8 +56,8 @@
 
 <body>
   <div class="canvas-container">
-    <canvas id="top-layer"  class="canvas" width="500" height="500">Your browser does not support HTML Canvas</canvas>
-    <img class="item item1" src="assets/test.jpg" alt =""></img>
+    <canvas id="top-layer"  class="canvas" width="1000" height="1000">Your browser does not support HTML Canvas</canvas>
+    <img class="item item1" src="assets/item2.gif" alt =""></img>
 
     <canvas id="middle-layer" class="canvas" width="500" height="500">Your browser does not support HTML Canvas</canvas>
     <!-- <img class="item item2" src="assets/item2.gif" alt=""> -->

@@ -5,12 +5,6 @@ const inventory = document.querySelector('.inventory');
 let pixelsData; 
 let isScratching = false;
 let isTransparent = false; //keeps track of whether the image above the interactive object is fully scratched off
-// let itemPos = {
-//   top: 0,
-//   left: 0,
-//   width: 0,
-//   height: 0,
-// };
 let itemPos;
 
 
@@ -27,14 +21,13 @@ function checkTransparency(data) {
       return false;
     };
   }
-  console.log('transparent')
+  console.log('transparent');
   return true;
 }
 
 
 
 // could be adapted to apply to every canvas if I pass canvas id into it 
-//! should refactor it into outside functions so that it only calls functions and adds event listeners (?)
 function app() {
 
   // *** ITEM SETUP --------------------------------
@@ -47,7 +40,7 @@ function app() {
     width: itemRect.width,
     height: itemRect.height,
   }
-  console.table(itemPos);
+  console.table(itemPos)
   
   
   //*--------------------------------------------
@@ -57,6 +50,8 @@ function app() {
   function canvasSetup(canvasId, layerNum) {
     const  canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     
     
     // Load overlay image -------------
@@ -90,7 +85,6 @@ function app() {
 
         // .getImageData returns a flat array representing RGBA values of each pixel in that order, so to get transparency values I need to iterate over every fourth value 
         pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
-        // console.log(pixelsData);
 
         // if checkTransparency returns 'true' set global isTransparent to true
         if (checkTransparency(pixelsData)) { isTransparent = true };
@@ -123,6 +117,15 @@ function app() {
   canvasSetup('bottom-layer', 1);
 }
 
+
+
+
+
+
+
+
+
+
 // Wait for the DOM to be fully loaded and ready before running the app function
 function docReady(fn) {
   // see if DOM is already available
@@ -133,7 +136,6 @@ function docReady(fn) {
       document.addEventListener("DOMContentLoaded", fn);
   }
 } 
-
 
 
 docReady(function() {
