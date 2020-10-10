@@ -5,6 +5,7 @@ const inventory = document.querySelector('.inventory');
 let pixelsData; 
 let isScratching = false;
 let isTransparent = false; //keeps track of whether the image above the interactive object is fully scratched off
+let itemPos;
 
 
 // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's transparent (has alpha value of 0)
@@ -20,33 +21,37 @@ function checkTransparency(data) {
       return false;
     };
   }
+  console.log('transparent');
   return true;
 }
 
 
 
 // could be adapted to apply to every canvas if I pass canvas id into it 
-//! should refactor it into outside functions so that it only calls functions and adds event listeners (?)
 function app() {
+
   // *** ITEM SETUP --------------------------------
   const item = document.querySelector('.item1');
   const itemRect = item.getBoundingClientRect();
   //stores the position and dimensions of the interactive object
-  const itemPos = {
+  itemPos = {
     top: itemRect.top,
-    bottom: itemRect.bottom,
     left: itemRect.left,
-    right: itemRect.right,
-    width: itemRect.right - itemRect.left,
-    height: itemRect.bottom - itemRect.top,
+    width: itemRect.width,
+    height: itemRect.height,
   }
+  console.table(itemPos)
+  
+  
   //*--------------------------------------------
 
 
   // *** CANVAS SETUP *** -----------------------
-  function canvasSetup(canvasId, layerNum) {
+  function canvasSetup(canvasId, scene, layerNum) {
     const  canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     
     
     // Load overlay image -------------
@@ -54,7 +59,7 @@ function app() {
     img.addEventListener('load', () => {
       ctx.drawImage(img, 0, 0);
     })
-    img.src = `./assets/img${layerNum}.jpg`
+    img.src = `./assets/layer_${scene}_0${layerNum}.jpg`
 
 
     // set up the brush and load drawing functions -------
@@ -91,6 +96,7 @@ function app() {
     //** INTERACTIONS WITH THE ITEM */
     // Draw an invisible square on the canvas in the same position as the clickable object below the canvas
     const rectangle = new Path2D();
+    console.log(itemPos)
     rectangle.rect(itemPos.left, itemPos.top, itemPos.width, itemPos.height);
     ctx.fillStyle = 'rgba(0, 0, 0, 0, 1)';
     ctx.fill(rectangle);
@@ -106,10 +112,35 @@ function app() {
     })
   }
 
-  canvasSetup('top-layer', 1);
-  canvasSetup('middle-layer', 2);
-  canvasSetup('bottom-layer', 1);
+  canvasSetup('top-layer', 'a', 1);
+  canvasSetup('middle-layer', 'a', 2);
+  canvasSetup('bottom-layer', 'a', 3);
 }
 
-app();
+
+
+
+
+
+
+
+
+
+// Wait for the DOM to be fully loaded and ready before running the app function
+function docReady(fn) {
+  // see if DOM is already available
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+      // call on next available tick
+      setTimeout(fn, 1);
+  } else {
+      document.addEventListener("DOMContentLoaded", fn);
+  }
+} 
+
+
+docReady(function() {
+  // DOM is loaded and ready for manipulation here
+  app();
+});
+
 
