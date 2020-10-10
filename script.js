@@ -39,17 +39,16 @@ function app() {
 
   // *** ITEM SETUP --------------------------------
   const item = document.querySelector('.item1');
-  item.addEventListener('load', () => {
-    const itemRect = item.getBoundingClientRect();
-    //stores the position and dimensions of the interactive object
-    itemPos = {
-      top: itemRect.top,
-      left: itemRect.left,
-      width: itemRect.width,
-      height: itemRect.height,
-    }
-    console.table(itemPos);
-  })
+  const itemRect = item.getBoundingClientRect();
+  //stores the position and dimensions of the interactive object
+  itemPos = {
+    top: itemRect.top,
+    left: itemRect.left,
+    width: itemRect.width,
+    height: itemRect.height,
+  }
+  console.table(itemPos);
+  
   
   //*--------------------------------------------
 
@@ -91,7 +90,7 @@ function app() {
 
         // .getImageData returns a flat array representing RGBA values of each pixel in that order, so to get transparency values I need to iterate over every fourth value 
         pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
-        console.log(pixelsData);
+        // console.log(pixelsData);
 
         // if checkTransparency returns 'true' set global isTransparent to true
         if (checkTransparency(pixelsData)) { isTransparent = true };
@@ -103,6 +102,7 @@ function app() {
     //** INTERACTIONS WITH THE ITEM */
     // Draw an invisible square on the canvas in the same position as the clickable object below the canvas
     const rectangle = new Path2D();
+    console.log(itemPos)
     rectangle.rect(itemPos.left, itemPos.top, itemPos.width, itemPos.height);
     ctx.fillStyle = 'rgba(0, 0, 0, 0, 1)';
     ctx.fill(rectangle);
@@ -123,5 +123,22 @@ function app() {
   canvasSetup('bottom-layer', 1);
 }
 
-app();
+// Wait for the DOM to be fully loaded and ready before running the app function
+function docReady(fn) {
+  // see if DOM is already available
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+      // call on next available tick
+      setTimeout(fn, 1);
+  } else {
+      document.addEventListener("DOMContentLoaded", fn);
+  }
+} 
+
+
+
+docReady(function() {
+  // DOM is loaded and ready for manipulation here
+  app();
+});
+
 
