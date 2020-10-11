@@ -1,4 +1,5 @@
 import drawing from './drawing.js';
+import data from './data.js';
 
 
 const inventory = document.querySelector('.inventory');
@@ -40,7 +41,7 @@ function app() {
     width: itemRect.width,
     height: itemRect.height,
   }
-  console.table(itemPos)
+
   
   
   //*--------------------------------------------
@@ -73,24 +74,7 @@ function app() {
     //*-----------------------------------------
 
 
-    // ***EVENT LISTENERS***--------------------
-    // start scratching
-    canvas.addEventListener('mousedown', () => isScratching = true);
-    // end scratching
-    canvas.addEventListener('mouseup', () => isScratching = false)
-
-    // as the user is scratching, check if the defined area is fully scratched off 
-    canvas.addEventListener('mousemove', () => {
-      if (isScratching) {
-
-        // .getImageData returns a flat array representing RGBA values of each pixel in that order, so to get transparency values I need to iterate over every fourth value 
-        pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
-
-        // if checkTransparency returns 'true' set global isTransparent to true
-        if (checkTransparency(pixelsData)) { isTransparent = true };
-      }
-    })
-    //*------------------------------------------
+    
 
 
     //** INTERACTIONS WITH THE ITEM */
