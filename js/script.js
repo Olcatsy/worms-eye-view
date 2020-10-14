@@ -1,23 +1,20 @@
 import drawing from './drawing.js';
 
+const app = {};
 
-const inventory = document.querySelector('.inventory');
-let pixelsData; 
-let isScratching = false;
-let isTransparent = false; //keeps track of whether the image above the interactive object is fully scratched off
-let itemPos;
+app.inventory = document.querySelector('.inventory');
+app.isScratching = false;
+app.isTransparent = false; //might have to go to the image 
 
-
-// accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's transparent (has alpha value of 0)
-// returns false as soon as it encounters a non-transparent pixel, and returns true if all pixels are transparent
-//? maybe change this to ~90% being scratched off, because otherwise if a single pixel isn't scratched off the whole thing doesn't work
-//? also if the user finishes scratching right on the item, it goes to the inventory right away, so I need to figure that out
-function checkTransparency(data) {
-  //returns true if all pixels in the area are transparent
-  const l = data.length;
+// Checks transparency in a defined area. Returns true if all the pixels are transparent, and returns false as soon as it encounters a single non-transparent pixel
+app.checkTransparency = (pixelData)  => {
+  // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value is 0 (transparent)
+  //? maybe change this to ~90% being scratched off, because otherwise if a single pixel isn't scratched off the whole thing doesn't work
+  //? also if the user finishes scratching right on the item, it goes to the inventory right away, so I need to figure that out
+  const l = pixelData.length;
 
   for (let i = 3; i < l; i += 4) {
-    if (!(data[i] === 0)) {
+    if (!(pixelData[i] === 0)) {
       return false;
     };
   }
@@ -25,97 +22,99 @@ function checkTransparency(data) {
   return true;
 }
 
-
-
-// could be adapted to apply to every canvas if I pass canvas id into it 
-function app() {
-
-  // *** ITEM SETUP --------------------------------
-  const item = document.querySelector('.item1');
+// Returns an object that stores dimensions and position of an interactive object on the canvas
+app.getItemPosition = (item) => {
   const itemRect = item.getBoundingClientRect();
-  //stores the position and dimensions of the interactive object
-  itemPos = {
+  const itemPos = {
     top: itemRect.top,
     left: itemRect.left,
     width: itemRect.width,
     height: itemRect.height,
   }
-  console.table(itemPos)
-  
-  
-  //*--------------------------------------------
-
-
-  // *** CANVAS SETUP *** -----------------------
-  function canvasSetup(canvasId, scene, layerNum) {
-    const  canvas = document.getElementById(canvasId);
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    
-    // Load overlay image -------------
-    const img = new Image();
-    img.addEventListener('load', () => {
-      ctx.drawImage(img, 0, 0);
-    })
-    img.src = `./assets/layer_${scene}_0${layerNum}.jpg`
-
-
-    // set up the brush and load drawing functions -------
-    ctx.strokeStyle = 'white';
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
-    ctx.lineWidth = 40;
-
-    drawing(canvas, ctx)
-    // ------------------------
-    //*-----------------------------------------
-
-
-    // ***EVENT LISTENERS***--------------------
-    // start scratching
-    canvas.addEventListener('mousedown', () => isScratching = true);
-    // end scratching
-    canvas.addEventListener('mouseup', () => isScratching = false)
-
-    // as the user is scratching, check if the defined area is fully scratched off 
-    canvas.addEventListener('mousemove', () => {
-      if (isScratching) {
-
-        // .getImageData returns a flat array representing RGBA values of each pixel in that order, so to get transparency values I need to iterate over every fourth value 
-        pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
-
-        // if checkTransparency returns 'true' set global isTransparent to true
-        if (checkTransparency(pixelsData)) { isTransparent = true };
-      }
-    })
-    //*------------------------------------------
-
-
-    //** INTERACTIONS WITH THE ITEM */
-    // Draw an invisible square on the canvas in the same position as the clickable object below the canvas
-    const rectangle = new Path2D();
-    console.log(itemPos)
-    rectangle.rect(itemPos.left, itemPos.top, itemPos.width, itemPos.height);
-    ctx.fillStyle = 'rgba(0, 0, 0, 0, 1)';
-    ctx.fill(rectangle);
-
-    // Using ctx.isPointInPath check if the click event is within the boundaries of the rectangle and check if the corresponding area is fully scratched off
-    // if both conditions are satisfied, move the item to inventory and unmount the canvas
-    canvas.addEventListener('click', e => {
-      if (isTransparent && ctx.isPointInPath(rectangle, e.clientX, e.clientY)) {
-
-        inventory.appendChild(item);
-        canvas.parentNode.removeChild(canvas);
-      }
-    })
-  }
-
-  canvasSetup('top-layer', 'a', 1);
-  canvasSetup('middle-layer', 'a', 2);
-  canvasSetup('bottom-layer', 'a', 3);
+  return itemPos;
 }
+
+// As the user is scratching this function continuously checks if the area above an interactive item is fully scratched off
+app.scratchItem = (ctx, itemPos) => {
+  let pixelsData;
+  if (app.isScratching) {
+    // .getImageData returns a flat array representing RGBA values of each pixel in that order
+    pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
+  
+    // if checkTransparency returns 'true' set global isTransparent to true
+    if (app.checkTransparency(pixelsData)) { app.isTransparent = true };
+  }
+}
+
+// Draw an invisible square on the canvas in the same position as the clickable object below the canvas
+app.createHitArea = (itemPos, ctx) => {
+  const hitArea = new Path2D();
+  hitArea.rect(itemPos.left, itemPos.top, itemPos.width, itemPos.height);
+  ctx.fillStyle = 'rgba(0, 0, 0, 0, 1)';
+  ctx.fill(hitArea);
+  return hitArea;
+}
+
+// Detects if the user clicked on an interactive item
+app.detectHitArea = (item, itemPos, ctx, canvas, e) => {
+  // Using ctx.isPointInPath check if the click event is within the boundaries of corresponding hit area and check if the corresponding area is fully scratched off
+  // if both conditions are satisfied, move the item to inventory and unmount the canvas
+  const rect = app.createHitArea(itemPos, ctx);
+  if (app.isTransparent && ctx.isPointInPath(rect, e.clientX, e.clientY)) {
+
+    app.inventory.appendChild(item);
+    canvas.parentNode.removeChild(canvas);
+    app.isTransparent = false;
+  }
+}
+
+app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
+  const item = document.querySelector(`#${itemId}`)
+  const itemPos = app.getItemPosition(item);
+  console.log(itemId);
+  console.table(itemPos);
+
+  
+  const canvas = document.getElementById(canvasId);
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Load overlay image
+  const img = new Image();
+  img.addEventListener('load', () => {
+    ctx.drawImage(img, 0, 0);
+  })
+  img.src = `./assets/layer_${scene}_0${layerNum}.jpg`
+
+  // set up the brush and load drawing functions 
+  ctx.strokeStyle = 'white';
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.lineWidth = 40;
+  drawing(canvas, ctx);
+
+  // ***EVENT LISTENERS***--------------------
+  // start scratching
+  canvas.addEventListener('mousedown', () => app.isScratching = true);
+  // end scratching
+  canvas.addEventListener('mouseup', () => app.isScratching = false)
+  // as the user is scratching, check if the defined area is fully scratched off 
+  canvas.addEventListener('mousemove', () => app.scratchItem(ctx, itemPos))
+  // detect an interactive object
+  canvas.addEventListener('click', e => {
+    app.detectHitArea(item, itemPos, ctx, canvas, e)
+  })
+};
+
+
+
+app.init = () => {
+  app.canvasSetup('top-layer', 'a', 1, 'item1');
+  app.canvasSetup('middle-layer', 'a', 2, 'item2');
+  app.canvasSetup('bottom-layer', 'a', 3, 'item3');
+};
+
 
 
 
@@ -130,17 +129,15 @@ function app() {
 function docReady(fn) {
   // see if DOM is already available
   if (document.readyState === "complete" || document.readyState === "interactive") {
-      // call on next available tick
-      setTimeout(fn, 1);
+    // call on next available tick
+    setTimeout(fn, 1);
   } else {
-      document.addEventListener("DOMContentLoaded", fn);
+    document.addEventListener("DOMContentLoaded", fn);
   }
-} 
+}
 
 
-docReady(function() {
+docReady(function () {
   // DOM is loaded and ready for manipulation here
-  app();
+  app.init();
 });
-
-

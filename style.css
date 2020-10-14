@@ -20,18 +20,31 @@ body {
   z-index: 80;
 }
 
-.item {
-  /* background-color: black; */
-  position: relative;
+#bottom-layer {
+  z-index: 60;
 }
 
-.item1 {
-  z-index: 90;
+.objects-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.item {
+  position: relative;
   width: 300px;
 }
 
-.item2 {
+#item1 {
+  z-index: 90;
+}
+
+#item2 {
   z-index: 70;
+}
+
+#item3 {
+  z-index: 50;
 }
 
 .inventory {
@@ -41,5 +54,7 @@ body {
   top: 0;
   padding: 20px;
   background: white;
-  z-index: 200
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
 }
