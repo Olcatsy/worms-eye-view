@@ -1,4 +1,5 @@
 import drawing from './drawing.js';
+import app_data from './data.js';
 
 const app = {};
 
@@ -71,14 +72,16 @@ app.detectHitArea = (item, itemPos, ctx, canvas, e) => {
 app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
   const item = document.querySelector(`#${itemId}`)
   const itemPos = app.getItemPosition(item);
-  console.log(itemId);
-  console.table(itemPos);
+  // console.log(itemId);
+  // console.table(itemPos);
 
   
   const canvas = document.getElementById(canvasId);
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  // canvas.width = window.innerWidth;
+  // canvas.height = window.innerHeight;
+  canvas.width = 1000;
+  canvas.height = 500;
 
   // Load overlay image
   const img = new Image();
@@ -107,9 +110,13 @@ app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
   })
 };
 
-
+app.getData = () => {
+  const data = app_data;
+  console.log(data.scene_a.layer_01.canvas_img_src)
+}
 
 app.init = () => {
+  app.getData();
   app.canvasSetup('top-layer', 'a', 1, 'item1');
   app.canvasSetup('middle-layer', 'a', 2, 'item2');
   app.canvasSetup('bottom-layer', 'a', 3, 'item3');
