@@ -1,5 +1,5 @@
 import drawing from './drawing.js';
-import app_data from './data.js';
+import data from './data.js';
 
 const app = {};
 
@@ -69,17 +69,28 @@ app.detectHitArea = (item, itemPos, ctx, canvas, e) => {
   }
 }
 
+// Create an interactive object from data and add it to the page
+app.addItem = (layerNum, itemsArr) => {
+  const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
+  
+  itemsArr.map((item, i) => {
+    const html = document.createElement('img');
+    html.setAttribute('class', 'item');
+    html.setAttribute('src', `${item.src}`);
+    html.setAttribute('alt', `${item.alt}`);
+    html.setAttribute('id', `item${i+1}`);
+    container.appendChild(html);
+  })
+}
+
+
 app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
+  app.addItem(1, data.scene_a.layer_01.interactive_items);
   const item = document.querySelector(`#${itemId}`)
   const itemPos = app.getItemPosition(item);
-  // console.log(itemId);
-  // console.table(itemPos);
 
-  
   const canvas = document.getElementById(canvasId);
   const ctx = canvas.getContext('2d');
-  // canvas.width = window.innerWidth;
-  // canvas.height = window.innerHeight;
   canvas.width = 1000;
   canvas.height = 500;
 
@@ -110,13 +121,10 @@ app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
   })
 };
 
-app.getData = () => {
-  const data = app_data;
-  console.log(data.scene_a.layer_01.canvas_img_src)
-}
+
 
 app.init = () => {
-  app.getData();
+  
   app.canvasSetup('top-layer', 'a', 1, 'item1');
   app.canvasSetup('middle-layer', 'a', 2, 'item2');
   app.canvasSetup('bottom-layer', 'a', 3, 'item3');

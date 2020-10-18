@@ -32,18 +32,18 @@ body {
 
 .item {
   position: relative;
-  width: 300px;
+  /* width: 300px; */
 }
 
-#item1 {
+#layer_01 .objects-container {
   z-index: 90;
 }
 
-#item2 {
+#layer_02 .objects-container {
   z-index: 70;
 }
 
-#item3 {
+#layer_03 .objects-container {
   z-index: 50;
 }
 
