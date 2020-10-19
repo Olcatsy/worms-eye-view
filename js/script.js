@@ -7,6 +7,20 @@ app.inventory = document.querySelector('.inventory');
 app.isScratching = false;
 app.isTransparent = false; //might have to go to the image 
 
+// Create an interactive object from data and add it to the page
+app.addItem = (layerNum, itemsArr) => {
+  const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
+  
+  itemsArr.map((item, i) => {
+    const html = document.createElement('img');
+    html.setAttribute('class', 'item');
+    html.setAttribute('src', `${item.src}`);
+    html.setAttribute('alt', `${item.alt}`);
+    html.setAttribute('id', `${item.id}`);
+    container.appendChild(html);
+  })
+}
+
 // Checks transparency in a defined area. Returns true if all the pixels are transparent, and returns false as soon as it encounters a single non-transparent pixel
 app.checkTransparency = (pixelData)  => {
   // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value is 0 (transparent)
@@ -70,19 +84,6 @@ app.detectHitArea = (item, itemPos, ctx, canvas, e) => {
   }
 }
 
-// Create an interactive object from data and add it to the page
-app.addItem = (layerNum, itemsArr) => {
-  const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
-  
-  itemsArr.map((item, i) => {
-    const html = document.createElement('img');
-    html.setAttribute('class', 'item');
-    html.setAttribute('src', `${item.src}`);
-    html.setAttribute('alt', `${item.alt}`);
-    html.setAttribute('id', `item${i+1}`);
-    container.appendChild(html);
-  })
-}
 
 
 app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
@@ -102,12 +103,14 @@ app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
   })
   img.src = `./assets/layer_${scene}_0${layerNum}.jpg`
 
+
   // set up the brush and load drawing functions 
   ctx.strokeStyle = 'white';
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
   ctx.lineWidth = 40;
   drawing(canvas, ctx);
+
 
   // ***EVENT LISTENERS***--------------------
   // start scratching
@@ -126,9 +129,15 @@ app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
 
 app.init = () => {
   app.addItem(1, data.scene_a.layer_01.interactive_items);
-  app.canvasSetup('top-layer', 'a', 1, 'item1');
-  app.canvasSetup('middle-layer', 'a', 2, 'item2');
-  app.canvasSetup('bottom-layer', 'a', 3, 'item3');
+  app.addItem(2, data.scene_a.layer_02.interactive_items);
+  app.addItem(3, data.scene_a.layer_03.interactive_items);
+
+  setTimeout(() => {
+    app.canvasSetup('top-layer', 'a', 1, 'item_a_01_01');
+    app.canvasSetup('middle-layer', 'a', 2, 'item_a_02_01');
+    app.canvasSetup('bottom-layer', 'a', 3, 'item_a_03_01');
+
+  }, 3000)
 };
 
 
