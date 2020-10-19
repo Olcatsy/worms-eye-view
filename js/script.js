@@ -25,6 +25,7 @@ app.checkTransparency = (pixelData)  => {
 
 // Returns an object that stores dimensions and position of an interactive object on the canvas
 app.getItemPosition = (item) => {
+ 
   const itemRect = item.getBoundingClientRect();
   const itemPos = {
     top: itemRect.top,
@@ -85,9 +86,9 @@ app.addItem = (layerNum, itemsArr) => {
 
 
 app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
-  app.addItem(1, data.scene_a.layer_01.interactive_items);
   const item = document.querySelector(`#${itemId}`)
   const itemPos = app.getItemPosition(item);
+  
 
   const canvas = document.getElementById(canvasId);
   const ctx = canvas.getContext('2d');
@@ -124,7 +125,7 @@ app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
 
 
 app.init = () => {
-  
+  app.addItem(1, data.scene_a.layer_01.interactive_items);
   app.canvasSetup('top-layer', 'a', 1, 'item1');
   app.canvasSetup('middle-layer', 'a', 2, 'item2');
   app.canvasSetup('bottom-layer', 'a', 3, 'item3');
