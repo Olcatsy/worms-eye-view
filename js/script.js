@@ -1,3 +1,4 @@
+import helper from './helper.js';
 import drawing from './drawing.js';
 import data from './data.js';
 
@@ -17,6 +18,8 @@ app.addItem = (layerNum, itemsArr) => {
     html.setAttribute('src', `${item.src}`);
     html.setAttribute('alt', `${item.alt}`);
     html.setAttribute('id', `${item.id}`);
+    html.setAttribute('data-scene', `a`);
+    html.setAttribute('data-layer', `${layerNum}`);
     container.appendChild(html);
   })
 }
@@ -37,18 +40,6 @@ app.checkTransparency = (pixelData)  => {
   return true;
 }
 
-// Returns an object that stores dimensions and position of an interactive object on the canvas
-app.getItemPosition = (item) => {
- 
-  const itemRect = item.getBoundingClientRect();
-  const itemPos = {
-    top: itemRect.top,
-    left: itemRect.left,
-    width: itemRect.width,
-    height: itemRect.height,
-  }
-  return itemPos;
-}
 
 // As the user is scratching this function continuously checks if the area above an interactive item is fully scratched off
 app.scratchItem = (ctx, itemPos) => {
@@ -88,7 +79,7 @@ app.detectHitArea = (item, itemPos, ctx, canvas, e) => {
 
 app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
   const item = document.querySelector(`#${itemId}`)
-  const itemPos = app.getItemPosition(item);
+  const itemPos = data.scene_a[`layer_0${layerNum}`].interactive_items[0].digSitePosition;
   
 
   const canvas = document.getElementById(canvasId);
@@ -125,6 +116,22 @@ app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
   })
 };
 
+// Find all items, calculate their respective positions on the dig site and store that in data object
+//! modify this to traverse the data object and find the appropriate layer
+app.saveAllItemPositions = () => {
+  
+  const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
+
+  itemsArr.forEach(item => {
+    const layerNum = item.dataset.layer;
+    const dataArr = data.scene_a[`layer_0${layerNum}`].interactive_items; // the array in the data based on the layer
+    const id = item.id;
+    const itemPos = helper.getItemPosition(item);
+    const index = helper.findObjectsIndex(dataArr, 'id', id);
+    helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
+    console.log(dataArr[index]);
+  })
+}
 
 
 app.init = () => {
@@ -133,11 +140,15 @@ app.init = () => {
   app.addItem(3, data.scene_a.layer_03.interactive_items);
 
   setTimeout(() => {
+    app.saveAllItemPositions();
+  }, 500);
+
+  setTimeout(() => {
     app.canvasSetup('top-layer', 'a', 1, 'item_a_01_01');
     app.canvasSetup('middle-layer', 'a', 2, 'item_a_02_01');
     app.canvasSetup('bottom-layer', 'a', 3, 'item_a_03_01');
 
-  }, 3000)
+  }, 1000)
 };
 
 

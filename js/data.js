@@ -5,22 +5,22 @@ const data = {
       interactive_items: [
         {
           alt: "a greyish brown worm",
+          digSitePosition: {},
           id: "item_a_01_01",
           isTransparent: false,
           src: '../assets/object_a_01.png',
           // copy: "str" (provided by Sara)
-          // dig_site_position: obj
           // inventory_position: str (related to a grid?)
         },
-        {
-          alt: "a rotten eggplant",
-          id: "item_a_01_02",
-          isTransparent: false,
-          src: '../assets/object_a_03.png',
-          // copy: "str" (provided by Sara)
-          // dig_site_position: obj
-          // inventory_position: str (related to a grid?)
-        }
+        // {
+        //   alt: "a rotten eggplant",
+        //   digSitePosition: {},
+        //   id: "item_a_01_02",
+        //   isTransparent: false,
+        //   src: '../assets/object_a_03.png',
+        //   // copy: "str" (provided by Sara)
+        //   // inventory_position: str (related to a grid?)
+        // }
       ]
     },
     layer_02: {
@@ -28,11 +28,11 @@ const data = {
       interactive_items: [
         {
           alt: "a wilted brown leaf",
+          digSitePosition: {},
           id: "item_a_02_01",
           isTransparent: false,
           src: '../assets/object_a_02.png',
           // copy: "str" (provided by Sara)
-          // dig_site_position: obj
           // inventory_position: str (related to a grid?)
         },
       ]
@@ -42,11 +42,11 @@ const data = {
       interactive_items: [
         {
           alt: "an animation of a butterfly emerging from a cocoon",
+          digSitePosition: {},
           id: "item_a_03_01",
           isTransparent: false,
           src: '../assets/gif_test_1.gif',
           // copy: "str" (provided by Sara)
-          // dig_site_position: obj
           // inventory_position: str (related to a grid?)
         },
       ]
