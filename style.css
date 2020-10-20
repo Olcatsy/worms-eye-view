@@ -12,15 +12,15 @@ body {
   position: absolute;
 }
 
-#top-layer {
+#canvas_01 {
   z-index: 100;
 }
 
-#middle-layer {
+#canvas_02 {
   z-index: 80;
 }
 
-#bottom-layer {
+#canvas_03 {
   z-index: 60;
 }
 

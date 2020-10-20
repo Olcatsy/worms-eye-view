@@ -76,13 +76,15 @@ app.detectHitArea = (item, itemPos, ctx, canvas, e) => {
 }
 
 
+//canvasId, scene, layerNum, itemId
+app.canvasSetup = (scene, layerNum) => {
+  const item = document.querySelector(`#item_${scene}_0${layerNum}_01`);
 
-app.canvasSetup = (canvasId, scene, layerNum, itemId) => {
-  const item = document.querySelector(`#${itemId}`)
-  const itemPos = data.scene_a[`layer_0${layerNum}`].interactive_items[0].digSitePosition;
+  console.log(item);
+  const itemPos = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items[0].digSitePosition;
   
 
-  const canvas = document.getElementById(canvasId);
+  const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
   canvas.width = 1000;
   canvas.height = 500;
@@ -129,7 +131,7 @@ app.saveAllItemPositions = () => {
     const itemPos = helper.getItemPosition(item);
     const index = helper.findObjectsIndex(dataArr, 'id', id);
     helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
-    console.log(dataArr[index]);
+    // console.log(dataArr[index]);
   })
 }
 
@@ -144,9 +146,9 @@ app.init = () => {
   }, 500);
 
   setTimeout(() => {
-    app.canvasSetup('top-layer', 'a', 1, 'item_a_01_01');
-    app.canvasSetup('middle-layer', 'a', 2, 'item_a_02_01');
-    app.canvasSetup('bottom-layer', 'a', 3, 'item_a_03_01');
+    app.canvasSetup('a', 1);
+    app.canvasSetup('a', 2);
+    app.canvasSetup('a', 3);
 
   }, 1000)
 };
