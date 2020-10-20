@@ -9,10 +9,11 @@ app.isScratching = false;
 app.isTransparent = false; //might have to go to the image 
 
 // Create an interactive object from data and add it to the page
-app.addItem = (layerNum, itemsArr) => {
+app.addItem = (scene, layerNum) => {
   const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
+  const itemsArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items;
   
-  itemsArr.map((item, i) => {
+  itemsArr.map((item) => {
     const html = document.createElement('img');
     html.setAttribute('class', 'item');
     html.setAttribute('src', `${item.src}`);
@@ -137,9 +138,9 @@ app.saveAllItemPositions = () => {
 
 
 app.init = () => {
-  app.addItem(1, data.scene_a.layer_01.interactive_items);
-  app.addItem(2, data.scene_a.layer_02.interactive_items);
-  app.addItem(3, data.scene_a.layer_03.interactive_items);
+  app.addItem('a', 1);
+  app.addItem('a', 2);
+  app.addItem('a', 3);
 
   setTimeout(() => {
     app.saveAllItemPositions();
