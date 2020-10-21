@@ -12,15 +12,15 @@ const data = {
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
-        // {
-        //   alt: "a rotten eggplant",
-        //   digSitePosition: {},
-        //   id: "item_a_01_02",
-        //   isTransparent: false,
-        //   src: '../assets/object_a_03.png',
-        //   // copy: "str" (provided by Sara)
-        //   // inventory_position: str (related to a grid?)
-        // }
+        {
+          alt: "a rotten eggplant",
+          digSitePosition: {},
+          id: "item_a_01_02",
+          isTransparent: false,
+          src: '../assets/object_a_03.png',
+          // copy: "str" (provided by Sara)
+          // inventory_position: str (related to a grid?)
+        }
       ]
     },
     layer_02: {

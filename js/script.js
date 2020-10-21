@@ -38,19 +38,24 @@ app.checkTransparency = (pixelData)  => {
     };
   }
   console.log('transparent');
+
   return true;
 }
 
 
 // As the user is scratching this function continuously checks if the area above an interactive item is fully scratched off
-app.scratchItem = (ctx, itemPos) => {
+app.scratchItem = (ctx, item, itemPos, i, dataArr) => {
+  const id = item.id;
   let pixelsData;
   if (app.isScratching) {
     // .getImageData returns a flat array representing RGBA values of each pixel in that order
     pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
   
-    // if checkTransparency returns 'true' set global isTransparent to true
-    if (app.checkTransparency(pixelsData)) { app.isTransparent = true };
+    // if checkTransparency returns 'true' item's isTransparent to true
+    if (app.checkTransparency(pixelsData)) {
+      helper.updateProperty(dataArr, i, 'isTransparent', true);
+      console.log(id, dataArr[i].isTransparent)
+    };
   }
 }
 
@@ -77,14 +82,27 @@ app.detectHitArea = (item, itemPos, ctx, canvas, e) => {
 }
 
 
-//canvasId, scene, layerNum, itemId
-app.canvasSetup = (scene, layerNum) => {
-  const item = document.querySelector(`#item_${scene}_0${layerNum}_01`);
 
-  console.log(item);
-  const itemPos = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items[0].digSitePosition;
+// Find all items, calculate their respective positions on the dig site and store that in data object
+app.saveAllItemPositions = () => {
   
+  const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
+  
+  itemsArr.forEach(item => {
+    const layerNum = item.dataset.layer;
+    const scene = item.dataset.scene;
+    const dataArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items; // the array in the data based on the layer
+    const id = item.id;
+    const itemPos = helper.getItemPosition(item);
+    const index = helper.findObjectsIndex(dataArr, 'id', id);
 
+    helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
+  })
+}
+
+//canvasId, scene, layerNum, itemId
+app.layerSetup = (scene, layerNum) => {
+  //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
   canvas.width = 1000;
@@ -97,60 +115,61 @@ app.canvasSetup = (scene, layerNum) => {
   })
   img.src = `./assets/layer_${scene}_0${layerNum}.jpg`
 
-
   // set up the brush and load drawing functions 
   ctx.strokeStyle = 'white';
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
   ctx.lineWidth = 40;
   drawing(canvas, ctx);
-
-
+  //*------------------------------
+  
+  // find all items on the layer
+  const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_0${layerNum}_"]`);
+  // find the corresponding dataset that stores data for these items
+  const dataArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items;
+  // const item = document.querySelector(`#item_${scene}_0${layerNum}_01`);
+  // const itemPos = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items[0].digSitePosition;
+  
   // ***EVENT LISTENERS***--------------------
   // start scratching
   canvas.addEventListener('mousedown', () => app.isScratching = true);
   // end scratching
-  canvas.addEventListener('mouseup', () => app.isScratching = false)
+  canvas.addEventListener('mouseup', () => app.isScratching = false);
   // as the user is scratching, check if the defined area is fully scratched off 
-  canvas.addEventListener('mousemove', () => app.scratchItem(ctx, itemPos))
-  // detect an interactive object
-  canvas.addEventListener('click', e => {
-    app.detectHitArea(item, itemPos, ctx, canvas, e)
+  canvas.addEventListener('mousemove', () => {
+    itemsArr.forEach(item => {
+      const itemPos = helper.findPropertyValue(dataArr, item.id, 'digSitePosition');
+      const index = helper.findObjectsIndex(dataArr, 'id', item.id)
+
+      app.scratchItem(ctx, item, itemPos, index, dataArr);
+    })
   })
+  // detect an interactive object
+  // canvas.addEventListener('click', e => {
+  //   app.detectHitArea(item, itemPos, ctx, canvas, e)
+  // })
 };
 
-// Find all items, calculate their respective positions on the dig site and store that in data object
-//! modify this to traverse the data object and find the appropriate layer
-app.saveAllItemPositions = () => {
-  
-  const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
-
-  itemsArr.forEach(item => {
-    const layerNum = item.dataset.layer;
-    const dataArr = data.scene_a[`layer_0${layerNum}`].interactive_items; // the array in the data based on the layer
-    const id = item.id;
-    const itemPos = helper.getItemPosition(item);
-    const index = helper.findObjectsIndex(dataArr, 'id', id);
-    helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
-    // console.log(dataArr[index]);
-  })
-}
 
 
+// INIT
 app.init = () => {
   app.addItem('a', 1);
   app.addItem('a', 2);
   app.addItem('a', 3);
-
+  
   setTimeout(() => {
     app.saveAllItemPositions();
   }, 500);
 
   setTimeout(() => {
-    app.canvasSetup('a', 1);
-    app.canvasSetup('a', 2);
-    app.canvasSetup('a', 3);
+    helper.findPropertyValue(data.scene_a.layer_01.interactive_items, 'item_a_01_01', 'digSitePosition')
+  }, 550)
 
+  setTimeout(() => {
+    app.layerSetup('a', 1);
+    app.layerSetup('a', 2);
+    app.layerSetup('a', 3);
   }, 1000)
 };
 
@@ -163,7 +182,7 @@ app.init = () => {
 
 
 
-
+//DOCREADY
 // Wait for the DOM to be fully loaded and ready before running the app function
 function docReady(fn) {
   // see if DOM is already available

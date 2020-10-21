@@ -23,6 +23,13 @@ const helper = {
     return i;
   },
 
+  // takes in an array of objects, finds the object with the given id and returns the value of the defined prop in that object
+  findPropertyValue: (arr, id, prop) => {
+    const i = helper.findObjectsIndex(arr, 'id', id);
+    const propValue = arr[i][prop];
+    return propValue;
+  },
+
   // update a given property of an object based on its index in a given array
   updateProperty: (arr, index, prop, newValue) => {
     arr[index][prop] = newValue;
