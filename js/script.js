@@ -88,17 +88,18 @@ app.createHitArea = (itemPos, ctx) => {
 app.detectHitArea = (item, dataArr, ctx, e) => {
   // Using ctx.isPointInPath check if the click event is within the boundaries of corresponding hit area and check if the corresponding area is fully scratched off
   // if both conditions are satisfied, move the item to inventory and unmount the canvas
-  const itemPos = helper.findPropertyValue(dataArr, item.id, 'digSitePosition');
-  const i = helper.findObjectsIndex(dataArr, 'id', item.id);
+  const id = item.id
+  const itemPos = helper.findPropertyValue(dataArr, id, 'digSitePosition');
+  const i = helper.findObjectsIndex(dataArr, 'id', id);
   const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
   const rect = app.createHitArea(itemPos, ctx);
 
   if (isTransparent && ctx.isPointInPath(rect, e.clientX, e.clientY)) {
-    // const itemCopy = item.cloneNode(true);
-    // item.style.visibility = "hidden";
-    // app.inventory.appendChild(itemCopy);
-    // item.parentNode.removeChild(item);
-    app.inventory.appendChild(item);
+    const itemCopy = item.cloneNode(true);
+    item.style.visibility = "hidden";
+    app.inventory.appendChild(itemCopy);
+    item.parentNode.removeChild(item);
+    // app.inventory.appendChild(item);
     helper.updateProperty(dataArr, i, 'inInventory', true);
   }
 }
