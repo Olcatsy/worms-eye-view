@@ -30,6 +30,11 @@ const helper = {
     return propValue;
   },
 
+  // check if all items on the layer are found (are scratched off)
+  foundAllItems: (dataArr) => {
+    return  dataArr.every(item => item.isTransparent);
+  },
+
   // update a given property of an object based on its index in a given array
   updateProperty: (arr, index, prop, newValue) => {
     arr[index][prop] = newValue;

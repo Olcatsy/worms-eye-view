@@ -24,6 +24,7 @@ const data = {
       ]
     },
     layer_02: {
+      allItemsFound: false,
       canvas_img_src: "../assets/layer_a_02.jpg",
       interactive_items: [
         {
@@ -38,6 +39,7 @@ const data = {
       ]
     },
     layer_03: {
+      allItemsFound: false,
       canvas_img_src: "../assets/layer_a_03.jpg",
       interactive_items: [
         {
