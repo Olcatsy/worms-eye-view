@@ -32,7 +32,7 @@ const helper = {
 
   // check if all items on the layer are found (are scratched off)
   foundAllItems: (dataArr) => {
-    return  dataArr.every(item => item.isTransparent);
+    return  dataArr.every(item => item.inInventory);
   },
 
   // update a given property of an object based on its index in a given array

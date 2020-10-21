@@ -60,7 +60,9 @@ app.checkTransparency = (pixelData)  => {
 
 
 // As the user is scratching this function continuously checks if the area above an interactive item is fully scratched off
-app.scratchItem = (ctx, item, itemPos, i, dataArr) => {
+app.scratchItem = (ctx, item, dataArr) => {
+  const itemPos = helper.findPropertyValue(dataArr, item.id, 'digSitePosition');
+  const i = helper.findObjectsIndex(dataArr, 'id', item.id);
   let pixelsData;
   if (app.isScratching) {
     // .getImageData returns a flat array representing RGBA values of each pixel in that order
@@ -77,31 +79,36 @@ app.scratchItem = (ctx, item, itemPos, i, dataArr) => {
 app.createHitArea = (itemPos, ctx) => {
   const hitArea = new Path2D();
   hitArea.rect(itemPos.left, itemPos.top, itemPos.width, itemPos.height);
-  ctx.fillStyle = 'rgba(0, 0, 0, 0, 1)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0)';
   ctx.fill(hitArea);
   return hitArea;
 }
 
 // Detects if the user clicked on an interactive item
-app.detectHitArea = (item, itemPos, dataArr, ctx, canvas, e) => {
+app.detectHitArea = (item, dataArr, ctx, e) => {
   // Using ctx.isPointInPath check if the click event is within the boundaries of corresponding hit area and check if the corresponding area is fully scratched off
   // if both conditions are satisfied, move the item to inventory and unmount the canvas
   const id = item.id;
+  const itemPos = helper.findPropertyValue(dataArr, id, 'digSitePosition');
+  const i = helper.findObjectsIndex(dataArr, 'id', id);
   const rect = app.createHitArea(itemPos, ctx);
   const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
 
   if (isTransparent && ctx.isPointInPath(rect, e.clientX, e.clientY)) {
     app.inventory.appendChild(item);
+    helper.updateProperty(dataArr, i, 'inInventory', true);
+    console.log(id, helper.findPropertyValue(dataArr, id,'inInventory'));
 
-    // when all images are found, remove canvas
-    if (helper.foundAllItems(dataArr)) {
-      canvas.parentNode.removeChild(canvas);
-    }
   }
-
 }
 
+app.handleLayerClick = (item, dataArr, ctx, canvas, e) => {
+  app.detectHitArea(item, dataArr, ctx, e);
 
+  // when all images are found, remove canvas
+  helper.foundAllItems(dataArr) && canvas.parentNode.removeChild(canvas);
+  
+}
 
 
 //canvasId, scene, layerNum, itemId
@@ -140,17 +147,14 @@ app.layerSetup = (scene, layerNum) => {
   // as the user is scratching, check if the defined area is fully scratched off 
   canvas.addEventListener('mousemove', () => {
     itemsArr.forEach(item => {
-      const itemPos = helper.findPropertyValue(dataArr, item.id, 'digSitePosition');
-      const index = helper.findObjectsIndex(dataArr, 'id', item.id);
-
-      app.scratchItem(ctx, item, itemPos, index, dataArr);
+      app.scratchItem(ctx, item, dataArr);
     })
   })
   // detect an interactive object
   canvas.addEventListener('click', e => {
     itemsArr.forEach(item => {
-      const itemPos = helper.findPropertyValue(dataArr, item.id, 'digSitePosition');
-      app.detectHitArea(item, itemPos, dataArr, ctx, canvas, e)
+      // app.detectHitArea(item, dataArr, ctx, canvas, e)
+      app.handleLayerClick(item, dataArr, ctx, canvas, e);
     })
   })
 };

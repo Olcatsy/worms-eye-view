@@ -28,6 +28,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .item {
