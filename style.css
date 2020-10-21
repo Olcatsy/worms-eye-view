@@ -12,15 +12,15 @@ body {
   position: absolute;
 }
 
-#top-layer {
+#canvas_01 {
   z-index: 100;
 }
 
-#middle-layer {
+#canvas_02 {
   z-index: 80;
 }
 
-#bottom-layer {
+#canvas_03 {
   z-index: 60;
 }
 
@@ -28,22 +28,23 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .item {
   position: relative;
-  width: 300px;
 }
 
-#item1 {
+#layer_01 .objects-container {
   z-index: 90;
 }
 
-#item2 {
+#layer_02 .objects-container {
   z-index: 70;
 }
 
-#item3 {
+#layer_03 .objects-container {
   z-index: 50;
 }
 
