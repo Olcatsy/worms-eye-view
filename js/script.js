@@ -79,7 +79,7 @@ app.scratchItem = (ctx, item, dataArr) => {
 app.createHitArea = (itemPos, ctx) => {
   const hitArea = new Path2D();
   hitArea.rect(itemPos.left, itemPos.top, itemPos.width, itemPos.height);
-  ctx.fillStyle = 'rgba(0, 0, 0, 0)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0)'; //make sure this is transparent, or you will have a bug that creates transparent rectangles over unscratched images
   ctx.fill(hitArea);
   return hitArea;
 }
@@ -88,30 +88,31 @@ app.createHitArea = (itemPos, ctx) => {
 app.detectHitArea = (item, dataArr, ctx, e) => {
   // Using ctx.isPointInPath check if the click event is within the boundaries of corresponding hit area and check if the corresponding area is fully scratched off
   // if both conditions are satisfied, move the item to inventory and unmount the canvas
-  const id = item.id;
-  const itemPos = helper.findPropertyValue(dataArr, id, 'digSitePosition');
-  const i = helper.findObjectsIndex(dataArr, 'id', id);
-  const rect = app.createHitArea(itemPos, ctx);
+  const itemPos = helper.findPropertyValue(dataArr, item.id, 'digSitePosition');
+  const i = helper.findObjectsIndex(dataArr, 'id', item.id);
   const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
+  const rect = app.createHitArea(itemPos, ctx);
 
   if (isTransparent && ctx.isPointInPath(rect, e.clientX, e.clientY)) {
+    // const itemCopy = item.cloneNode(true);
+    // item.style.visibility = "hidden";
+    // app.inventory.appendChild(itemCopy);
+    // item.parentNode.removeChild(item);
     app.inventory.appendChild(item);
     helper.updateProperty(dataArr, i, 'inInventory', true);
-    console.log(id, helper.findPropertyValue(dataArr, id,'inInventory'));
-
   }
 }
 
+// checks if the user found any objects when they click on canvas. If all objects are found, the canvas is removed
 app.handleLayerClick = (item, dataArr, ctx, canvas, e) => {
   app.detectHitArea(item, dataArr, ctx, e);
 
   // when all images are found, remove canvas
   helper.foundAllItems(dataArr) && canvas.parentNode.removeChild(canvas);
-  
 }
 
 
-//canvasId, scene, layerNum, itemId
+// sets up the layer, including the overlay image and the interactive objects
 app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
@@ -147,13 +148,12 @@ app.layerSetup = (scene, layerNum) => {
   // as the user is scratching, check if the defined area is fully scratched off 
   canvas.addEventListener('mousemove', () => {
     itemsArr.forEach(item => {
-      app.scratchItem(ctx, item, dataArr);
+      app.scratchItem(ctx, item, dataArr, canvas);
     })
   })
   // detect an interactive object
   canvas.addEventListener('click', e => {
     itemsArr.forEach(item => {
-      // app.detectHitArea(item, dataArr, ctx, canvas, e)
       app.handleLayerClick(item, dataArr, ctx, canvas, e);
     })
   })
@@ -172,10 +172,6 @@ app.init = () => {
   }, 500);
 
   setTimeout(() => {
-    helper.findPropertyValue(data.scene_a.layer_01.interactive_items, 'item_a_01_01', 'digSitePosition')
-  }, 550)
-
-  setTimeout(() => {
     app.layerSetup('a', 1);
     app.layerSetup('a', 2);
     app.layerSetup('a', 3);
@@ -191,7 +187,7 @@ app.init = () => {
 
 
 
-//DOCREADY
+//DOC READY
 // Wait for the DOM to be fully loaded and ready before running the app function
 function docReady(fn) {
   // see if DOM is already available

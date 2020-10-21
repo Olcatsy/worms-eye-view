@@ -34,7 +34,13 @@ body {
 
 .item {
   position: relative;
+  filter: drop-shadow(2px 2px 2px black)
 }
+
+.item:hover {
+  filter: drop-shadow(2px 2px 2px rgb(120, 163, 2)) drop-shadow(-2px -2px 2px rgb(120, 163, 2));
+}
+
 
 #layer_01 .objects-container {
   z-index: 90;
