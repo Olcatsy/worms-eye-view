@@ -39,6 +39,16 @@ const data = {
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
+        {
+          alt: "a burning $1000000 Hell Bank Note",
+          digSitePosition: {},
+          id: "item_a_02_02",
+          inInventory: false,
+          isTransparent: false,
+          src: '../assets/object_a_05.gif',
+          // copy: "str" (provided by Sara)
+          // inventory_position: str (related to a grid?)
+        },
       ]
     },
     layer_03: {
@@ -51,7 +61,17 @@ const data = {
           id: "item_a_03_01",
           inInventory: false,
           isTransparent: false,
-          src: '../assets/gif_test_1.gif',
+          src: '../assets/object_a_04.gif',
+          // copy: "str" (provided by Sara)
+          // inventory_position: str (related to a grid?)
+        },
+        {
+          alt: "an broken smartphone with flickering screen",
+          digSitePosition: {},
+          id: "item_a_03_02",
+          inInventory: false,
+          isTransparent: false,
+          src: '../assets/object_a_06.gif',
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
