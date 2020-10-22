@@ -1,7 +1,7 @@
 const data = {
   scene_a: {
     layer_01: {
-      canvas_img_src: "../assets/layer_a_01.jpg",
+      allItemsFound: false,
       interactive_items: [
         {
           alt: "a greyish brown worm",
@@ -27,7 +27,6 @@ const data = {
     },
     layer_02: {
       allItemsFound: false,
-      canvas_img_src: "../assets/layer_a_02.jpg",
       interactive_items: [
         {
           alt: "a wilted brown leaf",
@@ -53,7 +52,6 @@ const data = {
     },
     layer_03: {
       allItemsFound: false,
-      canvas_img_src: "../assets/layer_a_03.jpg",
       interactive_items: [
         {
           alt: "an animation of a butterfly emerging from a cocoon",
