@@ -97,9 +97,8 @@ app.detectHitArea = (item, dataArr, ctx, e) => {
   if (isTransparent && ctx.isPointInPath(rect, e.clientX, e.clientY)) {
     app.inventory.appendChild(item);
     helper.updateProperty(dataArr, i, 'inInventory', true);
+    // workaround for the hardcoded grid positions (for now)
     item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
-
-
   }
 }
 
@@ -117,15 +116,16 @@ app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
-  canvas.width = 1000;
-  canvas.height = 500;
+  canvas.width = 1200;
+  canvas.height = 700;
 
   // Load overlay image
   const img = new Image();
   img.addEventListener('load', () => {
     ctx.drawImage(img, 0, 0);
   })
-  img.src = `./assets/layer_${scene}_0${layerNum}.jpg`
+  img.src = `./assets/overlays/layer_${scene}_0${layerNum}.jpg`
+
 
   // set up the brush and load drawing functions 
   ctx.strokeStyle = 'white';

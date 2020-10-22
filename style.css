@@ -2,10 +2,10 @@ body {
   margin: 0;
   padding: 20px;
   display: flex;
+  background-image: url(./assets/VG_background_A.jpg);
 }
 
 .canvas {
-  border: 1px solid black;
   display: block;
   top: 0;
   left: 0; 
@@ -59,12 +59,11 @@ body {
 }
 
 .inventory {
-  border: 2px solid black;
   position: absolute;
   right: 0;
   top: 0;
   padding: 10px;
-  background: white;
+  background: rgba(240,240,240, 0.4);
   z-index: 200;
   display: grid;
   grid-template-columns: minmax(100px, 1fr);
