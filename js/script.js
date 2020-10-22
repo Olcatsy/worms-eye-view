@@ -97,7 +97,8 @@ app.detectHitArea = (item, dataArr, ctx, e) => {
   if (isTransparent && ctx.isPointInPath(rect, e.clientX, e.clientY)) {
     app.inventory.appendChild(item);
     helper.updateProperty(dataArr, i, 'inInventory', true);
-    console.log(id, helper.findPropertyValue(dataArr, id,'inInventory'));
+    item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
+
 
   }
 }
