@@ -116,7 +116,7 @@ app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
-  canvas.width = 1200;
+  canvas.width = 1300;
   canvas.height = 700;
 
   // Load overlay image

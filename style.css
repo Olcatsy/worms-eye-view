@@ -10,7 +10,9 @@ body {
   top: 0;
   left: 0; 
   position: absolute;
+  clip-path: url(#svg-clip);
 }
+
 
 #canvas_01 {
   z-index: 100;
@@ -26,8 +28,8 @@ body {
 
 .objects-container {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 80px;
+  left: 120px;
   width: 1000px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -35,6 +37,13 @@ body {
 
 .item {
   position: relative;
+  filter: drop-shadow(2px 2px 3px black);
+}
+
+.item:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(2px 2px 2px olivedrab);
+  z-index: 210;
 }
 
 #layer_01 .objects-container {
