@@ -116,8 +116,10 @@ app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
+  // canvas.width = 1000;
+  // canvas.height = 540;
   canvas.width = 1300;
-  canvas.height = 700;
+  canvas.height = 790;
 
   // Load overlay image
   const img = new Image();
@@ -131,7 +133,7 @@ app.layerSetup = (scene, layerNum) => {
   ctx.strokeStyle = 'white';
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
-  ctx.lineWidth = 40;
+  ctx.lineWidth = 60;
   drawing(canvas, ctx);
   //*------------------------------
   
