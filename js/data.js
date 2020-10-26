@@ -9,7 +9,7 @@ const data = {
           id: "item_a_01_01",
           inInventory: false,
           isTransparent: false,
-          src: '../assets/object_a_01.png',
+          src: './assets/object_a_01.png',
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
@@ -19,7 +19,7 @@ const data = {
           id: "item_a_01_02",
           inInventory: false,
           isTransparent: false,
-          src: '../assets/object_a_03.png',
+          src: './assets/object_a_03.png',
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         }
