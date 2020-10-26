@@ -34,7 +34,7 @@ const data = {
           id: "item_a_02_01",
           inInventory: false,
           isTransparent: false,
-          src: '../assets/object_a_02.png',
+          src: './assets/object_a_02.png',
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
@@ -44,7 +44,7 @@ const data = {
           id: "item_a_02_02",
           inInventory: false,
           isTransparent: false,
-          src: '../assets/object_a_05.gif',
+          src: './assets/object_a_05.gif',
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
@@ -59,7 +59,7 @@ const data = {
           id: "item_a_03_01",
           inInventory: false,
           isTransparent: false,
-          src: '../assets/object_a_04.gif',
+          src: './assets/object_a_04.gif',
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
@@ -69,7 +69,7 @@ const data = {
           id: "item_a_03_02",
           inInventory: false,
           isTransparent: false,
-          src: '../assets/object_a_06.gif',
+          src: './assets/object_a_06.gif',
           // copy: "str" (provided by Sara)
           // inventory_position: str (related to a grid?)
         },
