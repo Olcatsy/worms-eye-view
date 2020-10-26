@@ -1,4 +1,10 @@
 const helper = {
+  // calculates percentage 
+  calculatePercentage: (number, total) => {
+    return Math.round((number / total) * 100);
+  },
+
+
   // returns an array of items with the defined selector
   getElemsFromSelector: (selector) => {
     return Array.from(document.querySelectorAll(selector));

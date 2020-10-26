@@ -41,21 +41,25 @@ app.saveAllItemPositions = () => {
   })
 }
 
-// Checks transparency in a defined area. Returns true if all the pixels are transparent, and returns false as soon as it encounters a single non-transparent pixel
-app.checkTransparency = (pixelData)  => {
+// Checks transparency in a defined area. Returns true if a percent (threshold percentage) of the pixels are transparent, and returns false as soon as it encounters a single non-transparent pixel
+app.checkTransparency = (pixelData, threshold)  => {
   // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value is 0 (transparent)
-  //? maybe change this to ~90% being scratched off, because otherwise if a single pixel isn't scratched off the whole thing doesn't work
   //? also if the user finishes scratching right on the item, it goes to the inventory right away, so I need to figure that out
-  const l = pixelData.length;
+  const l = pixelData.length,
+        pixelsNum =  l / 4;
+  let count = 0;
 
   for (let i = 3; i < l; i += 4) {
-    if (!(pixelData[i] === 0)) {
+    if ((pixelData[i] === 0)) {
+      count ++;
+      if (helper.calculatePercentage(count, pixelsNum) > threshold) {
+        console.log('bingo!');
+        return true;
+      }
+    } else {
       return false;
     };
   }
-  console.log('transparent');
-
-  return true;
 }
 
 
@@ -69,7 +73,7 @@ app.scratchItem = (ctx, item, dataArr) => {
     pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
   
     // if checkTransparency returns 'true' item's isTransparent to true
-    if (app.checkTransparency(pixelsData)) {
+    if (app.checkTransparency(pixelsData, 30)) {
       helper.updateProperty(dataArr, i, 'isTransparent', true);
     };
   }
@@ -116,8 +120,10 @@ app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
+  // canvas.width = 1000;
+  // canvas.height = 540;
   canvas.width = 1300;
-  canvas.height = 700;
+  canvas.height = 790;
 
   // Load overlay image
   const img = new Image();
@@ -131,7 +137,7 @@ app.layerSetup = (scene, layerNum) => {
   ctx.strokeStyle = 'white';
   ctx.lineJoin = 'round';
   ctx.lineCap = 'round';
-  ctx.lineWidth = 40;
+  ctx.lineWidth = 60;
   drawing(canvas, ctx);
   //*------------------------------
   
@@ -164,6 +170,7 @@ app.layerSetup = (scene, layerNum) => {
 
 // INIT
 app.init = () => {
+
   app.addItem('a', 1);
   app.addItem('a', 2);
   app.addItem('a', 3);
