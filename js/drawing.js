@@ -40,7 +40,6 @@ const drawing = (canvas, ctx) => {
     }
     const dist = distanceBetween(lastPoint, currentPoint);
     const angle = angleBetween(lastPoint, currentPoint);
-    console.log(currentPoint);
 
     for (let i = 0; i < dist; i++) {
       let x = lastPoint.x + (Math.sin(angle) * i);
