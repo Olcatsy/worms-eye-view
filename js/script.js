@@ -73,8 +73,9 @@ app.scratchItem = (ctx, item, dataArr) => {
     pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
   
     // if checkTransparency returns 'true' item's isTransparent to true
-    if (app.checkTransparency(pixelsData, 30)) {
+    if (app.checkTransparency(pixelsData, 15)) {
       helper.updateProperty(dataArr, i, 'isTransparent', true);
+      item.classList.add('found-item');
     };
   }
 }
@@ -103,6 +104,7 @@ app.detectHitArea = (item, dataArr, ctx, e) => {
     helper.updateProperty(dataArr, i, 'inInventory', true);
     // workaround for the hardcoded grid positions (for now)
     item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
+    item.classList.remove('found-item')
   }
 }
 

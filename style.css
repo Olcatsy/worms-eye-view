@@ -40,10 +40,16 @@ body {
   filter: drop-shadow(2px 2px 3px black);
 }
 
+
 .item:hover {
   transform: scale(1.2);
   filter: drop-shadow(2px 2px 2px olivedrab);
   z-index: 210;
+}
+
+/* styles for item interactions */
+.found-item {
+  filter: drop-shadow(3px 3px 3px yellow) drop-shadow(-3px -3px 3px yellow);
 }
 
 #layer_01 .objects-container {
