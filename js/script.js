@@ -24,7 +24,7 @@ app.addItem = (scene, layerNum) => {
   })
 }
 
-// Find all items, calculate their respective positions on the dig site and store that in data object
+// Find all items, calculate their respective positions on the dig site and store that in the data object
 app.saveAllItemPositions = () => {
 
   const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
@@ -41,7 +41,7 @@ app.saveAllItemPositions = () => {
   })
 }
 
-// Checks transparency in a defined area. Returns true if a percent (threshold percentage) of the pixels are transparent, and returns false as soon as it encounters a single non-transparent pixel
+// Checks transparency in a defined area. Returns true if a percent (threshold percentage) of the pixels are transparent, otherwise returns false
 app.checkTransparency = (pixelData, threshold)  => {
   // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value is 0 (transparent)
   //? also if the user finishes scratching right on the item, it goes to the inventory right away, so I need to figure that out
@@ -112,7 +112,6 @@ app.handleLayerClick = (item, dataArr, ctx, canvas, e) => {
 
   // when all images are found, remove canvas
   helper.foundAllItems(dataArr) && canvas.parentNode.removeChild(canvas);
-  
 }
 
 
@@ -121,10 +120,8 @@ app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
-  // canvas.width = 1000;
-  // canvas.height = 540;
-  canvas.width = 1300;
-  canvas.height = 790;
+  canvas.width = window.innerWidth - 200;
+  canvas.height = window.innerHeight - 200;
 
   // Load overlay image
   const img = new Image();
@@ -161,7 +158,6 @@ app.layerSetup = (scene, layerNum) => {
   // detect an interactive object
   canvas.addEventListener('click', e => {
     itemsArr.forEach(item => {
-      // app.detectHitArea(item, dataArr, ctx, canvas, e)
       app.handleLayerClick(item, dataArr, ctx, canvas, e);
     })
   })
