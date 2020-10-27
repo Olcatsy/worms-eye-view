@@ -24,7 +24,6 @@ const helper = {
 
   // returns index of an object that contains a given property value in a given array
   findObjectsIndex: (arr, prop, propValue) => {
-
     const i = arr.findIndex(obj => obj[prop] === propValue);
     return i;
   },

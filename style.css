@@ -30,7 +30,7 @@ body {
   position: absolute;
   top: 80px;
   left: 120px;
-  width: 1000px;
+  width: calc(100vw - 400px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
