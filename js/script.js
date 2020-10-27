@@ -50,7 +50,7 @@ app.checkTransparency = (pixelData, threshold)  => {
   let count = 0;
 
   for (let i = 3; i < l; i += 4) {
-    if ((pixelData[i] === 0)) {
+    if ((pixelData[i] < 0.3)) {
       count ++;
       if (helper.calculatePercentage(count, pixelsNum) > threshold) {
         console.log('bingo!');
@@ -73,7 +73,7 @@ app.scratchItem = (ctx, item, dataArr) => {
     pixelsData = ctx.getImageData(itemPos.left, itemPos.top, itemPos.width, itemPos.height).data;
   
     // if checkTransparency returns 'true' item's isTransparent to true
-    if (app.checkTransparency(pixelsData, 15)) {
+    if (app.checkTransparency(pixelsData, 20)) {
       helper.updateProperty(dataArr, i, 'isTransparent', true);
       item.classList.add('found-item');
     };
