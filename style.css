@@ -49,7 +49,8 @@ body {
 
 /* styles for item interactions */
 .found-item {
-  filter: drop-shadow(3px 3px 3px yellow) drop-shadow(-3px -3px 3px yellow);
+  /* filter: drop-shadow(3px 3px 3px yellow) drop-shadow(-3px -3px 3px yellow); */
+  border: 2px solid yellow;
 }
 
 #layer_01 .objects-container {

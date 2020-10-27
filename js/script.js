@@ -53,7 +53,6 @@ app.checkTransparency = (pixelData, threshold)  => {
     if ((pixelData[i] < 0.3)) {
       count ++;
       if (helper.calculatePercentage(count, pixelsNum) > threshold) {
-        console.log('bingo!');
         return true;
       }
     } else {
