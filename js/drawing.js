@@ -35,8 +35,8 @@ const drawing = (canvas, ctx) => {
     if (!isDrawing) return; 
     
     const currentPoint = {
-      x: e.clientX,
-      y: e.clientY,
+      x: e.offsetX,
+      y: e.offsetY,
     }
     const dist = distanceBetween(lastPoint, currentPoint);
     const angle = angleBetween(lastPoint, currentPoint);

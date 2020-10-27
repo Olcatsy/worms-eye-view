@@ -1,15 +1,21 @@
 body {
   margin: 0;
-  padding: 20px;
-  display: flex;
+  padding: 0;
   background-image: url(./assets/VG_background_A.jpg);
+  height: 100vh;
+  width: 100%
+}
+
+.canvas, .objects-container {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50% ); 
+  position: absolute;
+
 }
 
 .canvas {
   display: block;
-  top: 0;
-  left: 0; 
-  position: absolute;
   clip-path: url(#svg-clip);
 }
 
@@ -28,9 +34,9 @@ body {
 
 .objects-container {
   position: absolute;
-  top: 80px;
-  left: 120px;
-  width: calc(100vw - 400px);
+  /* top: 80px;
+  left: 120px; */
+  width: calc(100vw - 500px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
