@@ -111,7 +111,6 @@ app.handleLayerClick = (item, dataArr, ctx, canvas, e) => {
 
   // when all images are found, remove canvas
   helper.foundAllItems(dataArr) && canvas.parentNode.removeChild(canvas);
-  
 }
 
 
@@ -120,10 +119,8 @@ app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  // canvas.width = 1300;
-  // canvas.height = 790;
+  canvas.width = window.innerWidth - 200;
+  canvas.height = window.innerHeight - 200;
 
   // Load overlay image
   const img = new Image();
