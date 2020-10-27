@@ -15,7 +15,7 @@ const drawing = (canvas, ctx) => {
   }
 
   const brush = new Image();
-  brush.src = '../assets/brush1.svg';
+  brush.src = './assets/brush1.svg';
   brush.width = 60;
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
