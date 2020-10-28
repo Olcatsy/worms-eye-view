@@ -3,21 +3,35 @@ body {
   padding: 0;
   background-image: url(./assets/VG_background_A.jpg);
   height: 100vh;
-  width: 100%
+  width: 100%;
 }
 
-.canvas, .objects-container {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50% ); 
-  position: absolute;
-}
 
 .canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* transform-origin: 0 0; */
+  transform: translate(-50%, -50%); 
+  /* top: 0;
+  left: 0; */
   display: block;
   clip-path: url(#svg-clip);
 }
 
+.objects-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* transform-origin: 0 0; */
+  transform: translate(-50%, -50% );
+  /* top: 80px;
+  left: 120px; */
+  width: 800px; 
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 
 #canvas_01 {
   z-index: 100;
@@ -31,15 +45,8 @@ body {
   z-index: 60;
 }
 
-.objects-container {
-  position: absolute;
-  width: 800px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
 
 .item {
-  position: relative;
   filter: drop-shadow(2px 2px 3px black);
 }
 
@@ -78,6 +85,7 @@ body {
 
 .inventory {
   position: absolute;
+  width: 200px;
   right: 0;
   top: 0;
   padding: 10px;
