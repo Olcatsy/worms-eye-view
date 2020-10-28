@@ -11,10 +11,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* transform-origin: 0 0; */
   transform: translate(-50%, -50%); 
-  /* top: 0;
-  left: 0; */
   display: block;
   clip-path: url(#svg-clip);
 }
@@ -23,12 +20,9 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* transform-origin: 0 0; */
   transform: translate(-50%, -50% );
-  /* top: 80px;
-  left: 120px; */
-  width: 800px; 
-  height: 500px;
+  width: calc(100vw - 700px); 
+  height: calc(100vh - 500px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
