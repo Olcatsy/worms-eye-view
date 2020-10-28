@@ -96,7 +96,6 @@ app.detectHitArea = (item, dataArr, ctx, canvas,  e) => {
   // if both conditions are satisfied, move the item to inventory and unmount the canvas
   const id = item.id;
   const itemPos = helper.findPropertyValue(dataArr, id, 'digSitePosition');
-  console.table(itemPos)
   const i = helper.findObjectsIndex(dataArr, 'id', id);
   const rect = app.createHitArea(itemPos, ctx, canvas);
   const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
@@ -114,8 +113,7 @@ app.detectHitArea = (item, dataArr, ctx, canvas,  e) => {
 app.handleLayerClick = (item, dataArr, ctx, canvas, e) => {
   app.detectHitArea(item, dataArr, ctx, canvas, e);
 
-  console.log(helper.foundAllItems(dataArr))
-  // when all images are found, remove canvas
+  // when all images are found, remove canvas' container
   if (helper.foundAllItems(dataArr) && canvas.parentNode) {
     canvas.parentElement.remove();
   };
@@ -150,14 +148,6 @@ app.layerSetup = (scene, layerNum) => {
   drawing(canvas, ctx);
   //*------------------------------
 
-  // console.table({
-  //   offsetX: canvas.offsetLeft,
-  //   offsetY: canvas.offsetTop,
-  //   clientX: canvas.clientLeft,
-  //   clientY: canvas.clientTop,
-  // })
-  // console.log(canvas.getBoundingClientRect())
-
   // find all items on the layer
   const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_0${layerNum}_"]`);
   // find the corresponding dataset that stores data for these items
@@ -170,7 +160,6 @@ app.layerSetup = (scene, layerNum) => {
   canvas.addEventListener('mouseup', () => app.isScratching = false);
   // as the user is scratching, check if the defined area is fully scratched off 
   canvas.addEventListener('mousemove', () => {
-    console.log('scratching');
     itemsArr.forEach(item => {
       app.scratchItem(ctx, item, dataArr, canvas);
     })
