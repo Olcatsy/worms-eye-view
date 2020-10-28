@@ -6,25 +6,14 @@ body {
   width: 100%;
 }
 
-
+/* CANVASES */
 .canvas {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); 
-  display: block;
   clip-path: url(#svg-clip);
-}
-
-.objects-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50% );
-  width: calc(100vw - 700px); 
-  height: calc(100vh - 500px);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 }
 
 #canvas_01 {
@@ -39,21 +28,18 @@ body {
   z-index: 60;
 }
 
-
-.item {
-  filter: drop-shadow(2px 2px 3px black);
-}
-
-
-.item:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(2px 2px 2px olivedrab);
-  z-index: 210;
-}
-
-/* styles for item interactions */
-.found-item {
-  filter: drop-shadow(3px 3px 3px yellow) drop-shadow(-3px -3px 3px yellow);
+/* OBJECTS */
+.objects-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50% );
+  width: calc(100vw - 700px); 
+  height: calc(100vh - 500px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(auto,200px));
+  grid-template-rows: repeat(4, minmax(auto,200px));
+  background: black;
 }
 
 #layer_01 .objects-container {
@@ -68,6 +54,23 @@ body {
   z-index: 50;
 }
 
+.item {
+  filter: drop-shadow(2px 2px 3px black);
+  justify-self: center;
+}
+
+.item:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(2px 2px 2px olivedrab);
+  z-index: 210;
+}
+
+/* styles for item interactions */
+.found-item {
+  filter: drop-shadow(3px 3px 3px yellow) drop-shadow(-3px -3px 3px yellow);
+}
+
+
 [id^="item_a_"][id$="01"] {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -77,6 +80,8 @@ body {
   grid-column-end: 4;
 }
 
+
+/* INVENTORY */
 .inventory {
   position: absolute;
   width: 200px;

@@ -191,7 +191,7 @@ app.init = () => {
     app.layerSetup('a', 2);
     app.layerSetup('a', 3);
   }, 1000)
-};
+}; 
 
 
 
