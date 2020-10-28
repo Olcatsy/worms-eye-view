@@ -126,7 +126,7 @@ app.layerSetup = (scene, layerNum) => {
   const canvas = document.getElementById(`canvas_0${layerNum}`);
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth - 500;
-  canvas.height = window.innerHeight - 300;
+  canvas.height = window.innerHeight - 200;
   
   // canvas.width = 1000;
   // canvas.height = 600;
