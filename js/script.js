@@ -14,15 +14,26 @@ app.getCanvasPos = () => {
   console.log(app.canvasPos);
 }
 
-
+// Checks if the randomly generated grid cell is already taken up by another element. Accepts an array that stores occupied cell id's, the element and the grid cell generated for it
+app.assignCells = (arr, element, cell) => {
+  if (arr.includes(cell)) {
+    cell = `c${helper.getRandomInt(1, 16)}`;
+    app.assignCells(arr, element, cell);
+  } else {
+    arr.push(cell);
+    console.log('cells taken', arr);
+    element.style.gridArea = `${cell}`;
+    return;
+  }
+}
 
 // Create an interactive object from data and add it to the page
 app.addItem = (scene, layerNum) => {
   const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
   const itemsArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items;
 
-  //keeps track of which grid cells have an item placed in them
-  let gridCellsTaken = [];
+  //keeps track of which grid cells have an item placed in them on each layer
+  let cellsTaken = [];
   
   itemsArr.map((item) => {
     const el = document.createElement('div');
@@ -34,9 +45,8 @@ app.addItem = (scene, layerNum) => {
     container.appendChild(el);
 
     //assigning a grid cell to the item
-    let cell = 0;
-    cell = `c${helper.getRandomInt(1, 16)}`;
-    el.style.gridArea = `${cell}`;
+    let cell = `c${helper.getRandomInt(1, 16)}`;
+    app.assignCells(cellsTaken, el, cell)
     // console.log(item.id, cell);
   })
 }
@@ -199,8 +209,8 @@ app.init = () => {
 
   setTimeout(() => {
     app.addItem('a', 1);
-  app.addItem('a', 2);
-  app.addItem('a', 3);
+    app.addItem('a', 2);
+    app.addItem('a', 3);
   }, 120)
   
   setTimeout(() => {
