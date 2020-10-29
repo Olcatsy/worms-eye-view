@@ -114,7 +114,7 @@ app.createHitArea = (itemPos, ctx, canvas) => {
   const hitArea = new Path2D();
   const canvasPos = canvas.getBoundingClientRect();
   hitArea.rect(itemPos.left - canvasPos.left, itemPos.top - canvasPos.top, itemPos.width, itemPos.height);
-  ctx.fillStyle = 'rgba(0, 0, 0, 0)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
   ctx.fill(hitArea);
   return hitArea;
 }
