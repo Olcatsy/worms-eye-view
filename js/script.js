@@ -205,19 +205,18 @@ app.layerSetup = (scene, layerNum) => {
 // INIT
 app.init = () => {
 
-  app.getCanvasPos();
+  app.addItem('a', 1);
+  app.addItem('a', 2);
+  app.addItem('a', 3);
 
-  setTimeout(() => {
-    app.addItem('a', 1);
-    app.addItem('a', 2);
-    app.addItem('a', 3);
-  }, 120)
+  // setTimeout(() => {
+  // }, 120)
   
   setTimeout(() => {
     app.saveAllItemPositions();
   }, 250)
-  
-  
+
+
   setTimeout(() => {
     app.layerSetup('a', 1);
     app.layerSetup('a', 2);
