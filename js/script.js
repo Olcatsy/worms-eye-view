@@ -6,21 +6,48 @@ const app = {};
 
 app.inventory = document.querySelector('.inventory');
 app.isScratching = false;
+app.canvasPos = {};
+
+// Stores canvas' position on the page
+app.getCanvasPos = () => {
+  app.canvasPos = helper.getItemPosition(document.getElementById('canvas_01'));
+  console.log(app.canvasPos);
+}
+
+// Checks if the randomly generated grid cell is already taken up by another element. Accepts an array that stores occupied cell id's, the element and the grid cell generated for it
+app.assignCells = (arr, element, cell) => {
+  if (arr.includes(cell)) {
+    cell = `c${helper.getRandomInt(1, 16)}`;
+    app.assignCells(arr, element, cell);
+  } else {
+    arr.push(cell);
+    console.log('cells taken', arr);
+    element.style.gridArea = `${cell}`;
+    return;
+  }
+}
 
 // Create an interactive object from data and add it to the page
 app.addItem = (scene, layerNum) => {
   const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
   const itemsArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items;
+
+  //keeps track of which grid cells have an item placed in them on each layer
+  let cellsTaken = [];
   
   itemsArr.map((item) => {
-    const html = document.createElement('img');
-    html.setAttribute('class', 'item');
-    html.setAttribute('src', `${item.src}`);
-    html.setAttribute('alt', `${item.alt}`);
-    html.setAttribute('id', `${item.id}`);
-    html.setAttribute('data-scene', `a`);
-    html.setAttribute('data-layer', `${layerNum}`);
-    container.appendChild(html);
+    const el = document.createElement('div');
+    el.innerHTML = `<img src="${item.src}" alt="${item.alt}">`
+    el.setAttribute('class', 'item');
+    el.setAttribute('id', `${item.id}`);
+    el.setAttribute('data-scene', `a`);
+    el.setAttribute('data-layer', `${layerNum}`);
+    container.appendChild(el);
+
+    //assigning a grid cell to the item
+    let cell = `c${helper.getRandomInt(1, 16)}`;
+    app.assignCells(cellsTaken, el, cell)
+    // console.log(item.id, cell);
   })
 }
 
@@ -76,9 +103,11 @@ app.scratchItem = (ctx, item, dataArr, canvas) => {
     if (app.checkTransparency(pixelsData, 20)) {
       helper.updateProperty(dataArr, i, 'isTransparent', true);
       item.classList.add('found-item');
+      console.log(item.id, 'transparent')
     };
   }
 }
+
 
 // Draw an invisible square on the canvas in the same position as the clickable object below the canvas
 app.createHitArea = (itemPos, ctx, canvas) => {
@@ -89,6 +118,7 @@ app.createHitArea = (itemPos, ctx, canvas) => {
   ctx.fill(hitArea);
   return hitArea;
 }
+
 
 // Detects if the user clicked on an interactive item
 app.detectHitArea = (item, dataArr, ctx, canvas,  e) => {
@@ -110,6 +140,8 @@ app.detectHitArea = (item, dataArr, ctx, canvas,  e) => {
   }
 }
 
+
+// Removes the current layer if all objects on it have been found
 app.handleLayerClick = (item, dataArr, ctx, canvas, e) => {
   app.detectHitArea(item, dataArr, ctx, canvas, e);
 
@@ -120,7 +152,7 @@ app.handleLayerClick = (item, dataArr, ctx, canvas, e) => {
 }
 
 
-//canvasId, scene, layerNum, itemId
+// Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
 app.layerSetup = (scene, layerNum) => {
   //* Canvas setup -----
   const canvas = document.getElementById(`canvas_0${layerNum}`);
@@ -139,7 +171,6 @@ app.layerSetup = (scene, layerNum) => {
   })
   img.src = `./assets/overlays/layer_${scene}_0${layerNum}.jpg`
 
-
   // set up the brush and load drawing functions 
   ctx.strokeStyle = 'white';
   ctx.lineJoin = 'round';
@@ -147,6 +178,7 @@ app.layerSetup = (scene, layerNum) => {
   ctx.lineWidth = 60;
   drawing(canvas, ctx);
   //*------------------------------
+
 
   // find all items on the layer
   const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_0${layerNum}_"]`);
@@ -180,18 +212,21 @@ app.init = () => {
   app.addItem('a', 1);
   app.addItem('a', 2);
   app.addItem('a', 3);
+
+  // setTimeout(() => {
+  // }, 120)
   
   setTimeout(() => {
     app.saveAllItemPositions();
-  }, 500);
-  
-  
+  }, 500)
+
+
   setTimeout(() => {
     app.layerSetup('a', 1);
     app.layerSetup('a', 2);
     app.layerSetup('a', 3);
   }, 1000)
-};
+}; 
 
 
 

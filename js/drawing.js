@@ -1,3 +1,5 @@
+import helper from './helper.js';
+
 const drawing = (canvas, ctx) => {
 
   // Brush implementation is based on Kangax's article "Exploring Canvas Drawing Techniques" (http://perfectionkills.com/exploring-canvas-drawing-techniques/)
@@ -6,7 +8,6 @@ const drawing = (canvas, ctx) => {
 
   const angleBetween = (point1, point2) => Math.atan2(point2.x - point1.x, point2.y - point1.y);
 
-  const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   let isDrawing = false;
   let lastPoint = {
@@ -47,7 +48,7 @@ const drawing = (canvas, ctx) => {
       ctx.save();
       ctx.translate(x, y);
       ctx.scale(0.5, 0.5);
-      ctx.rotate(Math.PI * 180 / getRandomInt(0, 180));
+      ctx.rotate(Math.PI * 180 / helper.getRandomInt(0, 180));
       ctx.globalCompositeOperation = 'destination-out'; // allows to erase
       ctx.drawImage(brush, 0, 0);
       ctx.restore();
