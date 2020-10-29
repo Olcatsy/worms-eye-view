@@ -114,7 +114,7 @@ app.createHitArea = (itemPos, ctx, canvas) => {
   const hitArea = new Path2D();
   const canvasPos = canvas.getBoundingClientRect();
   hitArea.rect(itemPos.left - canvasPos.left, itemPos.top - canvasPos.top, itemPos.width, itemPos.height);
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0)';
   ctx.fill(hitArea);
   return hitArea;
 }
@@ -162,7 +162,6 @@ app.layerSetup = (scene, layerNum) => {
   
   // canvas.width = 1000;
   // canvas.height = 600;
-
 
   // Load overlay image
   const img = new Image();
