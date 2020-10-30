@@ -20,14 +20,13 @@ const app = {
       app.assignCells(arr, element, cell);
     } else {
       arr.push(cell);
-      console.log('cells taken', arr);
       element.style.gridArea = `${cell}`;
       return;
     }
   },
 
   // Create an interactive object from data and add it to the page
-  addItem: (scene, layerNum) => {
+  addItems: (scene, layerNum) => {
     const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
     const itemsArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items;
 
@@ -46,12 +45,20 @@ const app = {
       //assigning a grid cell to the item
       let cell = `c${helper.getRandomInt(1, 16)}`;
       app.assignCells(cellsTaken, el, cell)
-      // console.log(item.id, cell);
     })
   },
 
+  // Calls addItems on a layer data object to set all items at once
+  addAllItems: async () => {
+    for (const layer in data.scene_a) {
+      app.addItems('a', data.scene_a[layer].layerNum);
+    }
+    return;
+  },
+
   // Find all items, calculate their respective positions on the dig site and store that in the data object
-  saveAllItemPositions: () => {
+  saveAllItemPositions: async () => {
+    await app.addAllItems();
 
     const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
 
@@ -60,11 +67,14 @@ const app = {
       const scene = item.dataset.scene;
       const dataArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items; // the array in the data based on the layer
       const id = item.id;
-      const itemPos = helper.getItemPosition(item);
+      const img = item.querySelector('img');
+      const itemPos = helper.getItemPosition(img);
       const index = helper.findObjectsIndex(dataArr, 'id', id);
 
       helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
+      console.log(id, itemPos);
     })
+    return;
   },
 
   // Checks transparency in a defined area. Returns true if a percent (threshold percentage) of the pixels are transparent, otherwise returns false
@@ -203,32 +213,30 @@ const app = {
   },
 
 
+  
 
+  // Calls layerSetup on a layer data object to set all layers at once
+  setUpAllLayers: async () => {
+    for (const layer in data.scene_a) {
+      app.layerSetup('a', data.scene_a[layer].layerNum);
+    }
+    return;
+  },
 
   // INIT
-  init: () => {
+  init: async () => {
 
-    // const promise = new Promise((resolve, reject) => {
 
-    // })
-
-    for (const layer in data.scene_a) {
-      app.addItem('a', data.scene_a[layer].layerNum);
-    }
-
+    app.addAllItems()
+    app.saveAllItemPositions();
+    
     // setTimeout(() => {
-    // }, 120)
+    // }, 500)
+
     
     setTimeout(() => {
-      app.saveAllItemPositions();
+      app.setUpAllLayers().then(console.log('all good'));
     }, 500)
-
-
-    setTimeout(() => {
-      for (const layer in data.scene_a) {
-        app.layerSetup('a', data.scene_a[layer].layerNum);
-      }
-    }, 1000)
   },
 }
 
