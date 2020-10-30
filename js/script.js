@@ -49,7 +49,7 @@ const app = {
   },
 
   // Calls addItems on a layer data object to set all items at once
-  addAllItems: async () => {
+  addAllItems: () => {
     for (const layer in data.scene_a) {
       app.addItems('a', data.scene_a[layer].layerNum);
     }
@@ -57,9 +57,7 @@ const app = {
   },
 
   // Find all items, calculate their respective positions on the dig site and store that in the data object
-  saveAllItemPositions: async () => {
-    await app.addAllItems();
-
+  saveAllItemPositions: () => {
     const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
 
     itemsArr.forEach(item => {
@@ -216,7 +214,7 @@ const app = {
   
 
   // Calls layerSetup on a layer data object to set all layers at once
-  setUpAllLayers: async () => {
+  setUpAllLayers: () => {
     for (const layer in data.scene_a) {
       app.layerSetup('a', data.scene_a[layer].layerNum);
     }
@@ -224,18 +222,17 @@ const app = {
   },
 
   // INIT
-  init: async () => {
-
+  init: () => {
 
     app.addAllItems()
-    app.saveAllItemPositions();
     
-    // setTimeout(() => {
-    // }, 500)
+    setTimeout(() => {
+      app.saveAllItemPositions();
+    }, 500)
 
     
     setTimeout(() => {
-      app.setUpAllLayers().then(console.log('all good'));
+      app.setUpAllLayers();
     }, 500)
   },
 }
