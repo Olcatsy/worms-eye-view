@@ -61,7 +61,8 @@ app.saveAllItemPositions = () => {
     const scene = item.dataset.scene;
     const dataArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items; // the array in the data based on the layer
     const id = item.id;
-    const itemPos = helper.getItemPosition(item);
+    const img = item.querySelector('img');
+    const itemPos = helper.getItemPosition(img);
     const index = helper.findObjectsIndex(dataArr, 'id', id);
 
     helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
