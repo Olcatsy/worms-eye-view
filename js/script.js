@@ -27,8 +27,8 @@ const app = {
 
   // Create an interactive object from data and add it to the page
   addItem: (scene, layerNum) => {
-    const container = document.querySelector(`#layer_0${layerNum}  .objects-container`);
-    const itemsArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items;
+    const container = document.querySelector(`#layer_${layerNum}  .objects-container`);
+    const itemsArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items;
 
     //keeps track of which grid cells have an item placed in them on each layer
     let cellsTaken = [];
@@ -50,8 +50,8 @@ const app = {
 
   // Calls addItems on a layer data object to set all items at once
   addAllItems: () => {
-    for (const layer in data.scene_a) {
-      app.addItem('a', data.scene_a[layer].layerNum);
+    for (const layer in data.scene_a.layers) {
+      app.addItem('a', data.scene_a.layers[layer].layerNum);
     }
     return;
   },
@@ -63,14 +63,13 @@ const app = {
     itemsArr.forEach(item => {
       const layerNum = item.dataset.layer;
       const scene = item.dataset.scene;
-      const dataArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items; // the array in the data based on the layer
+      const dataArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items; // the array in the data based on the layer
       const id = item.id;
       const img = item.querySelector('img');
       const itemPos = helper.getItemPosition(img);
       const index = helper.findObjectsIndex(dataArr, 'id', id);
 
       helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
-      console.log(id, itemPos);
     })
     return;
   },
@@ -161,21 +160,23 @@ const app = {
 
   // Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
   layerSetup: (scene, layerNum) => {
+    const layerData = data[`scene_${scene}`].layers[`layer${layerNum}`];
+
     //* Canvas setup -----
-    const canvas = document.getElementById(`canvas_0${layerNum}`);
+    const canvas = document.getElementById(`canvas_${layerNum}`);
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth - 500;
     canvas.height = window.innerHeight - 200;
     
-    // canvas.width = 1000;
-    // canvas.height = 600;
+    // canvas.style.cursor = 
 
     // Load overlay image
     const img = new Image();
     img.addEventListener('load', () => {
       ctx.drawImage(img, 0, 0);
     })
-    img.src = `./assets/overlays/layer_${scene}_0${layerNum}.jpg`
+    //!change source to database link
+    img.src = `./assets/overlays/layer_${scene}_${layerNum}.jpg`
 
     // set up the brush and load drawing functions 
     ctx.strokeStyle = 'white';
@@ -187,9 +188,9 @@ const app = {
 
 
     // find all items on the layer
-    const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_0${layerNum}_"]`);
+    const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_${layerNum}_"]`);
     // find the corresponding dataset that stores data for these items
-    const dataArr = data[`scene_${scene}`][`layer_0${layerNum}`].interactive_items;
+    const dataArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items;
     
     // ***EVENT LISTENERS***--------------------
     // start scratching
@@ -213,8 +214,8 @@ const app = {
 
   // Calls layerSetup on a layer data object to set all layers at once
   setUpAllLayers: () => {
-    for (const layer in data.scene_a) {
-      app.layerSetup('a', data.scene_a[layer].layerNum);
+    for (const layer in data.scene_a.layers) {
+      app.layerSetup('a', data.scene_a.layers[layer].layerNum);
     }
     return;
   },
@@ -232,7 +233,7 @@ const app = {
     
     setTimeout(() => {
       app.setUpAllLayers();
-    }, 500)
+    }, 700)
   },
 }
 
