@@ -20,7 +20,6 @@ const app = {
       app.assignCells(arr, element, cell);
     } else {
       arr.push(cell);
-      console.log('cells taken', arr);
       element.style.gridArea = `${cell}`;
       return;
     }
@@ -46,13 +45,19 @@ const app = {
       //assigning a grid cell to the item
       let cell = `c${helper.getRandomInt(1, 16)}`;
       app.assignCells(cellsTaken, el, cell)
-      // console.log(item.id, cell);
     })
+  },
+
+  // Calls addItems on a layer data object to set all items at once
+  addAllItems: () => {
+    for (const layer in data.scene_a) {
+      app.addItem('a', data.scene_a[layer].layerNum);
+    }
+    return;
   },
 
   // Find all items, calculate their respective positions on the dig site and store that in the data object
   saveAllItemPositions: () => {
-
     const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
 
     itemsArr.forEach(item => {
@@ -65,7 +70,9 @@ const app = {
       const index = helper.findObjectsIndex(dataArr, 'id', id);
 
       helper.updateProperty(dataArr, index, 'digSitePosition', itemPos);
+      console.log(id, itemPos);
     })
+    return;
   },
 
   // Checks transparency in a defined area. Returns true if a percent (threshold percentage) of the pixels are transparent, otherwise returns false
@@ -204,29 +211,33 @@ const app = {
   },
 
 
+  
+
+  // Calls layerSetup on a layer data object to set all layers at once
+  setUpAllLayers: () => {
+    for (const layer in data.scene_a) {
+      app.layerSetup('a', data.scene_a[layer].layerNum);
+    }
+    return;
+  },
 
   // INIT
   init: () => {
 
-    app.addItem('a', 1);
-    app.addItem('a', 2);
-    app.addItem('a', 3);
-
-    // setTimeout(() => {
-    // }, 120)
+    app.addAllItems()
     
     setTimeout(() => {
       app.saveAllItemPositions();
     }, 500)
 
-
+    
     setTimeout(() => {
-      app.layerSetup('a', 1);
-      app.layerSetup('a', 2);
-      app.layerSetup('a', 3);
-    }, 1000)
-  }
-};
+      app.setUpAllLayers();
+    }, 500)
+  },
+}
+
+    
 
 
 
