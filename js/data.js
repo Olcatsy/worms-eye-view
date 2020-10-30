@@ -1,6 +1,7 @@
 const data = {
   scene_a: {
     layer_01: {
+      layerNum: 1,
       allItemsFound: false,
       interactive_items: [
         {
@@ -26,6 +27,7 @@ const data = {
       ]
     },
     layer_02: {
+      layerNum: 2,
       allItemsFound: false,
       interactive_items: [
         {
@@ -51,6 +53,7 @@ const data = {
       ]
     },
     layer_03: {
+      layerNum: 3,
       allItemsFound: false,
       interactive_items: [
         {
