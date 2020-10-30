@@ -211,8 +211,6 @@ const app = {
   },
 
 
-  
-
   // Calls layerSetup on a layer data object to set all layers at once
   setUpAllLayers: () => {
     for (const layer in data.scene_a) {
@@ -220,6 +218,7 @@ const app = {
     }
     return;
   },
+
 
   // INIT
   init: () => {

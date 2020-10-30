@@ -75,6 +75,8 @@ button {
   left: 50%;
   transform: translate(-50%, -50%); 
   clip-path: url(#svg-clip);
+  cursor: url('./assets/cursor.png'), auto;
+
 }
 
 #canvas_01 {
