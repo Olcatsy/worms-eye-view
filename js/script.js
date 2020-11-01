@@ -3,9 +3,19 @@ import drawing from './drawing.js';
 import data from './data.js';
 
 const app = {
-  inventory: document.querySelector('.inventory'),
+  inventory: document.querySelector('#inventory'),
+  modal: document.querySelector('#modal'),
+  modalImg: document.querySelector('#modalImg'),
+  modalText: document.querySelector('#modalText'),
   isScratching: false,
   canvasPos: {},
+
+  closeModal: () => {
+    const closeButton = document.querySelector('#modalClose');
+    closeButton.addEventListener('click', () => {
+      app.modal.style.visibility = 'hidden';
+    })
+  },
 
   // Stores canvas' position on the page
   getCanvasPos: () => {
@@ -109,7 +119,7 @@ const app = {
       if (app.checkTransparency(pixelsData, 20)) {
         helper.updateProperty(dataArr, i, 'isTransparent', true);
         item.classList.add('found-item');
-        console.log(item.id, 'transparent')
+        // console.log(item.id, 'transparent')
       };
     }
   },
@@ -126,23 +136,38 @@ const app = {
   },
 
 
+  // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
+  moveItemToInventory: (item, dataArr, i) => {
+    app.inventory.appendChild(item);
+    helper.updateProperty(dataArr, i, 'inInventory', true);
+
+    // workaround for the hardcoded grid positions (for now) 
+    //!Probably don't need this line once I position items in the inventory
+    item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
+    // 
+
+    item.classList.remove('found-item');
+    item.classList.add('in-inventory');
+    // add event listener that opens the image in modal window
+    item.addEventListener('click', () => {
+      app.modal.style.visibility = 'visible';
+      app.modalImg.src = dataArr[i].src;
+      app.modalText.textContent = dataArr[i].copy;
+    })
+  },
+
+
   // Detects if the user clicked on an interactive item
   detectHitArea: (item, dataArr, ctx, canvas,  e) => {
-    // Using ctx.isPointInPath check if the click event is within the boundaries of corresponding hit area and check if the corresponding area is fully scratched off
-    // if both conditions are satisfied, move the item to inventory and unmount the canvas
     const id = item.id;
     const itemPos = helper.findPropertyValue(dataArr, id, 'digSitePosition');
     const i = helper.findObjectsIndex(dataArr, 'id', id);
     const rect = app.createHitArea(itemPos, ctx, canvas);
     const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
 
+    // if the item is found (isTransparent = true) and is clicked on (isPointInPath returns true), it's moved to the inventory
     if (isTransparent && ctx.isPointInPath(rect, e.offsetX, e.offsetY)) {
-      app.inventory.appendChild(item);
-      helper.updateProperty(dataArr, i, 'inInventory', true);
-
-      // workaround for the hardcoded grid positions (for now)
-      item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
-      item.classList.remove('found-item')
+      app.moveItemToInventory(item, dataArr, i);
     }
   },
 
@@ -167,8 +192,6 @@ const app = {
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth - 500;
     canvas.height = window.innerHeight - 200;
-    
-    // canvas.style.cursor = 
 
     // Load overlay image
     const img = new Image();
@@ -223,6 +246,8 @@ const app = {
 
   // INIT
   init: () => {
+    
+    app.closeModal();
 
     app.addAllItems()
     

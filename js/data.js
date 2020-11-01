@@ -12,7 +12,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_01.png',
-            // copy: "str" (provided by Sara)
+            copy: "A greyish brown worm" 
             // inventory_position: str (related to a grid?)
           },
           {
@@ -22,7 +22,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_03.png',
-            // copy: "str" (provided by Sara)
+            copy: "A rotten eggplant"
             // inventory_position: str (related to a grid?)
           }
         ]
