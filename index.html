@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Worm's Eye View</title>
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 
@@ -33,6 +34,18 @@
     <h2>Inventory</h2>
   </div>
 
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <img id="modalImg"  class="modal-img " src="./assets/object_a_01.png" alt="">
+      <p id="modalText" class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, neque!</p>
+    </div>
+    <button id="modalClose" class="modal-close">
+      <span class="sr-only">Close</span>
+      <img aria-hidden src="./assets/close.svg" />
+    </button>
+  </div>
+
+  
 
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1308 771.8">
