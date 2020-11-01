@@ -10,12 +10,23 @@ const app = {
   isScratching: false,
   canvasPos: {},
 
+  // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
   closeModal: () => {
     const closeButton = document.querySelector('#modalClose');
     closeButton.addEventListener('click', () => {
-      app.modal.style.visibility = 'hidden';
+      app.modal.classList.remove('open');
+    });
+    app.modal.addEventListener('click', () => {
+      app.modal.classList.remove('open');
+    });
+    document.addEventListener('keyup', (e) => {
+      if (app.modal.classList.contains('open') && e.code === 'Escape') {
+        app.modal.classList.remove('open');
+      }
+      // 
     })
   },
+
 
   // Stores canvas' position on the page
   getCanvasPos: () => {
@@ -150,9 +161,10 @@ const app = {
     item.classList.add('in-inventory');
     // add event listener that opens the image in modal window
     item.addEventListener('click', () => {
-      app.modal.style.visibility = 'visible';
+      app.modal.classList.add('open');
       app.modalImg.src = dataArr[i].src;
       app.modalText.textContent = dataArr[i].copy;
+      
     })
   },
 

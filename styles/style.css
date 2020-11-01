@@ -147,7 +147,7 @@ button {
 
 /* MODAL */
 .modal {
-  visibility: hidden;
+  display: none; 
   position: absolute;
   top: 0;
   bottom: 0;
@@ -156,9 +156,12 @@ button {
   width: 100%;
   background: rgba(10,10,10,0.6);
   z-index: 30;
-  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.open {
+  display: flex;
 }
 
 .modal-content {

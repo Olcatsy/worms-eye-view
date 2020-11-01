@@ -12,7 +12,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_01.png',
-            copy: "A greyish brown worm" 
+            copy: "A greyish brown worm",
             // inventory_position: str (related to a grid?)
           },
           {
@@ -22,7 +22,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_03.png',
-            copy: "A rotten eggplant"
+            copy: "A rotten eggplant",
             // inventory_position: str (related to a grid?)
           }
         ]
@@ -38,7 +38,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_02.png',
-            // copy: "str" (provided by Sara)
+            copy: "A wilted brown leaf",
             // inventory_position: str (related to a grid?)
           },
           {
@@ -48,7 +48,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_05.gif',
-            // copy: "str" (provided by Sara)
+            copy: "a burning $1000000 Hell Bank Note",
             // inventory_position: str (related to a grid?)
           },
         ]
@@ -58,13 +58,13 @@ const data = {
         allItemsFound: false,
         interactive_items: [
           {
-            alt: "an animation of a butterfly emerging from a cocoon",
+            alt: "a butterfly emerging from a cocoon",
             digSitePosition: {},
             id: "item_a_03_01",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_04.gif',
-            // copy: "str" (provided by Sara)
+            copy: "a butterfly emerging from a cocoon",
             // inventory_position: str (related to a grid?)
           },
           {
@@ -74,7 +74,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_06.gif',
-            // copy: "str" (provided by Sara)
+            copy: "an broken smartphone with flickering screen",
             // inventory_position: str (related to a grid?)
           },
         ]
