@@ -95,9 +95,9 @@ const app = {
     return;
   },
 
-  // Checks transparency in a defined area. Returns true if a percent (threshold percentage) of the pixels are transparent, otherwise returns false
+  // Checks transparency in a defined area. Returns true if a threshold percentage of the pixels are transparent, otherwise returns false
   checkTransparency: (pixelData, threshold)  => {
-    // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value is 0 (transparent)
+    // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value less than a given alpha value
     //? also if the user finishes scratching right on the item, it goes to the inventory right away, so I need to figure that out
     const l = pixelData.length,
           pixelsNum =  l / 4;
@@ -105,6 +105,7 @@ const app = {
 
     console.log(pixelData[3]);
     for (let i = 3; i < l; i += 4) {
+      // check pixelData[i] against alpha value within 0-255 range
       if ((pixelData[i] < 150)) {
         count ++;
         if (helper.calculatePercentage(count, pixelsNum) > threshold) {
@@ -128,6 +129,7 @@ const app = {
       pixelsData = ctx.getImageData(itemPos.left - canvasPos.left, itemPos.top - canvasPos.top, itemPos.width, itemPos.height).data;
     
       // if checkTransparency returns 'true' item's isTransparent to true
+      // The second argument is the percent of pixels scratched off in the area
       if (app.checkTransparency(pixelsData, 60)) {
         helper.updateProperty(dataArr, i, 'isTransparent', true);
         item.classList.add('found-item');
