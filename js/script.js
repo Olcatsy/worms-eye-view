@@ -104,7 +104,7 @@ const app = {
     let count = 0;
 
     for (let i = 3; i < l; i += 4) {
-      if ((pixelData[i] < 0.3)) {
+      if ((pixelData[i] < 125)) {
         count ++;
         if (helper.calculatePercentage(count, pixelsNum) > threshold) {
           return true;
@@ -127,10 +127,10 @@ const app = {
       pixelsData = ctx.getImageData(itemPos.left - canvasPos.left, itemPos.top - canvasPos.top, itemPos.width, itemPos.height).data;
     
       // if checkTransparency returns 'true' item's isTransparent to true
-      if (app.checkTransparency(pixelsData, 20)) {
+      if (app.checkTransparency(pixelsData, 60)) {
         helper.updateProperty(dataArr, i, 'isTransparent', true);
         item.classList.add('found-item');
-        // console.log(item.id, 'transparent')
+        console.log(item.id, 'transparent')
       };
     }
   },
