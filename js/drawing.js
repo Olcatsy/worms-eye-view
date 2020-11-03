@@ -16,7 +16,7 @@ const drawing = (canvas, ctx) => {
   }
 
   const brush = new Image();
-  brush.src = './assets/brush1.svg';
+  brush.src = './assets/brushes/brush_a.png';
   brush.width = 60;
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
@@ -48,7 +48,10 @@ const drawing = (canvas, ctx) => {
       ctx.save();
       ctx.translate(x, y);
       ctx.scale(0.5, 0.5);
-      ctx.rotate(Math.PI * 180 / helper.getRandomInt(0, 180));
+      // rotate the brush every n-th step
+      if (i % 15 === 0) {
+        ctx.rotate(Math.PI * 180 / helper.getRandomInt(0, 180));
+      }
       ctx.globalCompositeOperation = 'destination-out'; // allows to erase
       ctx.drawImage(brush, 0, 0);
       ctx.restore();
