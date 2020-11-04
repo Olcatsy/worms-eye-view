@@ -9,8 +9,6 @@ body {
   background-image: url(../assets/VG_background_A.jpg);
   background-position: center;
   background-size: cover;
-  height: 100vh;
-  width: 100%;
   font-size: 1.8rem;
   /* color: ; */
   /* font-family: ; */
@@ -56,8 +54,27 @@ button {
 /* END OF STRIPPING STYLES */
 
 
+/* GENERAL PAGE LAYOUT */
+.container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.dig-site {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  grid-column: 3 / 6;
+  grid-row: 2 / 4;
+}
+
 /* CANVASES */
 .canvas {
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
