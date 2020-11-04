@@ -56,6 +56,13 @@ button {
 /* END OF STRIPPING STYLES */
 
 
+.dig-site {
+  position: relative;
+  width: 100%;
+  height: auto;
+  
+}
+
 /* CANVASES */
 .canvas {
   position: absolute;
