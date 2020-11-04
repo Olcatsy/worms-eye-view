@@ -104,7 +104,6 @@ const app = {
           pixelsNum =  l / 4;
     let count = 0;
 
-    console.log(pixelData[3]);
     for (let i = 3; i < l; i += 4) {
       // check pixelData[i] against alpha value within 0-255 range
       if ((pixelData[i] < 150)) {
