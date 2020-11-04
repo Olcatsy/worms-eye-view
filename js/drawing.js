@@ -1,6 +1,6 @@
 import helper from './helper.js';
 
-const drawing = (canvas, ctx) => {
+const drawing = (canvas, ctx, scene) => {
 
   // Brush implementation is based on Kangax's article "Exploring Canvas Drawing Techniques" (http://perfectionkills.com/exploring-canvas-drawing-techniques/)
 
@@ -16,7 +16,7 @@ const drawing = (canvas, ctx) => {
   }
 
   const brush = new Image();
-  brush.src = './assets/brushes/brush_a.png';
+  brush.src = `./assets/brushes/brush_${scene}.png`;
   brush.width = 60;
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 1)';

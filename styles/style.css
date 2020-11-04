@@ -53,6 +53,7 @@ button {
     border: none;
     cursor: pointer;
 }
+/* END OF STRIPPING STYLES */
 
 
 /* CANVASES */
@@ -80,6 +81,9 @@ button {
 #canvas_03 {
   z-index: 6;
 }
+/* END OF CANVASES */
+
+
 
 /* OBJECTS */
 .objects-container {
@@ -128,7 +132,7 @@ button {
 .found-item {
   filter: drop-shadow(3px 3px 3px yellow) drop-shadow(-3px -3px 3px yellow);
 }
-
+/* END OF OBJECTS */
 
 
 
@@ -144,7 +148,7 @@ button {
   display: grid;
   grid-template-columns: minmax(100px, 1fr);
 }
-
+/* END OF INVENTORY */
 
 
 /* MODAL */
@@ -192,3 +196,4 @@ button {
 .modal-close:focus {
   transform: scale(1.1);
 }
+/* END OF MODAL */

@@ -213,7 +213,6 @@ const app = {
     img.addEventListener('load', () => {
       ctx.drawImage(img, 0, 0);
     })
-    //!change source to database link
     img.src = `./assets/overlays/layer_${scene}_${layerNum}.jpg`
 
     // set up the brush and load drawing functions 
@@ -221,7 +220,7 @@ const app = {
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.lineWidth = 60;
-    drawing(canvas, ctx);
+    drawing(canvas, ctx, scene);
     //*------------------------------
 
 
