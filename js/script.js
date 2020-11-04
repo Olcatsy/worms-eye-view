@@ -29,6 +29,7 @@ const app = {
 
 
   // Stores canvas' position on the page
+  //! currently not used
   getCanvasPos: () => {
     app.canvasPos = helper.getItemPosition(document.getElementById('canvas_01'));
     console.log(app.canvasPos);
