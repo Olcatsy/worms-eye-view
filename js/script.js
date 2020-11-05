@@ -144,6 +144,9 @@ const app = {
   // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
   moveItemToInventory: (item, dataArr, i) => {
     app.inventory.appendChild(item);
+    item.classList.remove('found-item');
+    item.classList.add('in-inventory');
+    item.classList.add('faded-in');
     helper.updateProperty(dataArr, i, 'inInventory', true);
 
     // workaround for the hardcoded grid positions (for now) 
@@ -151,14 +154,11 @@ const app = {
     item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
     // 
 
-    item.classList.remove('found-item');
-    item.classList.add('in-inventory');
     // add event listener that opens the image in modal window
     item.addEventListener('click', () => {
       app.modal.classList.add('open');
       app.modalImg.src = dataArr[i].src;
       app.modalText.textContent = dataArr[i].copy;
-      
     })
   },
 
@@ -173,7 +173,10 @@ const app = {
 
     // if the item is found (isTransparent = true) and is clicked on (isPointInPath returns true), it's moved to the inventory
     if (isTransparent && ctx.isPointInPath(rect, e.offsetX, e.offsetY)) {
-      app.moveItemToInventory(item, dataArr, i);
+      item.classList.add('faded-out');
+      item.addEventListener('transitionend', () => {
+        app.moveItemToInventory(item, dataArr, i);
+      })
     }
   },
 

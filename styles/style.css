@@ -143,6 +143,21 @@ button {
 /* styles for item interactions */
 .found-item {
   filter: drop-shadow(3px 3px 3px yellow) drop-shadow(-3px -3px 3px yellow);
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.faded-out {
+  opacity: 0;
+}
+
+.faded-in {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.in-inventory {
+  filter: none;
 }
 /* END OF OBJECTS */
 
