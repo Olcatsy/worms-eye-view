@@ -8,7 +8,6 @@ const app = {
   modalImg: document.querySelector('#modalImg'),
   modalText: document.querySelector('#modalText'),
   isScratching: false,
-  canvasPos: {},
 
   // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
   closeModal: () => {
@@ -27,13 +26,6 @@ const app = {
     })
   },
 
-
-  // Stores canvas' position on the page
-  //! currently not used
-  getCanvasPos: () => {
-    app.canvasPos = helper.getItemPosition(document.getElementById('canvas_01'));
-    console.log(app.canvasPos);
-  },
 
   // Checks if the randomly generated grid cell is already taken up by another element. Accepts an array that stores occupied cell id's, the element and the grid cell generated for it
   assignCells: (arr, element, cell) => {
@@ -133,7 +125,6 @@ const app = {
       if (app.checkTransparency(pixelsData, 50)) {
         helper.updateProperty(dataArr, i, 'isTransparent', true);
         item.classList.add('found-item');
-        console.log(item.id, 'transparent')
       };
     }
   },
