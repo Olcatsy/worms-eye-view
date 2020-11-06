@@ -8,7 +8,6 @@ const app = {
   modalImg: document.querySelector('#modalImg'),
   modalText: document.querySelector('#modalText'),
   isScratching: false,
-  canvasPos: {},
 
   // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
   closeModal: () => {
@@ -27,13 +26,6 @@ const app = {
     })
   },
 
-
-  // Stores canvas' position on the page
-  //! currently not used
-  getCanvasPos: () => {
-    app.canvasPos = helper.getItemPosition(document.getElementById('canvas_01'));
-    console.log(app.canvasPos);
-  },
 
   // Checks if the randomly generated grid cell is already taken up by another element. Accepts an array that stores occupied cell id's, the element and the grid cell generated for it
   assignCells: (arr, element, cell) => {
@@ -133,7 +125,6 @@ const app = {
       if (app.checkTransparency(pixelsData, 50)) {
         helper.updateProperty(dataArr, i, 'isTransparent', true);
         item.classList.add('found-item');
-        console.log(item.id, 'transparent')
       };
     }
   },
@@ -153,6 +144,8 @@ const app = {
   // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
   moveItemToInventory: (item, dataArr, i) => {
     app.inventory.appendChild(item);
+    item.classList.remove('found-item', 'faded-out');
+    item.classList.add('in-inventory');
     helper.updateProperty(dataArr, i, 'inInventory', true);
 
     // workaround for the hardcoded grid positions (for now) 
@@ -160,46 +153,57 @@ const app = {
     item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
     // 
 
-    item.classList.remove('found-item');
-    item.classList.add('in-inventory');
     // add event listener that opens the image in modal window
     item.addEventListener('click', () => {
       app.modal.classList.add('open');
       app.modalImg.src = dataArr[i].src;
       app.modalText.textContent = dataArr[i].copy;
-      
     })
   },
 
 
-  // Detects if the user clicked on an interactive item
+  // Returns true if the user clicked on an interactive item
   detectHitArea: (item, dataArr, ctx, canvas,  e) => {
     const id = item.id;
     const itemPos = helper.findPropertyValue(dataArr, id, 'digSitePosition');
-    const i = helper.findObjectsIndex(dataArr, 'id', id);
+    // const i = helper.findObjectsIndex(dataArr, 'id', id);
     const rect = app.createHitArea(itemPos, ctx, canvas);
     const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
 
     // if the item is found (isTransparent = true) and is clicked on (isPointInPath returns true), it's moved to the inventory
     if (isTransparent && ctx.isPointInPath(rect, e.offsetX, e.offsetY)) {
-      app.moveItemToInventory(item, dataArr, i);
+      return true;
     }
   },
 
 
   // Removes the current layer if all objects on it have been found
   handleLayerClick: (item, dataArr, ctx, canvas, e) => {
-    app.detectHitArea(item, dataArr, ctx, canvas, e);
+    const i = helper.findObjectsIndex(dataArr, 'id', item.id);
 
-    // when all images are found, remove canvas' container
-    if (helper.foundAllItems(dataArr) && canvas.parentNode) {
-      canvas.parentElement.remove();
-    };
+    if ( app.detectHitArea(item, dataArr, ctx, canvas, e)) {
+      item.classList.add('faded-out');
+      item.addEventListener('transitionend', () => {
+        app.moveItemToInventory(item, dataArr, i);
+  
+        // when all images are found, remove canvas' container
+        if (helper.foundAllItems(dataArr) && canvas.parentNode) {
+          canvas.classList.add('faded-out')
+          canvas.addEventListener('transitionend', ()=> {
+    
+            canvas.parentElement.remove();
+          })
+        };
+      })
+    }
+    
+
   },
 
 
   // Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
   layerSetup: (scene, layerNum) => {
+
     const layerData = data[`scene_${scene}`].layers[`layer${layerNum}`];
 
     //* Canvas setup -----
