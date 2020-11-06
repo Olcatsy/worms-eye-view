@@ -144,8 +144,8 @@ const app = {
   // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
   moveItemToInventory: (item, dataArr, i) => {
     app.inventory.appendChild(item);
-    item.classList.add('in-inventory');
     item.classList.remove('found-item', 'faded-out');
+    item.classList.add('in-inventory');
     helper.updateProperty(dataArr, i, 'inInventory', true);
 
     // workaround for the hardcoded grid positions (for now) 
