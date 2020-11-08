@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* Variables */
+:root {
+  --hover-effect: drop-shadow(2px 2px 2px olivedrab);
+}
+
+
+
 html {
     font-size: 62.5%; /* 10px */
 }
@@ -8,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  background-image: url(../assets/VG_background_A.jpg);
+  background-image: url(../assets/background_A.jpg);
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -143,7 +150,7 @@ button {
 
 .item:hover {
   transform: scale(1.1);
-  filter: drop-shadow(2px 2px 2px olivedrab);
+  filter: var(--hover-effect);
   z-index: 21;
 }
 
@@ -227,3 +234,28 @@ button {
   transform: scale(1.1);
 }
 /* END OF MODAL */
+
+/* REALM BUTTONS */
+.realm-buttons-outer {
+  /* temporary, until I figure out the grid */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.realm-buttons-inner {
+  display: flex;
+  justify-content: center;
+  background: url(../assets/realm-buttons-bg.png);
+  background-repeat: no-repeat;
+}
+
+.realm-button {
+  background: none;
+  width: 100px; 
+}
+  .realm-button:hover,
+  .realm-button:focus {
+    filter: drop-shadow(3px 3px 3px yellow)
+  }
+/* END OF REALM BUTTONS */

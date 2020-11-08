@@ -14,6 +14,7 @@
   <main class="container">
     <div class="dig-site">
 
+      <!-- SCENE A -->
       <div id="scene_a" class="scene_a" >
 
         <div id="layer_a_01" class="layer">
@@ -31,7 +32,9 @@
           <div class="objects objects_03"></div>
         </div>
       </div>
+      <!-- END OF SCENE A -->
 
+      <!-- SCENE B -->
       <div id="scene_b" class="scene_b">
         <div id="layer_b_01" class="layer">
           <canvas id="canvas_b_01" class="canvas canvas_01">Your browser does not support HTML Canvas</canvas>
@@ -48,14 +51,18 @@
           <div class="objects objects_03"></div>
         </div>
       </div>
+      <!-- END OF SCENE B -->
+
+      <!-- SCENE C -->
       <div id="scene_c" class="scene_c"></div>
-      
+      <!-- END OF SCENE C -->
     </div>
+    <!-- END OF DIGSITE -->
   
     <div id="inventory" class="inventory">
       <h2>Inventory</h2>
     </div>
-
+    <!-- MODAL -->
     <div id="modal" class="modal">
       <div class="modal-content">
         <img id="modalImg"  class="modal-img " src="./assets/object_a_01.png" alt="">
@@ -66,6 +73,27 @@
         <img aria-hidden src="./assets/close.svg" />
       </button>
     </div>
+    <!-- END OF MODAL -->
+
+    <!-- REALM SWITCHING BUTTONS -->
+    <div class="realm-buttons-outer">
+      <h2>Choose your realm: </h2>
+      <div class="realm-buttons-inner">
+        <button class="realm-button" title="Realm One" data-scene="a">
+          <img src="./assets/cursors/cursor_a.png" alt="" aria-hidden>
+          <span class="sr-only">Human-environment system</span>
+        </button>
+        <button class="realm-button" title="Realm Two" data-scene="b">
+          <img src="./assets/cursors/cursor_b.png" alt="" aria-hidden>
+          <span class="sr-only">Human-made System</span>
+        </button>
+        <button class="realm-button" title="Realm Three" data-scene="c">
+          <img src="./assets/cursors/cursor_c.png" alt="" aria-hidden>
+          <span class="sr-only">Wild System</span>
+        </button>
+      </div>
+    </div>
+    <!-- END OF REALM SWITCHING BUTTONS -->
   </main>
 
 
