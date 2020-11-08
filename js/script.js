@@ -30,7 +30,7 @@ const app = {
   },
 
 
-  // Checks if the randomly generated grid cell is already taken up by another element. Accepts an array that stores occupied cell id's, the element and the grid cell generated for it
+  // Checks if the randomly generated grid cell is already taken up by another element. Accepts an array that stores occupied cells id's, the element and the grid cell generated for it. If the grid cell is unoccupied, the element is assigned to it using CSS property 'grid-area'
   assignCells: (arr, element, cell) => {
     if (arr.includes(cell)) {
       cell = `c${helper.getRandomInt(1, 16)}`;
@@ -68,14 +68,15 @@ const app = {
   },
 
   // Calls addItems on a layer data object to set all items at once
-  addAllItems: () => {
-    for (const layer in data.scene_a.layers) {
-      app.addItem('a', data.scene_a.layers[layer].layerNum);
+  //! rewrite to allow more scenes
+  addAllItems: (scene) => {
+    for (const layer in data[`scene_${scene}`].layers) {
+      app.addItem(scene, data[`scene_${scene}`].layers[layer].layerNum);
     }
     return;
   },
 
-  // Find all items, calculate their respective positions on the dig site and store that in the data object
+  // Finds all items, calculate the positions of their children 'img' elements on the dig site and stores that in the data object
   saveAllItemPositions: () => {
     const itemsArr = helper.getElemsFromSelector('.item'); // the array of elements that represent the interactive items
 
@@ -115,7 +116,7 @@ const app = {
   },
 
 
-  // As the user is scratching this function continuously checks if the area above an interactive item is fully scratched off
+  // As the user is scratching, this function continuously checks if the area above an interactive item is fully scratched off
   scratchItem: (ctx, item, dataArr, canvas) => {
     const itemPos = helper.findPropertyValue(dataArr, item.id, 'digSitePosition');
     const canvasPos = canvas.getBoundingClientRect();
@@ -175,14 +176,13 @@ const app = {
     const rect = app.createHitArea(itemPos, ctx, canvas);
     const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
 
-    // if the item is found (isTransparent = true) and is clicked on (isPointInPath returns true), it's moved to the inventory
     if (isTransparent && ctx.isPointInPath(rect, e.offsetX, e.offsetY)) {
       return true;
     }
   },
 
 
-  // Removes the current layer if all objects on it have been found
+  // Moves found items to the inventory when the user clicks on them and removes the current layer if all objects on it have been found
   handleLayerClick: (item, dataArr, ctx, canvas, e) => {
     const i = helper.findObjectsIndex(dataArr, 'id', item.id);
 
@@ -209,8 +209,6 @@ const app = {
   // Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
   layerSetup: (scene, layerNum) => {
 
-    // const layerData = data[`scene_${scene}`].layers[`layer${layerNum}`];
-
     //* Canvas setup -----
     const canvas = document.getElementById(`canvas_${scene}_${layerNum}`);
     const ctx = canvas.getContext('2d');
@@ -225,10 +223,6 @@ const app = {
     img.src = `./assets/overlays/layer_${scene}_${layerNum}.jpg`
 
     // set up the brush and load drawing functions 
-    ctx.strokeStyle = 'white';
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
-    ctx.lineWidth = 60;
     drawing(canvas, ctx, scene);
     //*------------------------------
 
@@ -259,9 +253,9 @@ const app = {
 
 
   // Calls layerSetup on a layer data object to set all layers at once
-  setUpAllLayers: () => {
-    for (const layer in data.scene_a.layers) {
-      app.layerSetup('a', data.scene_a.layers[layer].layerNum);
+  setUpAllLayers: (scene) => {
+    for (const layer in data[`scene_${scene}`].layers) {
+      app.layerSetup(scene, data[`scene_${scene}`].layers[layer].layerNum);
     }
     return;
   },
@@ -272,7 +266,7 @@ const app = {
     
     app.closeModal();
 
-    app.addAllItems()
+    app.addAllItems('a')
     
     setTimeout(() => {
       app.saveAllItemPositions();
@@ -280,7 +274,7 @@ const app = {
 
     
     setTimeout(() => {
-      app.setUpAllLayers();
+      app.setUpAllLayers('a');
     }, 700)
   },
 }
