@@ -68,7 +68,6 @@ const app = {
   },
 
   // Calls addItems on a layer data object to set all items at once
-  //! rewrite to allow more scenes
   addAllItems: (scene) => {
     for (const layer in data[`scene_${scene}`].layers) {
       app.addItem(scene, data[`scene_${scene}`].layers[layer].layerNum);
