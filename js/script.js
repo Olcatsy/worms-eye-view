@@ -12,12 +12,15 @@ const app = {
   // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
   closeModal: () => {
     const closeButton = document.querySelector('#modalClose');
+    // clicking on Close button
     closeButton.addEventListener('click', () => {
       app.modal.classList.remove('open');
     });
+    // clicking anywhere on the modal
     app.modal.addEventListener('click', () => {
       app.modal.classList.remove('open');
     });
+    // pressing ESC
     document.addEventListener('keyup', (e) => {
       if (app.modal.classList.contains('open') && e.code === 'Escape') {
         app.modal.classList.remove('open');
@@ -39,20 +42,22 @@ const app = {
     }
   },
 
+
   // Create an interactive object from data and add it to the page
   addItem: (scene, layerNum) => {
-    const container = document.querySelector(`#layer_${layerNum}  .objects-container`);
+    const container = document.querySelector(`#layer_${scene}_${layerNum}  .objects`);
     const itemsArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items;
 
     //keeps track of which grid cells have an item placed in them on each layer
     let cellsTaken = [];
     
+    // creates an element, adds necessary attributes, appends it to the DOM and assigns it a random cell on the objects container grid
     itemsArr.map((item) => {
       const el = document.createElement('div');
       el.innerHTML = `<img src="${item.src}" alt="${item.alt}">`
       el.setAttribute('class', 'item');
       el.setAttribute('id', `${item.id}`);
-      el.setAttribute('data-scene', `a`);
+      el.setAttribute('data-scene', `${scene}`);
       el.setAttribute('data-layer', `${layerNum}`);
       container.appendChild(el);
 
@@ -204,10 +209,10 @@ const app = {
   // Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
   layerSetup: (scene, layerNum) => {
 
-    const layerData = data[`scene_${scene}`].layers[`layer${layerNum}`];
+    // const layerData = data[`scene_${scene}`].layers[`layer${layerNum}`];
 
     //* Canvas setup -----
-    const canvas = document.getElementById(`canvas_${layerNum}`);
+    const canvas = document.getElementById(`canvas_${scene}_${layerNum}`);
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth - 500;
     canvas.height = window.innerHeight - 200;

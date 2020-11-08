@@ -83,15 +83,15 @@ button {
 
 }
 
-#canvas_01 {
+.canvas_01 {
   z-index: 10;
 }
 
-#canvas_02 {
+.canvas_02 {
   z-index: 8;
 }
 
-#canvas_03 {
+.canvas_03 {
   z-index: 6;
 }
 /* END OF CANVASES */
@@ -99,8 +99,7 @@ button {
 
 
 /* OBJECTS */
-.objects-container {
-  /* background: black; */
+.objects {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -118,15 +117,15 @@ button {
   "c13 c14 c15 c16"
 }
 
-#layer_01 .objects-container {
+.objects_01 {
   z-index: 9;
 }
 
-#layer_02 .objects-container {
+.objects_02 {
   z-index: 7;
 }
 
-#layer_03 .objects-container {
+.objects_03 {
   z-index: 5;
 }
 

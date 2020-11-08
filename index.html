@@ -11,21 +11,21 @@
 
 
 <body>
-  <div class="container">
+  <main class="container">
     <div class="dig-site">
-      <div id="layer_01" class="layer">
-        <canvas id="canvas_01"  class="canvas">Your browser does not support HTML Canvas</canvas>
-        <div class="objects-container"></div>
+      <div id="layer_a_01" class="layer">
+        <canvas id="canvas_a_01"  class="canvas canvas_01">Your browser does not support HTML Canvas</canvas>
+        <div class="objects objects_01"></div>
       </div>
   
-      <div id="layer_02"  class="layer">
-        <canvas id="canvas_02" class="canvas" >Your browser does not support HTML Canvas</canvas>
-        <div class="objects-container"></div>
+      <div id="layer_a_02"  class="layer">
+        <canvas id="canvas_a_02" class="canvas canvas_02" >Your browser does not support HTML Canvas</canvas>
+        <div class="objects objects_02"></div>
       </div>
       
-      <div id="layer_03"  class="layer">
-        <canvas id="canvas_03" class="canvas">Your browser does not support HTML Canvas</canvas>
-        <div class="objects-container"></div>
+      <div id="layer_a_03"  class="layer">
+        <canvas id="canvas_a_03" class="canvas canvas_03">Your browser does not support HTML Canvas</canvas>
+        <div class="objects objects_03"></div>
       </div>
       
     </div>
@@ -33,18 +33,19 @@
     <div id="inventory" class="inventory">
       <h2>Inventory</h2>
     </div>
-  </div>
 
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <img id="modalImg"  class="modal-img " src="./assets/object_a_01.png" alt="">
-      <p id="modalText" class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, neque!</p>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <img id="modalImg"  class="modal-img " src="./assets/object_a_01.png" alt="">
+        <p id="modalText" class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, neque!</p>
+      </div>
+      <button id="modalClose" class="modal-close">
+        <span class="sr-only">Close</span>
+        <img aria-hidden src="./assets/close.svg" />
+      </button>
     </div>
-    <button id="modalClose" class="modal-close">
-      <span class="sr-only">Close</span>
-      <img aria-hidden src="./assets/close.svg" />
-    </button>
-  </div>
+  </main>
+
 
 
   <script type="module" src="./js/script.js"></script>
