@@ -67,6 +67,7 @@ const app = {
     })
   },
 
+
   // Calls addItems on a layer data object to set all items at once
   addAllItems: (scene) => {
     for (const layer in data[`scene_${scene}`].layers) {
@@ -74,6 +75,7 @@ const app = {
     }
     return;
   },
+
 
   // Finds all items, calculate the positions of their children 'img' elements on the dig site and stores that in the data object
   saveAllItemPositions: () => {
@@ -92,6 +94,7 @@ const app = {
     })
     return;
   },
+
 
   // Checks transparency in a defined area. Returns true if a threshold percentage of the pixels are transparent, otherwise returns false
   checkTransparency: (pixelData, threshold)  => {
@@ -207,7 +210,6 @@ const app = {
 
   // Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
   layerSetup: (scene, layerNum) => {
-
     //* Canvas setup -----
     const canvas = document.getElementById(`canvas_${scene}_${layerNum}`);
     const ctx = canvas.getContext('2d');
@@ -228,6 +230,7 @@ const app = {
 
     // find all items on the layer
     const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_${layerNum}_"]`);
+    console.log(itemsArr);
     // find the corresponding dataset that stores data for these items
     const dataArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items;
     
@@ -260,12 +263,26 @@ const app = {
   },
 
 
+  // Sets up all scenes
+  setUpAllScenes: () => {
+    for (const scene in data) {
+      const letter = data[scene].letter;
+      app.addAllItems(letter);
+
+      
+    }
+  },
+
+
   // INIT
   init: () => {
-    
+    // app.setUpAllScenes();
     app.closeModal();
 
-    app.addAllItems('a')
+    for (const scene in data) {
+      const letter = data[scene].letter;
+      app.addAllItems(letter);
+    }
     
     setTimeout(() => {
       app.saveAllItemPositions();
@@ -273,7 +290,10 @@ const app = {
 
     
     setTimeout(() => {
-      app.setUpAllLayers('a');
+      for (const scene in data) {
+        const letter = data[scene].letter;
+        app.setUpAllLayers(letter);
+      }
     }, 700)
   },
 }

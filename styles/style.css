@@ -59,7 +59,9 @@ button {
 }
 /* END OF STRIPPING STYLES */
 
-
+.scene_a {
+  display: none;
+}
 
 /* CANVASES */
 .canvas {
@@ -88,6 +90,7 @@ button {
 
 .scene_a .canvas {
   cursor : url('../assets/cursors/cursor_a.png'), auto;
+
 }
 
 .scene_b .canvas {

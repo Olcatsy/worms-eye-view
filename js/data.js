@@ -1,5 +1,6 @@
 const data = {
   scene_a: {
+    letter: 'a',
     layers: {
       layer01: {
         layerNum: '01',
@@ -82,6 +83,7 @@ const data = {
     },
   },
   scene_b: {
+    letter: 'b',
     layers: {
       layer01: {
         layerNum: '01',
@@ -90,7 +92,7 @@ const data = {
           {
             alt: "a greyish brown worm",
             digSitePosition: {},
-            id: "item_a_01_01",
+            id: "item_b_01_01",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_01.png',
@@ -100,7 +102,7 @@ const data = {
           {
             alt: "a rotten eggplant",
             digSitePosition: {},
-            id: "item_a_01_02",
+            id: "item_b_01_02",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_03.png',
@@ -116,7 +118,7 @@ const data = {
           {
             alt: "a wilted brown leaf",
             digSitePosition: {},
-            id: "item_a_02_01",
+            id: "item_b_02_01",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_02.png',
@@ -126,7 +128,7 @@ const data = {
           {
             alt: "a burning $1000000 Hell Bank Note",
             digSitePosition: {},
-            id: "item_a_02_02",
+            id: "item_b_02_02",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_05.gif',
@@ -142,7 +144,7 @@ const data = {
           {
             alt: "a butterfly emerging from a cocoon",
             digSitePosition: {},
-            id: "item_a_03_01",
+            id: "item_b_03_01",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_04.gif',
@@ -152,7 +154,7 @@ const data = {
           {
             alt: "an broken smartphone with flickering screen",
             digSitePosition: {},
-            id: "item_a_03_02",
+            id: "item_b_03_02",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_a_06.gif',
