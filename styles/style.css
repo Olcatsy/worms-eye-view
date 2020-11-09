@@ -64,7 +64,15 @@ button {
     border: none;
     cursor: pointer;
 }
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
 /* END OF STRIPPING STYLES */
+
+
 
 .scene_a {
   display: none;
@@ -235,6 +243,7 @@ button {
 }
 /* END OF MODAL */
 
+
 /* REALM BUTTONS */
 .realm-buttons-outer {
   /* temporary, until I figure out the grid */
@@ -251,11 +260,11 @@ button {
 }
 
 .realm-button {
-  background: none;
-  width: 100px; 
+  opacity: 0;
 }
-  .realm-button:hover,
-  .realm-button:focus {
+  .realm-button:hover + img,
+  .realm-button:focus + img,
+  .realm-button:checked + img {
     filter: drop-shadow(3px 3px 3px yellow)
   }
 /* END OF REALM BUTTONS */

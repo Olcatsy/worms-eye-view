@@ -76,23 +76,34 @@
     <!-- END OF MODAL -->
 
     <!-- REALM SWITCHING BUTTONS -->
-    <div class="realm-buttons-outer">
+    <form class="realm-buttons-outer">
       <h2>Choose your realm: </h2>
-      <div class="realm-buttons-inner">
-        <button class="realm-button" title="Realm One" data-scene="a">
-          <img src="./assets/cursors/cursor_a.png" alt="" aria-hidden>
-          <span class="sr-only">Human-environment system</span>
-        </button>
-        <button class="realm-button" title="Realm Two" data-scene="b">
-          <img src="./assets/cursors/cursor_b.png" alt="" aria-hidden>
-          <span class="sr-only">Human-made System</span>
-        </button>
-        <button class="realm-button" title="Realm Three" data-scene="c">
-          <img src="./assets/cursors/cursor_c.png" alt="" aria-hidden>
-          <span class="sr-only">Wild System</span>
-        </button>
-      </div>
-    </div>
+      <fieldset >
+        <ul class="realm-buttons-inner">
+          <li>
+            <label for="human-environment">
+              <input type="radio" id="human-environment" class="realm-button" name="realm" value="scene_a" checked>
+              <img src="./assets/cursors/cursor_a.png" alt="" aria-hidden>
+              <span class="sr-only">Human-environment system</span>
+            </label>
+          </li>
+          <li>
+            <label for="human-made">
+              <input type="radio" id="human-made" class="realm-button" name="realm" value="scene_b">
+              <img src="./assets/cursors/cursor_b.png" alt="" aria-hidden>
+              <span class="sr-only">Human-made system</span>
+            </label>
+          </li>
+          <li>
+            <label for="wild">
+              <input type="radio" id="wild" class="realm-button" name="realm" value="scene_c">
+              <img src="./assets/cursors/cursor_c.png" alt="" aria-hidden>
+              <span class="sr-only">Wild System</span>
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
     <!-- END OF REALM SWITCHING BUTTONS -->
   </main>
 
