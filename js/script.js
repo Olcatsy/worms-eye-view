@@ -7,6 +7,7 @@ const app = {
   modal: document.querySelector('#modal'),
   modalImg: document.querySelector('#modalImg'),
   modalText: document.querySelector('#modalText'),
+  realmButtons: document.querySelectorAll('.realm-button'),
   isScratching: false,
 
   // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
@@ -230,7 +231,6 @@ const app = {
 
     // find all items on the layer
     const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_${layerNum}_"]`);
-    console.log(itemsArr);
     // find the corresponding dataset that stores data for these items
     const dataArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items;
     
@@ -268,9 +268,18 @@ const app = {
     for (const scene in data) {
       const letter = data[scene].letter;
       app.addAllItems(letter);
-
-      
     }
+  },
+
+  switchScene: () => {
+    app.realmButtons.forEach(button => {
+      button.addEventListener('change', () => {
+        const currentScene = document.querySelector('.current-scene')
+        const nextScene = document.querySelector(`#${button.value}`);
+        currentScene.classList.remove('current-scene');
+        nextScene.classList.add('current-scene');
+      })
+    })
   },
 
 
@@ -295,6 +304,8 @@ const app = {
         app.setUpAllLayers(letter);
       }
     }, 700)
+
+    app.switchScene();
   },
 }
 

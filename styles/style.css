@@ -3,6 +3,7 @@
 /* Variables */
 :root {
   --hover-effect: drop-shadow(2px 2px 2px olivedrab);
+  --shadow: drop-shadow(4px 4px 4px rgb(22, 22, 22));
 }
 
 
@@ -74,10 +75,6 @@ fieldset {
 
 
 
-.scene_a {
-  display: none;
-}
-
 /* CANVASES */
 .canvas {
   position: absolute;
@@ -103,9 +100,12 @@ fieldset {
   z-index: 6;
 }
 
+.scene {
+  transition: visibility 0.4s;
+}
+
 .scene_a .canvas {
   cursor : url('../assets/cursors/cursor_a.png'), auto;
-
 }
 
 .scene_b .canvas {
@@ -115,6 +115,18 @@ fieldset {
 .scene_c .canvas {
    cursor : url('../assets/cursors/cursor_c.png') 50 80, auto;
 }
+
+.current-scene {
+  visibility: visible;
+  transition: visibility 0.4s;
+}
+
+/* hides the other two scenes */
+.scene:not(.current-scene) {
+  visibility: hidden;
+  transition: visibility 0.4s;
+}
+
 /* END OF CANVASES */
 
 
@@ -151,7 +163,7 @@ fieldset {
 }
 
 .item {
-  filter: drop-shadow(4px 4px 4px black);
+  filter: var(--shadow);
   justify-self: center;
   transition: opacity 0.5s;
 }
@@ -175,7 +187,7 @@ fieldset {
 .in-inventory {
   opacity: 1;
   filter: none;
-  filter: drop-shadow(2px 2px 3px black);
+  filter: var(--shadow);
 }
 /* END OF OBJECTS */
 
@@ -250,21 +262,30 @@ fieldset {
   position: absolute;
   bottom: 0;
   right: 0;
+
+  background: url(../assets/realm-buttons-bg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom right;
+  width: 390px;
+  text-align: center;
 }
 
 .realm-buttons-inner {
   display: flex;
   justify-content: center;
-  background: url(../assets/realm-buttons-bg.png);
-  background-repeat: no-repeat;
+  filter: var(--shadow);
 }
 
 .realm-button {
   opacity: 0;
 }
+.realm-button + img {
+  width: 80px;
+}
   .realm-button:hover + img,
   .realm-button:focus + img,
   .realm-button:checked + img {
-    filter: drop-shadow(3px 3px 3px yellow)
+    filter: drop-shadow(4px 4px 4px yellow) var(--shadow);
   }
 /* END OF REALM BUTTONS */
