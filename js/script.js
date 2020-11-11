@@ -271,6 +271,7 @@ const app = {
     }
   },
 
+  
   switchScene: () => {
     app.realmButtons.forEach(button => {
       button.addEventListener('change', () => {

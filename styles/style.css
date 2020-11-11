@@ -100,10 +100,6 @@ fieldset {
   z-index: 6;
 }
 
-.scene {
-  transition: visibility 0.4s;
-}
-
 .scene_a .canvas {
   cursor : url('../assets/cursors/cursor_a.png'), auto;
 }
@@ -117,14 +113,14 @@ fieldset {
 }
 
 .current-scene {
-  visibility: visible;
-  transition: visibility 0.4s;
+  opacity: 1;
+  transition: opacity 1s;
 }
 
 /* hides the other two scenes */
 .scene:not(.current-scene) {
-  visibility: hidden;
-  transition: visibility 0.4s;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 /* END OF CANVASES */
