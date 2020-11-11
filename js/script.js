@@ -271,7 +271,8 @@ const app = {
     }
   },
 
-  
+
+  // switches scenes when user clicks on a radio button in "Choose your realm" section
   switchScene: () => {
     app.realmButtons.forEach(button => {
       button.addEventListener('change', () => {

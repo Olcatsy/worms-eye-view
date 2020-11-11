@@ -37,7 +37,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "A book with yellowing pages and a tattered grey cover with brown-green stains.It has 'Diary' written on it. The title is upside down",
+            alt: "A book with yellowing pages and a tattered grey cover with brown-green stains.It has 'Diary' written on it. The book is upside down",
             digSitePosition: {},
             id: "item_a_01_04",
             inInventory: false,
@@ -57,7 +57,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "A bright lime green microchip with golden connectors and a black processor unit shimmering with silver energy",
+            alt: "A bright lime green microchip with golden connectors. In the middle there's a black processor unit that's shimmering with silver energy",
             digSitePosition: {},
             id: "item_a_01_06",
             inInventory: false,
@@ -67,7 +67,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "a pack of margarine in a white wrapper, melting and seeping through the paper",
+            alt: "A pack of margarine in a white wrapper, melting and seeping through the paper",
             digSitePosition: {},
             id: "item_a_01_07",
             inInventory: false,
@@ -92,52 +92,14 @@ const data = {
         layerNum: '02',
         allItemsFound: false,
         interactive_items: [
-          {
-            alt: "a wilted brown leaf",
-            digSitePosition: {},
-            id: "item_a_02_01",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_a_02.png',
-            copy: "A wilted brown leaf",
-            // inventory_position: str (related to a grid?)
-          },
-          {
-            alt: "a burning $1000000 Hell Bank Note",
-            digSitePosition: {},
-            id: "item_a_02_02",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_a_05.gif',
-            copy: "a burning $1000000 Hell Bank Note",
-            // inventory_position: str (related to a grid?)
-          },
+          
         ]
       },
       layer03: {
         layerNum: '03',
         allItemsFound: false,
         interactive_items: [
-          {
-            alt: "a butterfly emerging from a cocoon",
-            digSitePosition: {},
-            id: "item_a_03_01",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_a_04.gif',
-            copy: "a butterfly emerging from a cocoon",
-            // inventory_position: str (related to a grid?)
-          },
-          {
-            alt: "an broken smartphone with flickering screen",
-            digSitePosition: {},
-            id: "item_a_03_02",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_a_06.gif',
-            copy: "an broken smartphone with flickering screen",
-            // inventory_position: str (related to a grid?)
-          },
+          
         ]
       },
     },
@@ -150,7 +112,7 @@ const data = {
         allItemsFound: false,
         interactive_items: [
           {
-            alt: "A bunch of seven bananas, their color is shifting between yellow and green",
+            alt: "Seven bananas in a bunch, their color is shifting between yellow and green",
             digSitePosition: {},
             id: "item_b_01_01",
             inInventory: false,
@@ -160,7 +122,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "a burning $1000000 Hell Bank Note (joss paper) with the portrait of the Jade Emperor surrounded by rice plants depicted in the middle",
+            alt: "A burning $1000000 Hell Bank Note (joss paper) with the portrait of the Jade Emperor surrounded by rice plants depicted in the middle",
             digSitePosition: {},
             id: "item_b_01_02",
             inInventory: false,
@@ -180,7 +142,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "A yellow Asian pear wrapped in white mesh",
+            alt: "A yellow Asian pear speckled with brown, wrapped in white mesh",
             digSitePosition: {},
             id: "item_b_01_04",
             inInventory: false,
@@ -190,7 +152,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "Two bananas are lying next to each other, their color shifting from green to yellow to red",
+            alt: "Two bananas are lying next to each other, their color is shifting from green to yellow to red",
             digSitePosition: {},
             id: "item_b_01_05",
             inInventory: false,
@@ -210,7 +172,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "A chunk of concrete with pale blue glaze on one side",
+            alt: "A smooth chunk of concrete with pale blue glaze on one side",
             digSitePosition: {},
             id: "item_b_01_07",
             inInventory: false,
@@ -220,7 +182,7 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "A cream colored rock speckled with blue and brown. The rock still retains a bit of pale blue glaze.",
+            alt: "A smooth cream colored rock speckled with blue and brown. The rock still retains a bit of pale blue glaze.",
             digSitePosition: {},
             id: "item_b_01_08",
             inInventory: false,
@@ -249,58 +211,50 @@ const data = {
             copy: "Two plant sprouts with small green leaves and their root system attached",
             // inventory_position: str (related to a grid?)
           },
+          {
+            alt: "A rotting purple Chinese eggplant",
+            digSitePosition: {},
+            id: "item_b_01_11",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/object_b_11.gif',
+            copy: "A rotting purple Chinese eggplant",
+            // inventory_position: str (related to a grid?)
+          },
+          {
+            alt: "A long grey-brown centipede, wiggling all of its appendages",
+            digSitePosition: {},
+            id: "item_b_01_12",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/object_b_12.gif',
+            copy: "A long grey-brown centipede, wiggling all of its appendages",
+            // inventory_position: str (related to a grid?)
+          },
+          {
+            alt: "A wilted brown leaf with signs of rotting. The color shifts between grey, green, orange and red",
+            digSitePosition: {},
+            id: "item_b_01_13",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/object_b_13.gif',
+            copy: "A wilted brown leaf with signs of rotting. The color shifts between grey, green, orange and red",
+            // inventory_position: str (related to a grid?)
+          },
         ]
       },
       layer02: {
         layerNum: '02',
         allItemsFound: false,
         interactive_items: [
-          {
-            alt: "a wilted brown leaf",
-            digSitePosition: {},
-            id: "item_b_02_01",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_a_02.png',
-            copy: "A wilted brown leaf",
-            // inventory_position: str (related to a grid?)
-          },
-          {
-            alt: "a burning $1000000 Hell Bank Note",
-            digSitePosition: {},
-            id: "item_b_02_02",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_a_05.gif',
-            copy: "a burning $1000000 Hell Bank Note",
-            // inventory_position: str (related to a grid?)
-          },
+          
         ]
       },
       layer03: {
         layerNum: '03',
         allItemsFound: false,
         interactive_items: [
-          {
-            alt: "a butterfly emerging from a cocoon",
-            digSitePosition: {},
-            id: "item_b_03_01",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_a_04.gif',
-            copy: "a butterfly emerging from a cocoon",
-            // inventory_position: str (related to a grid?)
-          },
-          {
-            alt: "an broken smartphone with flickering screen",
-            digSitePosition: {},
-            id: "item_b_03_02",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_a_06.gif',
-            copy: "an broken smartphone with flickering screen",
-            // inventory_position: str (related to a grid?)
-          },
+
         ]
       },
     },
@@ -323,213 +277,203 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "A wilted brown leaf with signs of rotting",
-            digSitePosition: {},
-            id: "item_c_01_02",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_c_02.png',
-            copy: "A wilted brown leaf with signs of rotting",
-            // inventory_position: str (related to a grid?)
-          },
-          {
             alt: "A bunch of white insect eggs on circular yellow background, some dark brown larvae are hatching from these eggs",
             digSitePosition: {},
             id: "item_c_01_02",
             inInventory: false,
             isTransparent: false,
             src: './assets/object_c_02.png',
-            copy: "A bunch of white insect eggs on circular yellow background, some dark brown larvae are hatching from these eggs",
-            // inventory_position: str (related to a grid?)
-          },
-          {
-            alt: "A bunch of white insect eggs on circular yellow background, some dark brown larvae are hatching from these eggs",
-            digSitePosition: {},
-            id: "item_c_01_03",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_c_03.png',
             copy: "A bunch of white insect eggs on circular yellow background, some dark brown larvae are hatching from these eggs",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A segmented orange caterpillar",
             digSitePosition: {},
-            id: "item_c_01_04",
+            id: "item_c_01_03",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_04.png',
+            src: './assets/object_c_03.png',
             copy: "A segmented orange caterpillar",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A segmented white caterpillar",
             digSitePosition: {},
-            id: "item_c_01_05",
+            id: "item_c_01_04",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_05.png',
+            src: './assets/object_c_04.png',
             copy: "A segmented white caterpillar",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A green grasshopper with folded legs laying on the side",
             digSitePosition: {},
-            id: "item_c_01_06",
+            id: "item_c_01_05",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_06.png',
+            src: './assets/object_c_05.png',
             copy: "A green grasshopper with folded legs laying on the side",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A brown insect chrysalis",
             digSitePosition: {},
-            id: "item_c_01_07",
+            id: "item_c_01_06",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_07.png',
+            src: './assets/object_c_06.png',
             copy: "A brown insect chrysalis",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "An outside view of a caterpillar's nest, formed around dried brown blades of grass",
             digSitePosition: {},
-            id: "item_c_01_08",
+            id: "item_c_01_07",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_08.png',
+            src: './assets/object_c_07.png',
             copy: "An outside view of a caterpillar's nest, formed around dried brown blades of grass",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "An inside view of a caterpillar's nest, formed around dried brown blades of grass. A white caterpillar is folded inside",
             digSitePosition: {},
-            id: "item_c_01_09",
+            id: "item_c_01_08",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_09.png',
+            src: './assets/object_c_08.png',
             copy: "An inside view of a caterpillar's nest, formed around dried brown blades of grass. A white caterpillar is folded inside",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "An inside view of a caterpillar's nest, formed around dried brown blades of grass. A white caterpillar is inside",
             digSitePosition: {},
-            id: "item_c_01_10",
+            id: "item_c_01_09",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_10.png',
+            src: './assets/object_c_09.png',
             copy: "An inside view of a caterpillar's nest, formed around dried brown blades of grass. A white caterpillar is inside",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A set of four green insect eggs. The two on the left are elongated, and the other two are round",
             digSitePosition: {},
-            id: "item_c_01_11",
+            id: "item_c_01_10",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_11.gif',
+            src: './assets/object_c_10.gif',
             copy: "A set of four green insect eggs. The two on the left are elongated, and the other two are round",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A long green grass blade forming two loops",
             digSitePosition: {},
-            id: "item_c_01_12",
+            id: "item_c_01_11",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_12.png',
+            src: './assets/object_c_11.png',
             copy: "A long green grass blade forming two loops",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A rounded green rock",
             digSitePosition: {},
-            id: "item_c_01_13",
+            id: "item_c_01_12",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_13.png',
+            src: './assets/object_c_12.png',
             copy: "A rounded green rock",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A black beetle with long antennae",
             digSitePosition: {},
-            id: "item_c_01_14",
+            id: "item_c_01_13",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_14.png',
+            src: './assets/object_c_13.png',
             copy: "A black beetle with long antennae",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A close-up of a white larva",
             digSitePosition: {},
-            id: "item_c_01_15",
+            id: "item_c_01_14",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_15.png',
+            src: './assets/object_c_14.png',
             copy: "A close-up of a white larva",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "Three white larvae, two of the overlapping each other",
             digSitePosition: {},
-            id: "item_c_01_16",
+            id: "item_c_01_15",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_16.gif',
+            src: './assets/object_c_15.gif',
             copy: "Three white larvae, two of the overlapping each other",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "An irregularly shaped meteorite streaked with black, orange and red. At the core there is a flickering flame that can be peeked through holes.",
             digSitePosition: {},
-            id: "item_c_01_17",
+            id: "item_c_01_16",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_17.gif',
+            src: './assets/object_c_16.gif',
             copy: "An irregularly shaped meteorite streaked with black, orange and red. At the core there is a flickering flame that can be peeked through holes.",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A brown moth with a striped thorax. It's left wing is partially ripped off",
             digSitePosition: {},
-            id: "item_c_01_18",
+            id: "item_c_01_17",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_18.png',
+            src: './assets/object_c_17.png',
             copy: "A brown moth with a striped thorax. It's left wing is partially ripped off",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A beige moth with elongated thorax and dark dots on its wings",
             digSitePosition: {},
-            id: "item_c_01_19",
+            id: "item_c_01_18",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_19.png',
+            src: './assets/object_c_18.png',
             copy: "A beige moth with elongated thorax and dark dots on its wings",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A beige moth with short thorax and long antennae",
             digSitePosition: {},
-            id: "item_c_01_20",
+            id: "item_c_01_19",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_20.png',
+            src: './assets/object_c_19.png',
             copy: "A beige moth with short thorax and long antennae",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A grey moth with eyes and dark outlines on its wings. The top wings' tips are shimmering with green.",
             digSitePosition: {},
+            id: "item_c_01_20",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/object_c_20.gif',
+            copy: "A grey moth with eyes and dark outlines on its wings. The top wings' tips are shimmering with green.",
+            // inventory_position: str (related to a grid?)
+          },
+          {
+            alt: "A fat white moth",
+            digSitePosition: {},
             id: "item_c_01_21",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_21.gif',
-            copy: "A grey moth with eyes and dark outlines on its wings. The top wings' tips are shimmering with green.",
+            src: './assets/object_c_21.png',
+            copy: "A fat white moth",
             // inventory_position: str (related to a grid?)
           },
           {
@@ -543,72 +487,62 @@ const data = {
             // inventory_position: str (related to a grid?)
           },
           {
-            alt: "A fat white moth",
+            alt: "Two halves of an oval blue-green shell moving towards each other, then separating. The inside of the shell is pink",
             digSitePosition: {},
             id: "item_c_01_23",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_23.png',
-            copy: "A fat white moth",
-            // inventory_position: str (related to a grid?)
-          },
-          {
-            alt: "Two halves of an oval blue-green shell moving towards each other, then separating. The inside of the shell is pink",
-            digSitePosition: {},
-            id: "item_c_01_24",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_c_24.gif',
+            src: './assets/object_c_23.gif',
             copy: "Two halves of an oval blue-green shell moving towards each other, then separating. The inside of the shell is pink",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A crawling white slug with black horns, grey spots and black tail. ",
             digSitePosition: {},
-            id: "item_c_01_25",
+            id: "item_c_01_24",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_25.gif',
+            src: './assets/object_c_24.gif',
             copy: "A crawling white slug with black horns, grey spots and black tail.",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A light yellow rock with speckles of blue and brown ",
             digSitePosition: {},
-            id: "item_c_01_26",
+            id: "item_c_01_25",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_26.png',
+            src: './assets/object_c_25.png',
             copy: "A light yellow rock with speckles of blue and brown ",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A white butterfly with dark tips on its upper wings",
             digSitePosition: {},
-            id: "item_c_01_27",
+            id: "item_c_01_26",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_27.png',
+            src: './assets/object_c_26.png',
             copy: "A white butterfly with dark tips on its upper wings",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A white butterfly with dark tips and black dots on its upper wings",
             digSitePosition: {},
-            id: "item_c_01_28",
+            id: "item_c_01_27",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_28.png',
+            src: './assets/object_c_27.png',
             copy: "A white butterfly with dark tips and black dots on its upper wings",
             // inventory_position: str (related to a grid?)
           },
           {
             alt: "A green larva is pulsing as its eating grass",
             digSitePosition: {},
-            id: "item_c_01_29",
+            id: "item_c_01_28",
             inInventory: false,
             isTransparent: false,
-            src: './assets/object_c_29.gif',
+            src: './assets/object_c_28.gif',
             copy: "A green larva is pulsing as its eating grass",
             // inventory_position: str (related to a grid?)
           },
@@ -618,16 +552,7 @@ const data = {
         layerNum: '02',
         allItemsFound: false,
         interactive_items: [
-          {
-            alt: "A wilted brown leaf with signs of rotting",
-            digSitePosition: {},
-            id: "item_c_01_23",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/object_c_23.png',
-            copy: "A wilted brown leaf with signs of rotting",
-            // inventory_position: str (related to a grid?)
-          },
+
         ],
       },
     },
