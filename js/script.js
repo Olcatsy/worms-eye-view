@@ -274,6 +274,7 @@ const app = {
         const nextScene = document.querySelector(`#${button.value}`);
         currentScene.classList.remove('current-scene');
         nextScene.classList.add('current-scene');
+
       })
     })
   },
