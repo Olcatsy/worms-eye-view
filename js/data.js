@@ -98,13 +98,6 @@ const data = {
           },
         ],
       },
-      layer05: {
-        layerNum: '05',
-        allItemsFound: false,
-        interactive_items: [
-
-        ],
-      },
     },
   },
   scene_b: {
@@ -255,13 +248,6 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_b_07.png',
           },
-        ],
-      },
-      layer06: {
-        layerNum: '06',
-        allItemsFound: false,
-        interactive_items: [
-
         ],
       },
     },
@@ -603,13 +589,6 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_27.png',
           },
-        ],
-      },
-      layer15: {
-        layerNum: '15',
-        allItemsFound: false,
-        interactive_items: [
-
         ],
       },
     },
