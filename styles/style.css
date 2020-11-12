@@ -108,6 +108,7 @@ fieldset {
   transform: translate(-50%, -50%);
   width: 77%;
   height: 75%;
+  padding: 10px;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -124,8 +125,6 @@ fieldset {
   transition: opacity 0.5s;
   height: inherit;
   max-height: 120px;
-  /* display: flex;
-  align-items: center; */
 }
 
 

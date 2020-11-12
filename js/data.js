@@ -430,7 +430,7 @@ const data = {
             //* White caterpillar
             digSitePosition: {},
             id: "item_c_07_01",
-            id: "white-caterpillar",
+            inventoryId: "white-caterpillar",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_04.png',
