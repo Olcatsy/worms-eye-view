@@ -132,7 +132,7 @@ const app = {
     
       // if checkTransparency returns 'true' item's isTransparent to true
       // The second argument is the percent of pixels scratched off in the area
-      if (app.checkTransparency(pixelsData, 70)) {
+      if (app.checkTransparency(pixelsData, 30)) {
         helper.updateProperty(dataArr, i, 'isTransparent', true);
         item.classList.add('found-item');
       };
