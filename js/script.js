@@ -272,8 +272,15 @@ const app = {
       button.addEventListener('change', () => {
         const currentScene = document.querySelector('.current-scene')
         const nextScene = document.querySelector(`#${button.value}`);
+        currentScene.addEventListener('transitionend', () => {
+          currentScene.style.visibility = 'hidden';
+          nextScene.classList.add('current-scene');
+        })
+        nextScene.addEventListener('transitionstart', () => {
+          nextScene.style.visibility = 'visible';
+        })
         currentScene.classList.remove('current-scene');
-        nextScene.classList.add('current-scene');
+
       })
     })
   },
