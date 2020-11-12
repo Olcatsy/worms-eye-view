@@ -151,30 +151,10 @@ const app = {
   },
 
 
-  // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
-  moveItemToInventory: (item, dataArr, i) => {
-    app.inventory.appendChild(item);
-    item.classList.remove('found-item', 'faded-out');
-    item.classList.add('in-inventory');
-    helper.updateProperty(dataArr, i, 'inInventory', true);
-
-  
-    // 
-
-    // add event listener that opens the image in modal window
-    item.addEventListener('click', () => {
-      app.modal.classList.add('open');
-      app.modalImg.src = dataArr[i].src;
-      app.modalText.textContent = dataArr[i].copy;
-    })
-  },
-
-
   // Returns true if the user clicked on an interactive item
   detectHitArea: (item, dataArr, ctx, canvas,  e) => {
     const id = item.id;
     const itemPos = helper.findPropertyValue(dataArr, id, 'digSitePosition');
-    // const i = helper.findObjectsIndex(dataArr, 'id', id);
     const rect = app.createHitArea(itemPos, ctx, canvas);
     const isTransparent = helper.findPropertyValue(dataArr, id, 'isTransparent');
 
@@ -183,6 +163,20 @@ const app = {
     }
   },
 
+
+  // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
+  moveItemToInventory: (item, dataArr, i) => {
+    helper.updateProperty(dataArr, i, 'inInventory', true);
+    const inventoryItemId = item.dataset.inventoryid;
+    const inventoryItem = document.querySelector(`#${inventoryItemId}`);
+    inventoryItem.classList.add('faded-in');          
+
+    inventoryItem.addEventListener('click', () => {
+      app.modal.classList.add('open');
+      app.modalImg.src = dataArr[i].src;
+      // app.modalText.textContent = dataArr[i].copy;
+    })
+  },
 
   // Moves found items to the inventory when the user clicks on them and removes the current layer if all objects on it have been found
   handleLayerClick: (item, dataArr, ctx, canvas, e) => {
