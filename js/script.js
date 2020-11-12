@@ -214,8 +214,9 @@ const app = {
     //* Canvas setup -----
     const canvas = document.getElementById(`canvas_${scene}_${layerNum}`);
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth - 500;
-    canvas.height = window.innerHeight - 200;
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
 
     // Load overlay image
     const img = new Image();
