@@ -57,6 +57,7 @@ const app = {
       const el = document.createElement('div');
       el.innerHTML = `<img src="${item.src}" alt="${item.alt}">`
       el.setAttribute('class', 'item');
+      el.setAttribute('data-inventoryId', `${item.inventoryId}`);
       el.setAttribute('id', `${item.id}`);
       el.setAttribute('data-scene', `${scene}`);
       el.setAttribute('data-layer', `${layerNum}`);
@@ -157,9 +158,7 @@ const app = {
     item.classList.add('in-inventory');
     helper.updateProperty(dataArr, i, 'inInventory', true);
 
-    // workaround for the hardcoded grid positions (for now) 
-    //!Probably don't need this line once I position items in the inventory
-    item.setAttribute("style", "grid-column-start: initial; grid-column-end: initial;");
+  
     // 
 
     // add event listener that opens the image in modal window

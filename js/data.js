@@ -10,6 +10,7 @@ const data = {
             //* Cable
             digSitePosition: {},
             id: "item_a_01_01",
+            inventoryId: "cable",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_03.gif',
@@ -23,7 +24,8 @@ const data = {
           {
             //* Mask
             digSitePosition: {},
-            id: "mask",
+            id: "item_a_02_01",
+            inventoryId: "mask",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_02.png',
@@ -31,7 +33,8 @@ const data = {
           {
             //* Microchip 2
             digSitePosition: {},
-            id: "microchip2",
+            id: "item_a_02_02",
+            inventoryId: "microchip2",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_06.gif',
@@ -39,7 +42,8 @@ const data = {
           {
             //* Phone
             digSitePosition: {},
-            id: "phone",
+            id: "item_a_02_03",
+            inventoryId: "phone",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_01.gif',
@@ -53,7 +57,8 @@ const data = {
           {
             //* Diary
             digSitePosition: {},
-            id: "diary",
+            id: "item_a_03_01",
+            inventoryId: "diary",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_04.png',
@@ -61,7 +66,8 @@ const data = {
           {
             //* Microchip 1
             digSitePosition: {},
-            id: "microchip1",
+            id: "item_a_03_02",
+            inventoryId: "microchip1",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_05.gif',
@@ -75,21 +81,20 @@ const data = {
           {
             //* Margarine
             digSitePosition: {},
-            id: "margarine",
+            id: "item_a_04_01",
+            inventoryId: "margarine",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_07.gif',
           },
           {
             //* Brush
-            alt: "A shaggy paint brush with a blue handle and brown bristles",
             digSitePosition: {},
-            id: "brush",
+            id: "item_a_04_02",
+            inventoryId: "brush",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_a_08.png',
-            copy: "Tool derived from squirrel and wood",
-            // inventory_position: str (related to a grid?)
           },
         ],
       },
@@ -112,7 +117,8 @@ const data = {
           {
             //* Concrete slab
             digSitePosition: {},
-            id: "concrete-slab",
+            id: "item_b_01_01",
+            inventoryId: "concrete-slab",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_09.png',
@@ -120,7 +126,8 @@ const data = {
           {
             //* Eggplant
             digSitePosition: {},
-            id: "eggplant",
+            id: "item_b_01_02",
+            inventoryId: "eggplant",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_11.gif',
@@ -134,7 +141,8 @@ const data = {
           {
             //* Painting
             digSitePosition: {},
-            id: "painting",
+            id: "item_b_02_01",
+            inventoryId: "painting",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_06.png',
@@ -142,7 +150,8 @@ const data = {
           {
             // * Glazed rock
             digSitePosition: {},
-            id: "glazed-rock",
+            id: "item_b_02_02",
+            inventoryId: "glazed-rock",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_08.png',
@@ -150,7 +159,8 @@ const data = {
           {
             // * Apple
             digSitePosition: {},
-            id: "apple",
+            id: "item_b_02_03",
+            inventoryId: "apple",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_03.png',
@@ -164,7 +174,8 @@ const data = {
           {
             //* Sprout
             digSitePosition: {},
-            id: "sprout",
+            id: "item_b_03_01",
+            inventoryId: "sprout",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_10.png',
@@ -172,7 +183,8 @@ const data = {
           {
             //* Centipede
             digSitePosition: {},
-            id: "centipede",
+            id: "item_b_03_02",
+            inventoryId: "centipede",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_12.gif',
@@ -186,7 +198,8 @@ const data = {
           {
             // *Bananas bunch
             digSitePosition: {},
-            id: "bananas-bunch",
+            id: "item_b_04_01",
+            inventoryId: "bananas-bunch",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_01.gif',
@@ -194,10 +207,20 @@ const data = {
           {
             // * Snow pear
             digSitePosition: {},
-            id: "snow-pear",
+            id: "item_b_04_02",
+            inventoryId: "snow-pear",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_04.png',
+          },
+          {
+            //* Brown leaf
+            digSitePosition: {},
+            id: "item_b_04_03",
+            inventoryId: "leaf",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/objects/object_b_13.gif',
           },
         ],
       },
@@ -208,7 +231,8 @@ const data = {
           {
             //* Joss
             digSitePosition: {},
-            id: "joss",
+            id: "item_b_05_01",
+            inventoryId: "joss",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_02.gif',
@@ -216,7 +240,8 @@ const data = {
           {
             //* Two bananas
             digSitePosition: {},
-            id: "two-bananas",
+            id: "item_b_05_02",
+            inventoryId: "two-bananas",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_05.gif',
@@ -224,18 +249,11 @@ const data = {
           {
             //* Glazed concrete
             digSitePosition: {},
-            id: "glazed-concrete",
+            id: "item_b_05_03",
+            inventoryId: "glazed-concrete",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_07.png',
-          },
-          {
-            //* Brown leaf
-            digSitePosition: {},
-            id: "leaf",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_b_13.gif',
           },
         ],
       },
@@ -258,7 +276,8 @@ const data = {
           {
             //* Beige moth 2
             digSitePosition: {},
-            id: "item_c_01_0beige-moth21",
+            id: "item_c_01_01",
+            inventoryId: "beige-moth2",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_19.png',
@@ -266,7 +285,8 @@ const data = {
           {
             //* Green larva
             digSitePosition: {},
-            id: "green-larva",
+            id: "item_c_01_02",
+            inventoryId: "green-larva",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_28.gif',
@@ -280,7 +300,8 @@ const data = {
           {
             //* Caterpillar nest 1
             digSitePosition: {},
-            id: "cat-nest1",
+            id: "item_c_02_01",
+            inventoryId: "cat-nest1",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_07.png',
@@ -288,7 +309,8 @@ const data = {
           {
             //* Green rock
             digSitePosition: {},
-            id: "green-rock",
+            id: "item_c_02_02",
+            inventoryId: "green-rock",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_12.png',
@@ -302,7 +324,8 @@ const data = {
           {
             //* Orange caterpillar
             digSitePosition: {},
-            id: "orange-caterpillar",
+            id: "item_c_03_01",
+            inventoryId: "orange-caterpillar",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_03.png',
@@ -310,7 +333,8 @@ const data = {
           {
             //* Grass Loop
             digSitePosition: {},
-            id: "grass-loop",
+            id: "item_c_03_02",
+            inventoryId: "grass-loop",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_11.png',
@@ -324,7 +348,8 @@ const data = {
           {
             //* White butterfly 1
             digSitePosition: {},
-            id: "white-butterfly1",
+            id: "item_c_04_01",
+            inventoryId: "white-butterfly1",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_26.png',
@@ -338,7 +363,8 @@ const data = {
           {
             //* Cocoon
             digSitePosition: {},
-            id: "chrysalis",
+            id: "item_c_05_01",
+            inventoryId: "chrysalis",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_06.png',
@@ -346,7 +372,8 @@ const data = {
           {
             //* Three larvae
             digSitePosition: {},
-            id: "three-larvae",
+            id: "item_c_05_02",
+            inventoryId: "three-larvae",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_15.gif',
@@ -354,7 +381,8 @@ const data = {
           {
             //* beetle
             digSitePosition: {},
-            id: "beetle",
+            id: "item_c_05_03",
+            inventoryId: "beetle",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_13.png',
@@ -368,7 +396,8 @@ const data = {
           {
             //* Green moth
             digSitePosition: {},
-            id: "green-moth",
+            id: "item_c_06_01",
+            inventoryId: "green-moth",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_20.gif',
@@ -376,21 +405,20 @@ const data = {
           {
             //*White moth 2
             digSitePosition: {},
-            id: "white-moth2",
+            id: "item_c_06_02",
+            inventoryId: "white-moth2",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_22.png',
           },
           {
             //*Caterpillar nest 2
-            alt: "An inside view of a caterpillar's nest, formed around dried brown blades of grass. A white caterpillar is folded inside",
             digSitePosition: {},
-            id: "cat-nest2",
+            id: "item_c_06_03",
+            inventoryId: "cat-nest2",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_08.png',
-            copy: "",
-            // inventory_position: str (related to a grid?)
           },
         ],
       },
@@ -401,6 +429,7 @@ const data = {
           {
             //* White caterpillar
             digSitePosition: {},
+            id: "item_c_07_01",
             id: "white-caterpillar",
             inInventory: false,
             isTransparent: false,
@@ -409,7 +438,8 @@ const data = {
           {
             //* Beige moth 1
             digSitePosition: {},
-            id: "beige-moth1",
+            id: "item_c_07_02",
+            inventoryId: "beige-moth1",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_18.png',
@@ -423,7 +453,8 @@ const data = {
           {
             //* Meteorite
             digSitePosition: {},
-            id: "meteorite",
+            id: "item_c_08_01",
+            inventoryId: "meteorite",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_16.gif',
@@ -437,7 +468,8 @@ const data = {
           {
             //* Blue rock
             digSitePosition: {},
-            id: "blue-rock",
+            id: "item_c_09_01",
+            inventoryId: "blue-rock",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_01.png',
@@ -445,7 +477,8 @@ const data = {
           {
             //* Grasshopper
             digSitePosition: {},
-            id: "grasshopper",
+            id: "item_c_09_02",
+            inventoryId: "grasshopper",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_05.png',
@@ -453,7 +486,8 @@ const data = {
           {
             //* Caterpillar nest 3
             digSitePosition: {},
-            id: "cat-nest3",
+            id: "item_c_09_03",
+            inventoryId: "cat-nest3",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_09.png',
@@ -467,7 +501,8 @@ const data = {
           {
             //* Hatching eggs
             digSitePosition: {},
-            id: "eggs",
+            id: "item_c_10_01",
+            inventoryId: "eggs",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_02.png',
@@ -475,7 +510,8 @@ const data = {
           {
             //* Single larva
             digSitePosition: {},
-            id: "larva",
+            id: "item_c_10_02",
+            inventoryId: "larva",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_14.png',
@@ -489,7 +525,8 @@ const data = {
           {
             //* Shells
             digSitePosition: {},
-            id: "shells",
+            id: "item_c_11_01",
+            inventoryId: "shells",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_23.gif',
@@ -497,7 +534,8 @@ const data = {
           {
             //* Brown moth
             digSitePosition: {},
-            id: "brown-moth",
+            id: "item_c_11_02",
+            inventoryId: "brown-moth",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_17.png',
@@ -511,7 +549,8 @@ const data = {
           {
             //* White moth 1
             digSitePosition: {},
-            id: "white-moth1",
+            id: "item_c_12_01",
+            inventoryId: "white-moth1",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_21.png',
@@ -519,7 +558,8 @@ const data = {
           {
             //* Yellow rock
             digSitePosition: {},
-            id: "yellow-rock",
+            id: "item_c_12_02",
+            inventoryId: "yellow-rock",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_25.png',
@@ -533,12 +573,12 @@ const data = {
           {
             //* Bug eggs
             digSitePosition: {},
-            id: "bug-eggs",
+            id: "item_c_13_01",
+            inventoryId: "bug-eggs",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_10.gif',
           },
-
         ],
       },
       layer14: {
@@ -548,7 +588,8 @@ const data = {
           {
             //* Slug
             digSitePosition: {},
-            id: "slug",
+            id: "item_c_14_01",
+            inventoryId: "slug",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_24.gif',
@@ -556,7 +597,8 @@ const data = {
           {
             //* White butterfly 2
             digSitePosition: {},
-            id: "white-butterfly2",
+            id: "item_c_14_02",
+            inventoryId: "white-butterfly2",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_27.png',
