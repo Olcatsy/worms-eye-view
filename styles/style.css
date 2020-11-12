@@ -142,7 +142,7 @@ fieldset {
   max-height: 100px;
   display: flex;
   align-items: center;
-  /* opacity: 0; */
+  opacity: 0;
   transition: opacity 0.3s;
 }
 
