@@ -309,21 +309,10 @@ const data = {
         allItemsFound: false,
         interactive_items: [
           {
-            //* Grass Loop
-            alt: "A long green grass blade forming two loops",
-            digSitePosition: {},
-            id: "item_c_01_01",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_11.png',
-            copy: "",
-            // inventory_position: str (related to a grid?)
-          },
-          {
             //* Beige moth 2
             alt: "A beige moth with short thorax and long antennae",
             digSitePosition: {},
-            id: "item_c_01_02",
+            id: "item_c_01_01",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_19.png',
@@ -334,7 +323,7 @@ const data = {
             //* Green larva
             alt: "A green larva is pulsing as its eating grass",
             digSitePosition: {},
-            id: "item_c_01_03",
+            id: "item_c_01_02",
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_28.gif',
@@ -386,6 +375,17 @@ const data = {
             copy: "",
             // inventory_position: str (related to a grid?)
           },
+          {
+            //* Grass Loop
+            alt: "A long green grass blade forming two loops",
+            digSitePosition: {},
+            id: "item_c_03_02",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/objects/object_c_11.png',
+            copy: "",
+            // inventory_position: str (related to a grid?)
+          },
         ],
       },
       layer04: {
@@ -428,6 +428,17 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_15.gif',
+            copy: "",
+            // inventory_position: str (related to a grid?)
+          },
+          {
+            //* beetle
+            alt: "A black beetle with long antennae",
+            digSitePosition: {},
+            id: "item_c_05_03",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/objects/object_c_13.png',
             copy: "",
             // inventory_position: str (related to a grid?)
           },
@@ -627,6 +638,17 @@ const data = {
             copy: "",
             // inventory_position: str (related to a grid?)
           },
+          {
+            //* Yellow rock
+            alt: "A light yellow rock with speckles of blue and brown ",
+            digSitePosition: {},
+            id: "item_c_12_02",
+            inInventory: false,
+            isTransparent: false,
+            src: './assets/objects/object_c_25.png',
+            copy: "",
+            // inventory_position: str (related to a grid?)
+          },
         ],
       },
       layer13: {
@@ -644,17 +666,7 @@ const data = {
             copy: "",
             // inventory_position: str (related to a grid?)
           },
-          {
-            //* beetle
-            alt: "A black beetle with long antennae",
-            digSitePosition: {},
-            id: "item_c_13_02",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_13.png',
-            copy: "",
-            // inventory_position: str (related to a grid?)
-          },
+
         ],
       },
       layer14: {
@@ -680,17 +692,6 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_c_27.png',
-            copy: "",
-            // inventory_position: str (related to a grid?)
-          },
-          {
-            //* Yellow rock
-            alt: "A light yellow rock with speckles of blue and brown ",
-            digSitePosition: {},
-            id: "item_c_14_03",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_25.png',
             copy: "",
             // inventory_position: str (related to a grid?)
           },
