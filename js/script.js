@@ -159,6 +159,7 @@ const app = {
       app.modal.classList.add('open');
       app.modalImg.src = dataArr[i].src;
       // app.modalText.textContent = dataArr[i].copy;
+      app.modalText.innerHTML = dataArr[i].copy;
     })
   },
 
@@ -303,15 +304,11 @@ const app = {
 
 
 //* MISC FUNCTIONS
-  // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
+  // Allows to close modal when user clicks on the cross icon or presses ESC
   closeModal: () => {
     const closeButton = document.querySelector('#modalClose');
     // clicking on Close button
     closeButton.addEventListener('click', () => {
-      app.modal.classList.remove('open');
-    });
-    // clicking anywhere on the modal
-    app.modal.addEventListener('click', () => {
       app.modal.classList.remove('open');
     });
     // pressing ESC

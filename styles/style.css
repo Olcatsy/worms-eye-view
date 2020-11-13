@@ -298,9 +298,22 @@ fieldset {
 
 .modal-text {
   color: white;
-  font-size: 3rem;
+  font-size: 2.3rem;
   margin-top: 50px;
+  width: 80%;
 }
+
+.modal-text p {
+  margin: 10px 0;
+}
+
+.modal-text a {
+  color: yellow;
+}
+  .modal-text a:hover,
+  .modal-text a:focus  {
+    text-decoration: underline;
+  }
 
 .modal-close {
   background: none;
