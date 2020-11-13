@@ -57,9 +57,6 @@ const app = {
     data[`scene_${scene}`].layers.forEach(layer => {
       app.addItem(scene, layer.layerNum);
     })
-    // for (const layer in data[`scene_${scene}`].layers) {
-    //   app.addItem(scene, data[`scene_${scene}`].layers[layer].layerNum);
-    // }
     return;
   },
 
@@ -88,7 +85,6 @@ const app = {
   // Checks transparency in a defined area. Returns true if a threshold percentage of the pixels are transparent, otherwise returns false
   checkTransparency: (pixelData, threshold)  => {
     // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value less than a given alpha value
-    //? also if the user finishes scratching right on the item, it goes to the inventory right away, so I need to figure that out
     const l = pixelData.length,
           pixelsNum =  l / 4;
     let count = 0;
@@ -149,24 +145,7 @@ const app = {
       return true;
     }
   },
-
-
-  // checks if all items in a scene have been found, and if yes, updates the corresponding clearedAllLayers entry in the data file to 'true' and returns 'true'
-  // allSceneItemsFound: (scene) => {
-  //   const layers = data[`scene_${scene}`].layers;
-  //   for (const layer in layers) {
-  //     // console.log(layers[layer].allItemsFound);
-  //     if (!layers[layer].allItemsFound) {
-  //       console.log(data[`scene_${scene}`].clearedAllLayers);
-  //       return false;
-  //     }
-  //   }
-  //   data[`scene_${scene}`].clearedAllLayers = true;
-  //   console.log(data[`scene_${scene}`].clearedAllLayers);
-  //   return true;
-  // },
-
-  
+ 
 
   // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
   moveItemToInventory: (item, dataArr, i) => {
@@ -284,9 +263,6 @@ const app = {
     data[`scene_${scene}`].layers.forEach(layer => {
       app.layerSetup(scene, layer.layerNum);
     })
-    // for (const layer in data[`scene_${scene}`].layers) {
-    //   
-    // }
     return;
   },
 

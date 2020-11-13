@@ -71,6 +71,10 @@ img {
 button {
     border: none;
     cursor: pointer;
+    font-family: inherit;
+    font-size: 2.5rem;
+    text-shadow: inherit;
+    filter: var(--shadow);
 }
 
 fieldset {
@@ -79,6 +83,25 @@ fieldset {
   padding: 0;
 }
 /* END OF STRIPPING STYLES */
+
+
+/* COMMON STYLES */
+.grass-button {
+  color: white;
+  padding: 10px 50px;
+  background: url(../assets/button.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: inherit;
+  font-size: 2.5rem;
+  text-shadow: inherit;
+  filter: var(--shadow);
+}
+  .grass-button:hover,
+  .grass-button:focus {
+    filter: var(--selection-effect);
+  }
+/* END OF COMMON STYLES */
 
 
 /* CONTAINER/INVENTORY */
@@ -218,25 +241,29 @@ fieldset {
   
 }
 
-.move-on-button {
-  color: white;
-  padding: 20px 50px;
-  background: url(../assets/button.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: inherit;
-  font-size: 2.5rem;
-  text-shadow: inherit;
-  filter: var(--shadow);
-}
-  .move-on-button:hover,
-  .move-on-button:focus {
-    filter: var(--selection-effect)
-  }
+
 
 
 
 /* END OF CANVASES/SCENES */
+
+
+/* MISC BUTTONS */
+.misc-buttons {
+  display: flex;
+  grid-row: 9 / span 2;
+  grid-column: 1 / span 3;
+}
+
+.misc-button {
+  margin-left: 10px;
+  padding: 10px 30px;
+  color: white;
+  background: 
+}
+/* END OF MISC BUTTONS */
+
+
 
 
 
@@ -289,10 +316,9 @@ fieldset {
 
 /* REALM BUTTONS */
 .realm-buttons-outer {
-  /* temporary, until I figure out the grid */
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  grid-column: 11/ span 5;
+  grid-row: 7 / span 4;
+  filter: var(--shadow);
 
   background: url(../assets/realm-buttons-bg.png);
   background-repeat: no-repeat;
