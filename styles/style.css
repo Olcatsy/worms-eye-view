@@ -226,8 +226,8 @@ fieldset {
   background-repeat: no-repeat;
   font-family: inherit;
   font-size: 2.5rem;
-  text-shadow: inherit
-
+  text-shadow: inherit;
+  filter: var(--shadow);
 }
   .move-on-button:hover,
   .move-on-button:focus {
