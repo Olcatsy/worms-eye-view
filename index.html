@@ -11,6 +11,44 @@
 
 
 <body>
+  <header>
+    <div class="mobile-only"></div>
+
+    <div class="loading">
+      <div id="land-ackn" class="land-ackn full-screen">
+        <div class="wrapper flex-parent">
+          <h2>Land Acknowledgement</h2>
+          <p>
+            I acknowledge the land on which this work was created. It has been a site of human activity for 15,000 years. This land is the traditional territory of the Huron-Wendat and Petun First Nations, the Seneca, and most recently, the Mississaugas of the Credit River.
+            The territory is the subject of the Dish With One Spoon Wampum Belt Covenant, an agreement between the Iroquois Confederacy and Confederacy of the Ojibwe and allied nations to peaceably share and care for the resources around the Great Lakes. The Dish with One Spoon Covenant characterizes our collective responsibility to each other and Mother Earth - to take only what we need, leave enough for others, and keep the dish clean. 
+          </p>
+          <p>
+            Today, the meeting place of Toronto is still the home to many Indigenous people from across Turtle Island. I am grateful
+            to have the opportunity to work in the community, on this territory.
+          </p>
+          <button class="grass-button loading-button" data-nextScreen="title">Continue</button>
+        </div>
+      </div>
+
+      <div id="title" class="title full-screen">
+        <div class="flex-parent">
+          <h1>Worm's Eye View</h1>
+          <button class="grass-button loading-button back" data-nextScreen="land-ackn">Back</button>
+          <button class="grass-button loading-button continue" data-nextScreen="desc">Continue</button>
+        </div>
+      </div>
+
+      <div class="desc">
+        <h2>Introduction</h2>
+        <h3>[player prompt]</h3>
+
+
+      </div>
+
+    </div>
+
+  </header>
+
   <main id="inventory" class="container">
     
     <div class="dig-site">
@@ -40,7 +78,7 @@
         <div id="layer_a_05" class="layer last-layer">
           <div id="move-on-a" class="move-on">
             <p>MYTHOLOGY AROUND PERMANENCE</p>
-            <button class="grass-button move-on-button" aria-label="Go to the Human Made Realm" data-scene="scene_b">
+            <button class="grass-button move-on-button" aria-label="Go to the Multispecies Relationship Realm" data-scene="scene_b">
               Continue to another life world?
             </button>
           </div>
@@ -80,7 +118,7 @@
           <div id="move-on-b" class="move-on">
             <p>MULTISPECIES RELATIONSHIPS</p>
             <button class="grass-button move-on-button" 
-              aria-label="Go to the Wild Realm" data-scene="scene_c">
+              aria-label="Go to the A MORE-THAN-HUMAN VANTAGE POINT Realm" data-scene="scene_c">
               Continue to another life world?
             </button>
           </div>
@@ -165,7 +203,7 @@
           <div id="move-on-c" class="move-on">
             <p>A MORE-THAN-HUMAN VANTAGE POINT</p>
             <button class="grass-button move-on-button"  
-              aria-label="Go to the Human Environment  Realm" 
+              aria-label="Go to the MYTHOLOGY AROUND PERMANENCE Realm" 
               data-scene="scene_a">
               Continue to another life world?
             </button>
@@ -352,9 +390,6 @@
 
 
 
-
-
-
     <!-- MODAL -->
     <div id="modal" class="modal">
       <div class="modal-content">
@@ -374,24 +409,24 @@
       <fieldset >
         <ul class="realm-buttons-inner">
           <li>
-            <label for="human-environment">
+            <label for="human-environment" title="MYTHOLOGY AROUND PERMANENCE">
               <input type="radio" id="human-environment" class="realm-button" name="realm" value="scene_a" checked>
               <img src="./assets/cursors/cursor_a.png" alt="" aria-hidden>
-              <span class="sr-only">Human-environment system</span>
+              <span class="sr-only">MYTHOLOGY AROUND PERMANENCE</span>
             </label>
           </li>
           <li>
-            <label for="human-made">
+            <label for="human-made" title="MULTISPECIES RELATIONSHIPS ">
               <input type="radio" id="human-made" class="realm-button" name="realm" value="scene_b">
               <img src="./assets/cursors/cursor_b.png" alt="" aria-hidden>
-              <span class="sr-only">Human-made system</span>
+              <span class="sr-only">MULTISPECIES RELATIONSHIPS</span>
             </label>
           </li>
           <li>
-            <label for="wild">
+            <label for="wild" title="A MORE-THAN-HUMAN VANTAGE POINT">
               <input type="radio" id="wild" class="realm-button" name="realm" value="scene_c">
               <img src="./assets/cursors/cursor_c.png" alt="" aria-hidden>
-              <span class="sr-only">Wild System</span>
+              <span class="sr-only">A MORE-THAN-HUMAN VANTAGE POINT</span>
             </label>
           </li>
         </ul>

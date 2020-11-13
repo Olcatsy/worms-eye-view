@@ -5,6 +5,7 @@
   --pink: #EA0AEF;
   --yellow: yellow;
   --black: rgb(22, 22, 22);
+  --spacing: 15px;
 
   --shadow: drop-shadow(4px 4px 4px rgb(22, 22, 22));
   --selection-effect: drop-shadow(3px 3px 3px var(--yellow)) drop-shadow(-3px -3px 3px var(--yellow));
@@ -27,7 +28,7 @@ body {
   height: 100vh;
   width: 100%;
 
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: white;
   font-family: 'VT323', monospace;
   letter-spacing: 2px;
@@ -102,14 +103,78 @@ fieldset {
   .grass-button:focus {
     filter: var(--selection-effect);
   }
+
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.full-screen {
+  position: absolute;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 2.5rem;
+}
+
+.full-screen p,
+.full-screen h2 {
+  margin-bottom: 30px;
+}
+
+.flex-parent {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.back {
+  position: absolute;
+  bottom: var(--spacing);
+  left: var(--spacing);
+}
+
+.continue {
+  position: absolute;
+  bottom: var(--spacing);
+  right: var(--spacing);
+}
 /* END OF COMMON STYLES */
+
+
+/* LOADING SCREEN STYLES */
+.land-ackn {
+  background: url(../assets/loading1.jpg);
+  background-size: cover;
+  background-position: center;
+  color: var(--yellow);
+  opacity: 1;
+  visibility: hidden;
+}
+
+.title {
+  background: url(../assets/loading2.jpg);
+  background-size: cover;
+  background-position: center;
+  font-size: 5rem;
+  color: white;
+  opacity: 1;
+  visibility: hidden;
+}
+/* END OF LOADING SCREEN STYLES */
+
 
 
 /* CONTAINER/INVENTORY */
 .container {
   height: 100vh;
   width: 100%;
-  padding: 15px;
+  padding: var(--spacing);
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(10, 1fr);
