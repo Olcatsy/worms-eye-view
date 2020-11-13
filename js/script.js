@@ -332,13 +332,37 @@ const app = {
         const current = document.querySelector(`.current-screen`);
         if (button.dataset.nextscreen === 'digsite') {
           current.classList.add('faded-out');
+          return;
+        } else {
+
+          const next = document.querySelector(`#${button.dataset.nextscreen}`);
+          app.switchScene(current, next, 'current-screen');
         }
-        const next = document.querySelector(`#${button.dataset.nextscreen}`);
-        app.switchScene(current, next, 'current-screen');
       })
     })
   },
 
+  closeMiscScreen: () => {
+    const close = document.querySelectorAll('.close-misc');
+    close.forEach(button => {
+      button.addEventListener('click', () => {
+        const screen = document.querySelector(`#${button.dataset.screen}`);
+        screen.classList.remove('faded-in')
+        screen.classList.add('faded-out');
+      })
+    })
+  },
+
+
+  openMiscScreen: () => {
+    const open = document.querySelectorAll('.misc-buttons');
+    open.forEach(button => {
+      button.addEventListener('click', () => {
+        const screen = document.querySelector(`#${button.dataset.screen}`)
+        screen.classList.add('faded-in');
+      })
+    })
+  },
 
 
 //* INIT
@@ -364,6 +388,8 @@ const app = {
     app.realmButtonHandler();
     app.moveonButtonHandler();
     app.loadingButtonHandler();
+    app.closeMiscScreen();
+    app.openMiscScreen()
   },
 }
 

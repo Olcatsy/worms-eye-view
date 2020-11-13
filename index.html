@@ -403,22 +403,6 @@
     <!-- END OF INVENTORY OBJECTS -->
     
 
-
-
-
-    <!-- MODAL -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <img id="modalImg"  class="modal-img " src="./assets/object_a_01.png" alt="">
-        <div id="modalText" class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, neque!</div>
-      </div>
-      <button id="modalClose" class="modal-close">
-        <span class="sr-only">Close</span>
-        <img aria-hidden src="./assets/close.svg" />
-      </button>
-    </div>
-    <!-- END OF MODAL -->
-
     <!-- REALM SWITCHING BUTTONS -->
     <form class="realm-buttons-outer">
       <h2>Choose your realm: </h2>
@@ -450,13 +434,54 @@
     </form>
     <!-- END OF REALM SWITCHING BUTTONS -->
 
+
+    <!-- MISC BUTTONS -->
     <div class="misc-buttons">
-      <button id="guide" class="grass-button">
+      <button class="grass-button misc-buttons" data-screen="guide">
         User Guide
       </button>
-      <button id="credits" class="grass-button">
+      <button class="grass-button misc-buttons" data-screen="credits">
         Credits
       </button>
+    </div>
+
+
+
+    <!-- OBJECTS MODAL -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <img id="modalImg"  class="modal-img " src="./assets/object_a_01.png" alt="">
+        <div id="modalText" class="modal-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, neque!</div>
+      </div>
+      <button id="modalClose" class="close modal-close" aria-label="Close">
+        <img aria-hidden src="./assets/close.svg" />
+      </button>
+    </div>
+    <!-- END OF OBJECTS MODAL -->
+
+
+    <!-- CREDITS AND INSTRUCTIONS -->
+    <div id="guide" class="guide full-screen misc-screen">
+      <div class="wrapper flex-parent">
+        <h2>User Guide</h2>
+        <ol>
+          <li><p>Scratch the surface of the dig site with your cursor to begin digging a hole. As you dig, you will encounter natural, immaterial, and human-made phenomena.</p></li>
+          <li><p>*Tip while digging*. In some instances, you may find it helpful to move the cursor more, clockwise and counterclockwise over an entity to remove their surface layer.</p></li>
+          <li><p>A yellow halo will appear to indicate that an entity is fully uncovered. Click on the entity to unearth it. It will be transported to the edge of the dig site.</p></li>
+          <li><p>Excavate all embedded entities from the current layer to move on to the new one underneath.</p></li>
+          <li><p>All entities within the hole contain additional embedded text. Click on them to access this information once they are unearthed.</p></li>
+          <li><p>Switch between the three alternative realms by clicking on elements from the “choose your realm” section at the bottom left corner. Your progress on the current realm will be saved.</p></li>
+          <li><p> Proceed to the next realm once you unearthed all entities on the current one.Continue the process as long as you like (you eventually win worm).</p></li>
+          <li><p>Refreshing the browser will reset the process.</p></li>
+        </ol>
+        <button class=" close close-misc" data-screen="guide" aria-label="close">
+          <img aria-hidden src="./assets/close.svg"/>
+        </button>
+      </div>
+    </div>
+
+    <div class="credits" class="full-screen">
+      <div class="wrapper flex-parent"></div>
     </div>
   </main>
 

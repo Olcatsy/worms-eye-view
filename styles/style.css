@@ -110,6 +110,18 @@ fieldset {
   max-width: 1200px;
 }
 
+.close {
+  background: none;
+  width: 50px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.close:hover,
+.close:focus {
+  transform: scale(1.1);
+}
 
 .flex-parent {
   height: 100%;
@@ -130,6 +142,7 @@ fieldset {
   bottom: var(--spacing);
   right: var(--spacing);
 }
+
 .full-screen {
   position: absolute;
   z-index: 60;
@@ -352,6 +365,24 @@ fieldset {
 /* END OF MISC BUTTONS */
 
 
+/* CREDITS AND INSTRUCTIONS */
+.misc-screen {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.guide {
+  background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url(../assets/loading1.jpg);
+  background-size: cover;
+  background-position: center;
+  font-size: 2rem;
+}
+
+/* 
+.close-misc {
+
+} */
+/* END OF CREDITS AND INSTRUCTIONS */
 
 
 
@@ -399,7 +430,7 @@ fieldset {
   .modal-text a:focus  {
     text-decoration: underline;
   }
-
+/* 
 .modal-close {
   background: none;
   width: 50px;
@@ -411,14 +442,14 @@ fieldset {
 .modal-close:hover,
 .modal-close:focus {
   transform: scale(1.1);
-}
+} */
 /* END OF MODAL */
 
 
 /* REALM BUTTONS */
 .realm-buttons-outer {
   grid-column: 11/ span 5;
-  grid-row: 7 / span 4;
+  grid-row: 7 / span 5;
   filter: var(--shadow);
 
   background: url(../assets/realm-buttons-bg.png);
@@ -451,10 +482,14 @@ fieldset {
 
 /* Animation styles */
 .faded-out {
+  visibility: hidden;
   opacity: 0;
+  transition: visibility 0s 1s, opacity 1s;
 }
 .faded-in {
+  visibility: visible;
   opacity: 1;
+  transition: opacity 1s;
 }
 
 
