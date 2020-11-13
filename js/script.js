@@ -342,13 +342,21 @@ const app = {
     })
   },
 
+
   closeMiscScreen: () => {
     const close = document.querySelectorAll('.close-misc');
     close.forEach(button => {
       button.addEventListener('click', () => {
         const screen = document.querySelector(`#${button.dataset.screen}`);
-        screen.classList.remove('faded-in')
+        screen.classList.remove('faded-in');
         screen.classList.add('faded-out');
+      })
+      document.addEventListener('keyup', (e) => {
+        if (e.code === 'Escape') {
+          const screen = document.querySelector(`#${button.dataset.screen}`);
+          screen.classList.remove('faded-in');
+          screen.classList.add('faded-out');
+        }
       })
     })
   },
