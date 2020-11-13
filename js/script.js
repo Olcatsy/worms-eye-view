@@ -184,6 +184,17 @@ const app = {
   },
 
 
+  // checks if all items in all the scene have been found, and shows the "You worm!"
+  youWorm: () => {
+    for (let scene in data) {
+      if (!data[scene].clearedAllLayers) {
+        console.log('no');
+        return;
+      }
+      // insert 'You worm' into the layer 
+    }
+  },
+
 
 
   // Moves found items to the inventory when the user clicks on them and removes the current layer if all objects on it have been found
@@ -203,15 +214,20 @@ const app = {
         // when all images on the layer are found, remove layer and update corresponding layer data entry 
         if (helper.foundAllItems(dataArr) && canvas.parentNode) {
           layerData.allItemsFound = true;
-          console.log(layerData);
           helper.unmount(canvas);
         };
-        console.log(layersArr[l-1].allItemsFound);
+        
+        if (layersArr[l-1].allItemsFound) {
+          sceneData.clearedAllLayers = true;
+          const moveOn = document.querySelector(`#move-on-${scene}`)
+          console.log(moveOn);
+          moveOn.classList.add('faded-in')
+        };
 
+        // checks winning condition
+        app.youWorm();
       })
-      
-      //check if all items have been found in the scene
-      //check if absolutely every single item has been found
+
     }
   },
 
