@@ -45,6 +45,14 @@ const helper = {
     return  dataArr.every(item => item.inInventory);
   },
 
+  // fades out an element and unmounts is
+  unmount: (el) => {
+    el.classList.add('faded-out')
+    el.addEventListener('transitionend', () => {
+      el.parentElement.remove();
+    })
+  },
+
   // update a given property of an object based on its index in a given array
   updateProperty: (arr, index, prop, newValue) => {
     arr[index][prop] = newValue;

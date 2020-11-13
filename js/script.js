@@ -187,21 +187,27 @@ const app = {
 
 
   // Moves found items to the inventory when the user clicks on them and removes the current layer if all objects on it have been found
-  handleLayerClick: (item, dataArr, ctx, canvas, e, scene) => {
+  handleLayerClick: (item, ctx, canvas, e, scene, layerNum) => {
+    const sceneData = data[`scene_${scene}`];
+    const layersArr = sceneData.layers
+    const layerData = layersArr[layerNum -1];
+    const dataArr = layerData.interactive_items;
     const i = helper.findObjectsIndex(dataArr, 'id', item.id);
-
+    const l = layersArr.length;
+    
+    
     if ( app.detectHitArea(item, dataArr, ctx, canvas, e)) {
       item.classList.add('faded-out');
       item.addEventListener('transitionend', () => {
         app.moveItemToInventory(item, dataArr, i);
-  
-        // when all images are found, remove canvas' container
+        // when all images on the layer are found, remove layer and update corresponding layer data entry 
         if (helper.foundAllItems(dataArr) && canvas.parentNode) {
-          canvas.classList.add('faded-out')
-          canvas.addEventListener('transitionend', ()=> {
-            canvas.parentElement.remove();
-          })
+          layerData.allItemsFound = true;
+          console.log(layerData);
+          helper.unmount(canvas);
         };
+        console.log(layersArr[l-1].allItemsFound);
+
       })
       
       //check if all items have been found in the scene
@@ -251,7 +257,7 @@ const app = {
     // detect an interactive object
     canvas.addEventListener('click', e => {
       itemsArr.forEach(item => {
-        app.handleLayerClick(item, dataArr, ctx, canvas, e, scene);
+        app.handleLayerClick(item, ctx, canvas, e, scene, layerNum);
       })
     })
   },
