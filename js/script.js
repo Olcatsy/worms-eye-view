@@ -158,8 +158,14 @@ const app = {
     inventoryItem.addEventListener('click', () => {
       app.modal.classList.add('open');
       app.modalImg.src = dataArr[i].src;
-      // app.modalText.textContent = dataArr[i].copy;
       app.modalText.innerHTML = dataArr[i].copy;
+    })
+    inventoryItem.addEventListener('keyup', (e) => {
+      if (e.code === 'Enter') {
+        app.modal.classList.add('open');
+        app.modalImg.src = dataArr[i].src;
+        app.modalText.innerHTML = dataArr[i].copy;
+      }
     })
   },
 
@@ -316,7 +322,6 @@ const app = {
       if (app.modal.classList.contains('open') && e.code === 'Escape') {
         app.modal.classList.remove('open');
       }
-      // 
     })
   },
 
