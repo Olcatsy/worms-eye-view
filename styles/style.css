@@ -362,14 +362,16 @@ fieldset {
 .misc-buttons {
   display: flex;
   justify-content: space-around;
-  grid-row: 9 / span 2;
-  grid-column: 1 / span 4;
+  position: absolute;
+  bottom: var(--spacing);
+  left: var(--spacing);
 }
 
 .misc-button {
   /* margin-left: 30px; */
   padding: 10px 30px;
   color: white;
+  margin: var(--spacing);
 }
 /* END OF MISC BUTTONS */
 
@@ -392,9 +394,6 @@ fieldset {
   background-size: cover;
   background-position: center;
   color: white;
-  
-  /* visibility: visible;
-  opacity: 1; */
 }
 
 .credits h2 {
@@ -478,8 +477,9 @@ fieldset {
 
 /* REALM BUTTONS */
 .realm-buttons-outer {
-  grid-column: 11/ span 5;
-  grid-row: 7 / span 5;
+  position: absolute;
+  right: 0;
+  bottom: var(--spacing);
   filter: var(--shadow);
 
   background: url(../assets/realm-buttons-bg.png);
