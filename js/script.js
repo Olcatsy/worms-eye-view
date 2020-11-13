@@ -29,7 +29,7 @@ const app = {
   // Create an interactive object from data and add it to the page
   addItem: (scene, layerNum) => {
     const container = document.querySelector(`#layer_${scene}_${layerNum}  .objects`);
-    const itemsArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items;
+    const itemsArr = data[`scene_${scene}`].layers[layerNum - 1].interactive_items;
 
     //keeps track of which grid cells have an item placed in them on each layer
     let cellsTaken = [];
@@ -54,9 +54,12 @@ const app = {
 
   // Calls addItems on a layer data object to set all items at once
   addAllItems: (scene) => {
-    for (const layer in data[`scene_${scene}`].layers) {
-      app.addItem(scene, data[`scene_${scene}`].layers[layer].layerNum);
-    }
+    data[`scene_${scene}`].layers.forEach(layer => {
+      app.addItem(scene, layer.layerNum);
+    })
+    // for (const layer in data[`scene_${scene}`].layers) {
+    //   app.addItem(scene, data[`scene_${scene}`].layers[layer].layerNum);
+    // }
     return;
   },
 
@@ -68,7 +71,7 @@ const app = {
     itemsArr.forEach(item => {
       const layerNum = item.dataset.layer;
       const scene = item.dataset.scene;
-      const dataArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items; // the array in the data based on the layer
+      const dataArr = data[`scene_${scene}`].layers[layerNum - 1].interactive_items; // the array in the data based on the layer
       const id = item.id;
       const img = item.querySelector('img');
       const itemPos = helper.getItemPosition(img);
@@ -148,8 +151,26 @@ const app = {
   },
 
 
+  // checks if all items in a scene have been found, and if yes, updates the corresponding clearedAllLayers entry in the data file to 'true' and returns 'true'
+  // allSceneItemsFound: (scene) => {
+  //   const layers = data[`scene_${scene}`].layers;
+  //   for (const layer in layers) {
+  //     // console.log(layers[layer].allItemsFound);
+  //     if (!layers[layer].allItemsFound) {
+  //       console.log(data[`scene_${scene}`].clearedAllLayers);
+  //       return false;
+  //     }
+  //   }
+  //   data[`scene_${scene}`].clearedAllLayers = true;
+  //   console.log(data[`scene_${scene}`].clearedAllLayers);
+  //   return true;
+  // },
+
+  
+
   // moves the given item element to the inventory, applies relevant styles and adds an click event listener that opens the image in a modal
   moveItemToInventory: (item, dataArr, i) => {
+    const scene = item.dataset.scene;
     helper.updateProperty(dataArr, i, 'inInventory', true);
     const inventoryItemId = item.dataset.inventoryid;
     const inventoryItem = document.querySelector(`#${inventoryItemId}`);
@@ -162,16 +183,11 @@ const app = {
     })
   },
 
-  allSceneItemsFound: (scene) => {
-    const layers = data[`scene_${scene}`].layers;
-    console.log();
 
-    return true;
-  },
 
 
   // Moves found items to the inventory when the user clicks on them and removes the current layer if all objects on it have been found
-  handleLayerClick: (item, dataArr, ctx, canvas, e) => {
+  handleLayerClick: (item, dataArr, ctx, canvas, e, scene) => {
     const i = helper.findObjectsIndex(dataArr, 'id', item.id);
 
     if ( app.detectHitArea(item, dataArr, ctx, canvas, e)) {
@@ -186,9 +202,10 @@ const app = {
             canvas.parentElement.remove();
           })
         };
-
-        //check if all items have been found in the scene
       })
+      
+      //check if all items have been found in the scene
+      //check if absolutely every single item has been found
     }
   },
 
@@ -218,7 +235,7 @@ const app = {
     // find all items on the layer
     const itemsArr = helper.getElemsFromSelector(`.item[id^="item_${scene}_${layerNum}_"]`);
     // find the corresponding dataset that stores data for these items
-    const dataArr = data[`scene_${scene}`].layers[`layer${layerNum}`].interactive_items;
+    const dataArr = data[`scene_${scene}`].layers[layerNum - 1].interactive_items;
     
     // ***EVENT LISTENERS***--------------------
     // start scratching
@@ -234,7 +251,7 @@ const app = {
     // detect an interactive object
     canvas.addEventListener('click', e => {
       itemsArr.forEach(item => {
-        app.handleLayerClick(item, dataArr, ctx, canvas, e);
+        app.handleLayerClick(item, dataArr, ctx, canvas, e, scene);
       })
     })
   },
@@ -242,24 +259,18 @@ const app = {
 
   // Calls layerSetup on a layer data object to set all layers at once
   setUpAllLayers: (scene) => {
-    for (const layer in data[`scene_${scene}`].layers) {
-      app.layerSetup(scene, data[`scene_${scene}`].layers[layer].layerNum);
-    }
+    data[`scene_${scene}`].layers.forEach(layer => {
+      app.layerSetup(scene, layer.layerNum);
+    })
+    // for (const layer in data[`scene_${scene}`].layers) {
+    //   
+    // }
     return;
   },
 
 
 
 //* SCENES RELATED FUNCTIONS
-  // Sets up all scenes
-  setUpAllScenes: () => {
-    for (const scene in data) {
-      const letter = data[scene].letter;
-      app.addAllItems(letter);
-    }
-  },
-
-
   // moves class .current-scene to the next scene
   switchScene: (current, next) => {
     current.classList.remove('current-scene');
@@ -318,9 +329,6 @@ const app = {
 
 //* INIT
   init: () => {
-    // app.setUpAllScenes();
-    app.closeModal();
-
     for (const scene in data) {
       const letter = data[scene].letter;
       app.addAllItems(letter);
@@ -329,7 +337,7 @@ const app = {
     setTimeout(() => {
       app.saveAllItemPositions();
     }, 500)
-
+    
     
     setTimeout(() => {
       for (const scene in data) {
@@ -337,7 +345,8 @@ const app = {
         app.setUpAllLayers(letter);
       }
     }, 700)
-
+    
+    app.closeModal();
     app.realmButtonHandler();
     app.moveonButtonHandler();
   },

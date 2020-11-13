@@ -2,8 +2,8 @@ const data = {
   scene_a: {
     clearedAllLayers: false,
     letter: 'a',
-    layers: {
-      layer01: {
+    layers: [
+      {
         layerNum: '01',
         allItemsFound: false,
         interactive_items: [
@@ -18,7 +18,7 @@ const data = {
           },
         ],
       },
-      layer02: {
+      {
         layerNum: '02',
         allItemsFound: false,
         interactive_items: [
@@ -51,7 +51,7 @@ const data = {
           },
         ],
       },
-      layer03: {
+      {
         layerNum: '03',
         allItemsFound: false,
         interactive_items: [
@@ -75,7 +75,7 @@ const data = {
           },
         ],
       },
-      layer04: {
+      {
         layerNum: '04',
         allItemsFound: false,
         interactive_items: [
@@ -99,13 +99,13 @@ const data = {
           },
         ],
       },
-    },
+    ],
   },
   scene_b: {
     clearedAllLayers: false,
     letter: 'b',
-    layers: {
-      layer01: {
+    layers: [
+      {
         layerNum: '01',
         allItemsFound: false,
         interactive_items: [
@@ -129,7 +129,7 @@ const data = {
           },
         ]
       },
-      layer02: {
+      {
         layerNum: '02',
         allItemsFound: false,
         interactive_items: [
@@ -162,7 +162,7 @@ const data = {
           },
         ]
       },
-      layer03: {
+      {
         layerNum: '03',
         allItemsFound: false,
         interactive_items: [
@@ -186,7 +186,7 @@ const data = {
           },
         ],
       },
-      layer04: {
+      {
         layerNum: '04',
         allItemsFound: false,
         interactive_items: [
@@ -219,7 +219,7 @@ const data = {
           },
         ],
       },
-      layer05: {
+      {
         layerNum: '05',
         allItemsFound: false,
         interactive_items: [
@@ -252,13 +252,12 @@ const data = {
           },
         ],
       },
-    },
+    ],
   },
   scene_c: {
-    clearedAllLayers: false,
     letter: 'c',
-    layers: {
-      layer01: {
+    layers: [
+      {
         layerNum: '01',
         allItemsFound: false,
         interactive_items: [
@@ -282,7 +281,7 @@ const data = {
           },
         ],
       },
-      layer02: {
+      {
         layerNum: '02',
         allItemsFound: false,
         interactive_items: [
@@ -306,7 +305,7 @@ const data = {
           },
         ],
       },
-      layer03: {
+      {
         layerNum: '03',
         allItemsFound: false,
         interactive_items: [
@@ -330,7 +329,7 @@ const data = {
           },
         ],
       },
-      layer04: {
+      {
         layerNum: '04',
         allItemsFound: false,
         interactive_items: [
@@ -345,7 +344,7 @@ const data = {
           },
         ],
       },
-      layer05: {
+      {
         layerNum: '05',
         allItemsFound: false,
         interactive_items: [
@@ -378,7 +377,7 @@ const data = {
           },
         ],
       },
-      layer06: {
+      {
         layerNum: '06',
         allItemsFound: false,
         interactive_items: [
@@ -411,7 +410,7 @@ const data = {
           },
         ],
       },
-      layer07: {
+      {
         layerNum: '07',
         allItemsFound: false,
         interactive_items: [
@@ -435,7 +434,7 @@ const data = {
           },
         ],
       },
-      layer08: {
+      {
         layerNum: '08',
         allItemsFound: false,
         interactive_items: [
@@ -450,7 +449,7 @@ const data = {
           },
         ],
       },
-      layer09: {
+      {
         layerNum: '09',
         allItemsFound: false,
         interactive_items: [
@@ -483,7 +482,7 @@ const data = {
           },
         ],
       },
-      layer10: {
+      {
         layerNum: '10',
         allItemsFound: false,
         interactive_items: [
@@ -507,7 +506,7 @@ const data = {
           },
         ],
       },
-      layer11: {
+      {
         layerNum: '11',
         allItemsFound: false,
         interactive_items: [
@@ -531,7 +530,7 @@ const data = {
           },
         ],
       },
-      layer12: {
+      {
         layerNum: '12',
         allItemsFound: false,
         interactive_items: [
@@ -555,7 +554,7 @@ const data = {
           },
         ],
       },
-      layer13: {
+      {
         layerNum: '13',
         allItemsFound: false,
         interactive_items: [
@@ -570,7 +569,7 @@ const data = {
           },
         ],
       },
-      layer14: {
+      {
         layerNum: '14',
         allItemsFound: false,
         interactive_items: [
@@ -594,7 +593,7 @@ const data = {
           },
         ],
       },
-    },
+    ],
   },
 }
 
