@@ -65,15 +65,6 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_a_04.png',
           },
-          {
-            //* Microchip 1
-            digSitePosition: {},
-            id: "item_a_03_02",
-            inventoryId: "microchip1",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_a_05.gif',
-          },
         ],
       },
       {
@@ -193,15 +184,6 @@ const data = {
         allItemsFound: false,
         interactive_items: [
           {
-            // *Bananas bunch
-            digSitePosition: {},
-            id: "item_b_04_01",
-            inventoryId: "bananas-bunch",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_b_01.gif',
-          },
-          {
             // * Snow pear
             digSitePosition: {},
             id: "item_b_04_02",
@@ -266,15 +248,6 @@ const data = {
         allItemsFound: false,
         interactive_items: [
           {
-            //* Beige moth 2
-            digSitePosition: {},
-            id: "item_c_01_01",
-            inventoryId: "beige-moth2",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_19.png',
-          },
-          {
             //* Green larva
             digSitePosition: {},
             id: "item_c_01_02",
@@ -289,15 +262,6 @@ const data = {
         layerNum: '02',
         allItemsFound: false,
         interactive_items: [
-          {
-            //* Caterpillar nest 1
-            digSitePosition: {},
-            id: "item_c_02_01",
-            inventoryId: "cat-nest1",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_07.png',
-          },
           {
             //* Green rock
             digSitePosition: {},
@@ -322,15 +286,6 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_03.png',
           },
-          {
-            //* Grass Loop
-            digSitePosition: {},
-            id: "item_c_03_02",
-            inventoryId: "grass-loop",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_11.png',
-          },
         ],
       },
       {
@@ -352,15 +307,6 @@ const data = {
         layerNum: '05',
         allItemsFound: false,
         interactive_items: [
-          {
-            //* Cocoon
-            digSitePosition: {},
-            id: "item_c_05_01",
-            inventoryId: "chrysalis",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_06.png',
-          },
           {
             //* Three larvae
             digSitePosition: {},
@@ -403,15 +349,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_22.png',
           },
-          {
-            //*Caterpillar nest 2
-            digSitePosition: {},
-            id: "item_c_06_03",
-            inventoryId: "cat-nest2",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_08.png',
-          },
+          
         ],
       },
       {
@@ -467,22 +405,13 @@ const data = {
             src: './assets/objects/object_c_01.png',
           },
           {
-            //* Grasshopper
-            digSitePosition: {},
-            id: "item_c_09_02",
-            inventoryId: "grasshopper",
-            inInventory: false,
-            isTransparent: false,
-            src: './assets/objects/object_c_05.png',
-          },
-          {
-            //* Caterpillar nest 3
+            //*Caterpillar nest 2
             digSitePosition: {},
             id: "item_c_09_03",
-            inventoryId: "cat-nest3",
+            inventoryId: "cat-nest2",
             inInventory: false,
             isTransparent: false,
-            src: './assets/objects/object_c_09.png',
+            src: './assets/objects/object_c_08.png',
           },
         ],
       },
