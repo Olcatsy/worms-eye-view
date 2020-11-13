@@ -151,15 +151,11 @@ fieldset {
     transform: scale(1.1);
 
 }
-
-
-
-
 /* END OF OBJECTS */
 
 
 
-/* CANVASES */
+/* CANVASES/SCENE */
 .canvas {
   position: absolute;
   top: 0;
@@ -196,7 +192,47 @@ fieldset {
   opacity: 0;
   transition: visibility 0s 1s, opacity 1s;
 }
-/* END OF CANVASES */
+
+/*! Test to work on the last layer layout */
+/* .layer:not(.last-layer) {
+  display: none;
+} */
+
+.last-layer {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.move-on {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: 3rem;  
+  text-align: center;
+}
+
+.move-on p {
+  margin-bottom: 20px;
+}
+
+.move-on-button {
+  padding: 10px;
+}
+  .move-on-button:hover,
+  .move-on-button:focus {
+    filter: var(--selection-effect)
+  }
+
+.move-on-button img {
+  filter: var(--shadow);
+}
+
+
+/* END OF CANVASES/SCENES */
 
 
 

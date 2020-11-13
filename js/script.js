@@ -8,29 +8,11 @@ const app = {
   modalImg: document.querySelector('#modalImg'),
   modalText: document.querySelector('#modalText'),
   realmButtons: document.querySelectorAll('.realm-button'),
+  moveonButtons: document.querySelectorAll('.move-on-button'),
   isScratching: false,
 
-  // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
-  closeModal: () => {
-    const closeButton = document.querySelector('#modalClose');
-    // clicking on Close button
-    closeButton.addEventListener('click', () => {
-      app.modal.classList.remove('open');
-    });
-    // clicking anywhere on the modal
-    app.modal.addEventListener('click', () => {
-      app.modal.classList.remove('open');
-    });
-    // pressing ESC
-    document.addEventListener('keyup', (e) => {
-      if (app.modal.classList.contains('open') && e.code === 'Escape') {
-        app.modal.classList.remove('open');
-      }
-      // 
-    })
-  },
 
-
+//* ITEM RELATED FUNCTIONS
   // Checks if the randomly generated grid cell is already taken up by another element. Accepts an array that stores occupied cells id's, the element and the grid cell generated for it. If the grid cell is unoccupied, the element is assigned to it using CSS property 'grid-area'
   assignCells: (arr, element, cell) => {
     if (arr.includes(cell)) {
@@ -98,6 +80,8 @@ const app = {
   },
 
 
+
+//* LAYERS RELATED FUNCTIONS
   // Checks transparency in a defined area. Returns true if a threshold percentage of the pixels are transparent, otherwise returns false
   checkTransparency: (pixelData, threshold)  => {
     // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value less than a given alpha value
@@ -178,6 +162,14 @@ const app = {
     })
   },
 
+  allSceneItemsFound: (scene) => {
+    const layers = data[`scene_${scene}`].layers;
+    console.log();
+
+    return true;
+  },
+
+
   // Moves found items to the inventory when the user clicks on them and removes the current layer if all objects on it have been found
   handleLayerClick: (item, dataArr, ctx, canvas, e) => {
     const i = helper.findObjectsIndex(dataArr, 'id', item.id);
@@ -191,15 +183,15 @@ const app = {
         if (helper.foundAllItems(dataArr) && canvas.parentNode) {
           canvas.classList.add('faded-out')
           canvas.addEventListener('transitionend', ()=> {
-    
             canvas.parentElement.remove();
           })
         };
+
+        //check if all items have been found in the scene
       })
     }
-    
-
   },
+
 
 
   // Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
@@ -257,6 +249,8 @@ const app = {
   },
 
 
+
+//* SCENES RELATED FUNCTIONS
   // Sets up all scenes
   setUpAllScenes: () => {
     for (const scene in data) {
@@ -266,21 +260,63 @@ const app = {
   },
 
 
+  // moves class .current-scene to the next scene
+  switchScene: (current, next) => {
+    current.classList.remove('current-scene');
+    next.classList.add('current-scene');
+  },
+
+
   // switches scenes when user clicks on a radio button in "Choose your realm" section
-  switchScene: () => {
+  realmButtonHandler: () => {
     app.realmButtons.forEach(button => {
-      button.addEventListener('change', () => {
+      button.addEventListener('click', () => {
         const currentScene = document.querySelector('.current-scene')
         const nextScene = document.querySelector(`#${button.value}`);
-        currentScene.classList.remove('current-scene');
-        nextScene.classList.add('current-scene');
+        app.switchScene(currentScene, nextScene);
+      })
+    })
+  },
 
+  // goes to the next scene when the user clicks on the button on the last layer of each scene. The order is like this: 
+  // A -> B -> C -> A
+  moveonButtonHandler: () => {
+    app.moveonButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        console.log(button);
+        const currentScene = document.querySelector('.current-scene');
+        const nextScene = document.querySelector(`#${button.dataset.scene}`)
+        app.switchScene(currentScene, nextScene);
       })
     })
   },
 
 
-  // INIT
+
+//* MISC FUNCTIONS
+  // Allows to close modal when user clicks on the cross icon, presses ESC or clicks anywhere in the modal itself
+  closeModal: () => {
+    const closeButton = document.querySelector('#modalClose');
+    // clicking on Close button
+    closeButton.addEventListener('click', () => {
+      app.modal.classList.remove('open');
+    });
+    // clicking anywhere on the modal
+    app.modal.addEventListener('click', () => {
+      app.modal.classList.remove('open');
+    });
+    // pressing ESC
+    document.addEventListener('keyup', (e) => {
+      if (app.modal.classList.contains('open') && e.code === 'Escape') {
+        app.modal.classList.remove('open');
+      }
+      // 
+    })
+  },
+
+
+
+//* INIT
   init: () => {
     // app.setUpAllScenes();
     app.closeModal();
@@ -302,7 +338,8 @@ const app = {
       }
     }, 700)
 
-    app.switchScene();
+    app.realmButtonHandler();
+    app.moveonButtonHandler();
   },
 }
 

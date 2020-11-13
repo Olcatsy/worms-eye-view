@@ -1,5 +1,6 @@
 const data = {
   scene_a: {
+    clearedAllLayers: false,
     letter: 'a',
     layers: {
       layer01: {
@@ -101,6 +102,7 @@ const data = {
     },
   },
   scene_b: {
+    clearedAllLayers: false,
     letter: 'b',
     layers: {
       layer01: {
@@ -253,6 +255,7 @@ const data = {
     },
   },
   scene_c: {
+    clearedAllLayers: false,
     letter: 'c',
     layers: {
       layer01: {
