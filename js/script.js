@@ -9,6 +9,7 @@ const app = {
   modalText: document.querySelector('#modalText'),
   realmButtons: document.querySelectorAll('.realm-button'),
   moveonButtons: document.querySelectorAll('.move-on-button'),
+  loadingButtons: document.querySelectorAll('.loading-button'),
   isScratching: false,
 
 
@@ -277,9 +278,9 @@ const app = {
 
 //* SCENES RELATED FUNCTIONS
   // moves class .current-scene to the next scene
-  switchScene: (current, next) => {
-    current.classList.remove('current-scene');
-    next.classList.add('current-scene');
+  switchScene: (current, next, className) => {
+    current.classList.remove(className);
+    next.classList.add(className);
   },
 
 
@@ -289,7 +290,7 @@ const app = {
       button.addEventListener('click', () => {
         const currentScene = document.querySelector('.current-scene')
         const nextScene = document.querySelector(`#${button.value}`);
-        app.switchScene(currentScene, nextScene);
+        app.switchScene(currentScene, nextScene, 'current-scene');
       })
     })
   },
@@ -299,10 +300,9 @@ const app = {
   moveonButtonHandler: () => {
     app.moveonButtons.forEach(button => {
       button.addEventListener('click', () => {
-        console.log(button);
         const currentScene = document.querySelector('.current-scene');
         const nextScene = document.querySelector(`#${button.dataset.scene}`)
-        app.switchScene(currentScene, nextScene);
+        app.switchScene(currentScene, nextScene, 'current-scene');
       })
     })
   },
@@ -322,6 +322,20 @@ const app = {
       if (app.modal.classList.contains('open') && e.code === 'Escape') {
         app.modal.classList.remove('open');
       }
+    })
+  },
+
+
+  loadingButtonHandler: () => {
+    app.loadingButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const current = document.querySelector(`.current-screen`);
+        if (button.dataset.nextscreen === 'digsite') {
+          current.classList.add('faded-out');
+        }
+        const next = document.querySelector(`#${button.dataset.nextscreen}`);
+        app.switchScene(current, next, 'current-screen');
+      })
     })
   },
 
@@ -349,6 +363,7 @@ const app = {
     app.closeModal();
     app.realmButtonHandler();
     app.moveonButtonHandler();
+    app.loadingButtonHandler();
   },
 }
 
