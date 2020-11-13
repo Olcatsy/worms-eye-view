@@ -3,6 +3,7 @@
 /* Variables */
 :root {
   --pink: #EA0AEF;
+  --lighter-pink:  #f5a2f7;
   --yellow: yellow;
   --black: rgb(22, 22, 22);
   --spacing: 15px;
@@ -158,6 +159,14 @@ fieldset {
 .full-screen h3 {
   margin-bottom: 30px;
 }
+
+.full-screen h1 {
+  font-size: 5rem;
+}
+
+.full-screen h2 {
+  font-size: 4rem;
+}
 /* END OF COMMON STYLES */
 
 
@@ -167,6 +176,7 @@ fieldset {
   color: var(--yellow);
   background-size: cover;
   background-position: center;
+  z-index: 100
 }
 
 .title {
@@ -184,7 +194,7 @@ fieldset {
 }
 
 .desc h2 {
-  color: var(--yellow)
+  color: var(--yellow);
 }
 
 .current-screen {
@@ -279,7 +289,7 @@ fieldset {
 
 
 
-/* CANVASES/SCENE */
+/* CANVASES/SCENES */
 .canvas {
   position: absolute;
   top: 0;
@@ -339,7 +349,6 @@ fieldset {
   margin-bottom: 20px;
   font-size: 3rem;  
   color: var(--yellow);
-  
 }
 
 
@@ -378,10 +387,45 @@ fieldset {
   font-size: 2rem;
 }
 
-/* 
-.close-misc {
+.credits {
+  background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url(../assets/loading1.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  
+  /* visibility: visible;
+  opacity: 1; */
+}
 
-} */
+.credits h2 {
+  font-size: 4rem;
+}
+
+.credits h2,
+.credits h3 {
+  color: var(--pink);
+}
+
+.credits .flex-parent {
+  align-items: flex-start;
+  width: 50%;
+}
+
+.credits p {
+  margin-bottom: 10px;
+}
+
+.credits a {
+  color: var(--lighter-pink);
+}
+  .credits a:hover,
+  .credits a:focus {
+    text-decoration: underline;
+  }
+
+.credits-section {
+  margin-bottom: calc(var(--spacing) * 3)
+}
 /* END OF CREDITS AND INSTRUCTIONS */
 
 
@@ -430,20 +474,6 @@ fieldset {
   .modal-text a:focus  {
     text-decoration: underline;
   }
-/* 
-.modal-close {
-  background: none;
-  width: 50px;
-  position: absolute;
-  top: 50px;
-  right: 50px;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-  transform: scale(1.1);
-} */
-/* END OF MODAL */
 
 
 /* REALM BUTTONS */
