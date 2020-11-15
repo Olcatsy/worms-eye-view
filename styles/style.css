@@ -259,6 +259,10 @@ fieldset {
   max-height: 120px;
 }
 
+.item,
+.artifact {
+  user-select: none;
+}
 
 /* styles for item interactions */
 .found-item {
