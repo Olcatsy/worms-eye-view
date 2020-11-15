@@ -10,6 +10,7 @@ const app = {
   realmButtons: document.querySelectorAll('.realm-button'),
   moveonButtons: document.querySelectorAll('.move-on-button'),
   loadingButtons: document.querySelectorAll('.loading-button'),
+  miscButtons: document.querySelectorAll('.misc-button'),
   isScratching: false,
 
 
@@ -332,10 +333,8 @@ const app = {
         const current = document.querySelector(`.current-screen`);
         if (button.dataset.nextscreen === 'dig-site') {
           current.classList.add('faded-out');
-          console.log(button.dataset.nextscreen);
           return;
         } else {
-          console.log(button, button.dataset.nextscreen);
           const next = document.querySelector(`#${button.dataset.nextscreen}`);
           app.switchScene(current, next, 'current-screen');
         }
@@ -364,10 +363,10 @@ const app = {
 
 
   openMiscScreen: () => {
-    const open = document.querySelectorAll('.misc-buttons');
-    open.forEach(button => {
+    app.miscButtons.forEach(button => {
       button.addEventListener('click', () => {
-        const screen = document.querySelector(`#${button.dataset.screen}`)
+        console.log(button.dataset.screen);
+        const screen = document.querySelector(`#${button.dataset.screen}`);
         screen.classList.add('faded-in');
       })
     })
