@@ -320,7 +320,7 @@ fieldset {
 }
 
 .scene_c .canvas {
-   cursor : url('../assets/cursors/cursor_c.png') 50 80, auto;
+   cursor : url('../assets/cursors/cursor_c.png') 25 85, auto;
 }
 
 .current-scene {
