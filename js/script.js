@@ -93,7 +93,7 @@ const app = {
 
     for (let i = 3; i < l; i += 4) {
       // check pixelData[i] against alpha value within 0-255 range
-      if ((pixelData[i] < 200)) {
+      if ((pixelData[i] < 255)) {
         count ++;
         if (helper.calculatePercentage(count, pixelsNum) > threshold) {
           return true;
@@ -117,7 +117,7 @@ const app = {
     
       // if checkTransparency returns 'true' item's isTransparent to true
       // The second argument is the percent of pixels scratched off in the area
-      if (app.checkTransparency(pixelsData, 30)) {
+      if (app.checkTransparency(pixelsData, 15)) {
         helper.updateProperty(dataArr, i, 'isTransparent', true);
         item.classList.add('found-item');
       };
