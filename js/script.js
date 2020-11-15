@@ -88,10 +88,10 @@ const app = {
   checkTransparency: (pixelData, threshold)  => {
     // accepts a Uint8ClampedArray (represents pixel data in RGBA format), iterates over each pixel and checks if it's alpha value less than a given alpha value
     const l = pixelData.length,
-          pixelsNum =  l / 4;
+          pixelsNum =  l / 8;
     let count = 0;
 
-    for (let i = 3; i < l; i += 4) {
+    for (let i = 3; i < l; i += 8) {
       // check pixelData[i] against alpha value within 0-255 range
       if ((pixelData[i] < 255)) {
         count ++;

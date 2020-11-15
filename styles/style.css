@@ -584,7 +584,9 @@ fieldset {
   z-index: 61;
 }
 
-.loading > * {
+.loading > *,
+.guide,
+.credits {
   z-index: 60;
 }
 
