@@ -155,7 +155,8 @@ const app = {
     helper.updateProperty(dataArr, i, 'inInventory', true);
     const inventoryItemId = item.dataset.inventoryid;
     const inventoryItem = document.querySelector(`#${inventoryItemId}`);
-    inventoryItem.classList.add('faded-in');          
+    inventoryItem.classList.add('faded-in', 
+    'in-inventory');          
 
     inventoryItem.addEventListener('click', () => {
       app.modal.classList.add('open');
