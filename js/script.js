@@ -382,8 +382,9 @@ const app = {
     })
   },
 
-//* INIT
+  //* INIT
   init: () => {
+    app.preloader();
     for (const scene in data) {
       const letter = data[scene].letter;
       app.addAllItems(letter);
@@ -407,7 +408,6 @@ const app = {
     app.loadingButtonHandler();
     app.closeMiscScreen();
     app.openMiscScreen();
-    app.preloader();
   },
 }
 
