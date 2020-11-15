@@ -327,7 +327,7 @@ const app = {
     })
   },
 
-
+  // clicking 'Back' and 'Continue' the user can navigate between the screens shown at the beginning
   loadingButtonHandler: () => {
     app.loadingButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -343,7 +343,7 @@ const app = {
     })
   },
 
-
+  //closes User Guide or Credits when the user clicks on the 'X' button or presses ESC
   closeMiscScreen: () => {
     const close = document.querySelectorAll('.close-misc');
     close.forEach(button => {
@@ -362,7 +362,7 @@ const app = {
     })
   },
 
-
+  // opens User Guide or Credis when the user clicks on the corresponding buttons in the bottom left corner
   openMiscScreen: () => {
     app.miscButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -373,6 +373,15 @@ const app = {
     })
   },
 
+  // Preloader 
+  preloader: () => {
+
+    // window.addEventListener('load',() => {
+    //   document.querySelector('#preloader').classList.add('faded-out')
+    // })
+    // setTimeout(() =>  document.querySelector('#preloader').style.display = 'none', 2500)
+    setTimeout(() => document.querySelector('#preloader').classList.add('faded-out-preloader'), 2500)
+  },
 
 //* INIT
   init: () => {
@@ -398,7 +407,8 @@ const app = {
     app.moveonButtonHandler();
     app.loadingButtonHandler();
     app.closeMiscScreen();
-    app.openMiscScreen()
+    app.openMiscScreen();
+    app.preloader();
   },
 }
 

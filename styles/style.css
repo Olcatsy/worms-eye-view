@@ -171,6 +171,32 @@ fieldset {
 
 
 /* LOADING SCREEN STYLES */
+.preloader {
+  background: white;
+  color: black;
+  text-shadow: none;
+  /* display: block; */
+  opacity: 1;
+}
+
+.preloader img {
+  position: relative;
+  width: 30%;
+  left: -2%;
+  animation: crawling 3.5s;
+}
+
+@keyframes crawling {
+  0% {
+    left: -2%
+  }
+
+  100% {
+    left: 2%;
+  }
+
+}
+
 .land-ackn {
   background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url(../assets/loading1.jpg);
   color: var(--yellow);
@@ -552,9 +578,18 @@ fieldset {
   opacity: 1;
   transition: opacity 1s;
 }
+.faded-out-preloader {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 3s, opacity 0.5s;
+}
 
 
 /* Z-INDEXES */
+.preloader {
+  z-index: 80;
+}
+
 .modal {
   z-index: 70;
 }
@@ -563,7 +598,7 @@ fieldset {
   z-index: 61;
 }
 
-.full-screen {
+.loading > * {
   z-index: 60;
 }
 
