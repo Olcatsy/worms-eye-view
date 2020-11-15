@@ -182,19 +182,7 @@ fieldset {
 .preloader img {
   position: relative;
   width: 30%;
-  left: -2%;
-  animation: crawling 3s linear;
-}
-
-@keyframes crawling {
-  0% {
-    left: -2%
-  }
-
-  100% {
-    left: 2%;
-  }
-
+  left: -10%;
 }
 
 .land-ackn {
