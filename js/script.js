@@ -92,7 +92,7 @@ const app = {
 
     for (let i = 3; i < l; i += 4) {
       // check pixelData[i] against alpha value within 0-255 range
-      if ((pixelData[i] < 150)) {
+      if ((pixelData[i] < 200)) {
         count ++;
         if (helper.calculatePercentage(count, pixelsNum) > threshold) {
           return true;
@@ -330,11 +330,12 @@ const app = {
     app.loadingButtons.forEach(button => {
       button.addEventListener('click', () => {
         const current = document.querySelector(`.current-screen`);
-        if (button.dataset.nextscreen === 'digsite') {
+        if (button.dataset.nextscreen === 'dig-site') {
           current.classList.add('faded-out');
+          console.log(button.dataset.nextscreen);
           return;
         } else {
-
+          console.log(button, button.dataset.nextscreen);
           const next = document.querySelector(`#${button.dataset.nextscreen}`);
           app.switchScene(current, next, 'current-screen');
         }
