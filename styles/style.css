@@ -364,6 +364,27 @@ fieldset {
   color: var(--yellow);
 }
 
+.you-worm {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.you-worm-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.you-worm h4 {
+  font-size: 4rem;
+}
 
 
 
@@ -539,6 +560,10 @@ fieldset {
 /* Z-INDEXES */
 .modal {
   z-index: 100;
+}
+
+.you-worm {
+  z-index: 40;
 }
 
 /* Layer 1 */

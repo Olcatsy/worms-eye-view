@@ -175,12 +175,10 @@ const app = {
 
   // checks if all items in all the scene have been found, and shows the "You worm!"
   youWorm: () => {
-    for (let scene in data) {
-      if (!data[scene].clearedAllLayers) {
-        console.log('no');
-        return;
-      }
-      // insert 'You worm' into the layer 
+    const worm = document.querySelector('#youWorm');
+
+    if (data.scene_a.clearedAllLayers && data.scene_b.clearedAllLayers && data.scene_c.clearedAllLayers) {
+      worm.classList.add('faded-in');
     }
   },
 
@@ -200,12 +198,14 @@ const app = {
       item.classList.add('faded-out');
       item.addEventListener('transitionend', () => {
         app.moveItemToInventory(item, dataArr, i);
+
         // when all images on the layer are found, remove layer and update corresponding layer data entry 
         if (helper.foundAllItems(dataArr) && canvas.parentNode) {
           layerData.allItemsFound = true;
           helper.unmount(canvas);
         };
         
+        // when all images in the scene are found, show prompt to continue to the next scene
         if (layersArr[l-1].allItemsFound) {
           sceneData.clearedAllLayers = true;
           const moveOn = document.querySelector(`#move-on-${scene}`)
@@ -213,7 +213,7 @@ const app = {
           moveOn.classList.add('faded-in')
         };
 
-        // checks winning condition
+        // when absolutely all images have been found, show 'You worm!' gif (winning condition)
         app.youWorm();
       })
 
