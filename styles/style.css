@@ -183,7 +183,7 @@ fieldset {
   position: relative;
   width: 30%;
   left: -2%;
-  animation: crawling 3.5s;
+  animation: crawling 3s linear;
 }
 
 @keyframes crawling {
@@ -581,7 +581,7 @@ fieldset {
 .faded-out-preloader {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0s 3s, opacity 0.5s;
+  transition: visibility 0s 1s, opacity 1s;
 }
 
 
