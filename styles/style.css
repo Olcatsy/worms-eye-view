@@ -79,6 +79,7 @@ button {
     filter: var(--shadow);
 }
 
+
 fieldset {
   border: none;
   margin: 0;
@@ -146,7 +147,6 @@ fieldset {
 
 .full-screen {
   position: absolute;
-  z-index: 60;
   top: 0;
   left: 0;
   width: 100%;
@@ -176,7 +176,6 @@ fieldset {
   color: var(--yellow);
   background-size: cover;
   background-position: center;
-  z-index: 100
 }
 
 .title {
@@ -345,7 +344,6 @@ fieldset {
   display: flex; 
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 .move-on {
@@ -353,7 +351,6 @@ fieldset {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
   text-align: center;
   opacity: 0;
 }
@@ -559,7 +556,15 @@ fieldset {
 
 /* Z-INDEXES */
 .modal {
-  z-index: 100;
+  z-index: 70;
+}
+
+.land-ackn {
+  z-index: 61;
+}
+
+.full-screen {
+  z-index: 60;
 }
 
 .you-worm {
@@ -684,6 +689,14 @@ fieldset {
 }
 .objects_15 {
   z-index: 10;
+}
+
+.move-on {
+  z-index: 2;
+}
+
+.last-layer {
+  z-index: 1;
 }
 
 
