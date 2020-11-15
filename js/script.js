@@ -376,14 +376,10 @@ const app = {
   // Preloader 
   preloader: () => {
     const preloader = document.querySelector('#preloader')
-    // window.addEventListener('load',() => {
-    //   document.querySelector('#preloader').classList.add('faded-out')
-    // })
-    // setTimeout(() =>  document.querySelector('#preloader').style.display = 'none', 2500)
-    setTimeout(() => {
+    window.addEventListener('load',() => {
       preloader.classList.add('faded-out-preloader');
       preloader.querySelector('img').style.display = 'none'
-    }, 2500)
+    })
   },
 
 //* INIT
