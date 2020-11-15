@@ -21,7 +21,6 @@ const drawing = (canvas, ctx, scene) => {
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
   ctx.lineJoin = ctx.lineCap = 'round';
-  ctx.lineWidth = 60;
 
 
   const startDrawing = (e) => {
@@ -49,7 +48,7 @@ const drawing = (canvas, ctx, scene) => {
       ctx.translate(x, y);
       ctx.scale(0.5, 0.5);
       // rotate the brush every n-th step
-      if (i % 15 === 0) {
+      if (i % 30 === 0) {
         ctx.rotate(Math.PI * 180 / helper.getRandomInt(0, 180));
       }
       ctx.globalCompositeOperation = 'destination-out'; // allows to erase
