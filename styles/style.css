@@ -87,6 +87,16 @@ fieldset {
 }
 /* END OF STRIPPING STYLES */
 
+/* GENERAL PAGE LAYOUT */
+.container {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  justify-items: stretch;
+  align-items: center;
+}
 
 /* COMMON STYLES */
 .grass-button {
