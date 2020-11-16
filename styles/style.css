@@ -329,15 +329,15 @@ fieldset {
 }
 
 .scene_a .canvas {
-  cursor : url('../assets/cursors/cursor_a.png'), auto;
+  cursor : url('../assets/cursors/cursor_a.png')5 5, auto;
 }
 
 .scene_b .canvas {
-  cursor : url('../assets/cursors/cursor_b.png') 0 101, auto;
+  cursor : url('../assets/cursors/cursor_b.png') 25 85, auto;
 }
 
 .scene_c .canvas {
-   cursor : url('../assets/cursors/cursor_c.png') 25 85, auto;
+   cursor : url('../assets/cursors/cursor_c.png') 35 90, auto;
 }
 
 .current-scene {
