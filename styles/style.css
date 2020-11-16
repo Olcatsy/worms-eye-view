@@ -355,8 +355,7 @@ fieldset {
   visibility: hidden;
   opacity: 0;
   max-width: 120px;
-  background-color: var(--black);
-  /* background-color: olivedrab; */
+  background-color: #312d27;
   color: white;
   text-align: center;
   padding: 5px;
