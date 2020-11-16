@@ -475,17 +475,13 @@ fieldset {
   overflow-y: scroll;
 }
 
-.scroll {
-  /* overflow-y: scroll; */
-
-}
-
 
 .credits {
   background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url(../assets/loading1.jpg);
   background-size: cover;
   background-position: center;
   color: white;
+  font-size: 2.3rem;
 }
 
 .credits h2 {
