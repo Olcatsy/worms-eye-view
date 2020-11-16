@@ -230,14 +230,14 @@ fieldset {
   width: 100%;
   padding: var(--spacing);
   display: grid;
-  grid-template-columns: repeat(15, 1fr);
-  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(17, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   grid-gap: 12px;
 }
 
 .dig-site {
-  grid-row: 2 / 7;
-  grid-column: 4 / 13;
+  grid-row: 2 / 6;
+  grid-column: 5 / 14;
   position: relative;
 }
 
