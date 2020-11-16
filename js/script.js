@@ -314,8 +314,6 @@ const app = {
       button.addEventListener('click', () => {
         const val = button.dataset.scene;
         const radio = document.querySelector(`.realm-button[value=${val}]`)
-        console.log(radio);
-        console.log(val);
 
         const currentScene = document.querySelector('.current-scene');
         const nextScene = document.querySelector(`#${val}`)
@@ -382,7 +380,6 @@ const app = {
   openMiscScreen: () => {
     app.miscButtons.forEach(button => {
       button.addEventListener('click', () => {
-        console.log(button.dataset.screen);
         const screen = document.querySelector(`#${button.dataset.screen}`);
         screen.classList.add('faded-in');
       })
@@ -391,8 +388,8 @@ const app = {
 
   // Preloader 
   preloader: () => {
-    const preloader = document.querySelector('#preloader')
     window.addEventListener('load',() => {
+      const preloader = document.querySelector('#preloader');
       preloader.classList.add('faded-out-preloader');
       preloader.querySelector('img').style.display = 'none'
     })
