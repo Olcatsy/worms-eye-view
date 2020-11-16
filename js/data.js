@@ -378,7 +378,7 @@ const data = {
             inventoryId: "beetle",
             inInventory: false,
             isTransparent: false,
-            src: './assets/objects/object_c_13.png',
+            src: './assets/objects/object_c_13.gif',
             copy: `<p>Nationalism was obscured by winds and waters that knew no boundaries. Speaking to the natural world as a member of the
             democracy of species, generated a transfer of gratitude. <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
@@ -504,7 +504,7 @@ const data = {
             inventoryId: "eggs",
             inInventory: false,
             isTransparent: false,
-            src: './assets/objects/object_c_02.png',
+            src: './assets/objects/object_c_02.gif',
             copy: `<p>Wild animal engagement through self-controlled, individual, and collective forms of subsistence and care work eventually
             constituted a form of social reproductive labour called Ecosocial Reproduction (Blattner et al., 2020)</p>`
           },
