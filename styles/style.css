@@ -28,6 +28,7 @@ body {
   background-size: cover;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 
   font-size: 2rem;
   color: white;
@@ -202,6 +203,7 @@ fieldset {
   background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url(../assets/loading1.jpg);
   background-size: cover;
   background-position: center;
+  overflow-y: scroll;
 }
 
 .intro h2 {
@@ -430,7 +432,7 @@ fieldset {
   background-size: cover;
   background-position: center;
   font-size: 2rem;
-  /* overflow-y: hidden; */
+  overflow-y: scroll;
 }
 
 .scroll {
