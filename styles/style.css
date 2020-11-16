@@ -6,7 +6,8 @@
   --lighter-pink:  #f5a2f7;
   --yellow: yellow;
   --black: rgb(22, 22, 22);
-  --spacing: 15px;
+  --spacing-small: 15px;
+  --spacing-med: 30px;
 
   --shadow: drop-shadow(4px 4px 4px rgb(22, 22, 22));
   --selection-effect: drop-shadow(3px 3px 3px var(--yellow)) drop-shadow(-3px -3px 3px var(--yellow));
@@ -89,6 +90,45 @@ fieldset {
 /* END OF STRIPPING STYLES */
 
 
+/* BANNER FOR MOBILE */
+.mobile-only {
+  display: none;
+}
+
+
+
+@media (max-width: 1200px) {
+  .mobile-only {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url(../assets/loading1.jpg);
+    background-position: center left;
+    background-size: cover;
+    font-size: 3rem;
+    text-align: center;
+  }
+  
+  .mobile-only-inner {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-only-inner img {
+    margin-top: var(--spacing-med);
+  }
+}
+/* END OF BANNER FOR MOBILE */
+
 /* COMMON STYLES */
 .grass-button {
   color: white;
@@ -137,14 +177,14 @@ fieldset {
 
 .back {
   position: absolute;
-  bottom: var(--spacing);
-  left: var(--spacing);
+  bottom: var(--spacing-small);
+  left: var(--spacing-small);
 }
 
 .continue {
   position: absolute;
-  bottom: var(--spacing);
-  right: var(--spacing);
+  bottom: var(--spacing-small);
+  right: var(--spacing-small);
 }
 
 .full-screen {
@@ -230,7 +270,7 @@ fieldset {
 .container {
   height: 100vh;
   width: 100%;
-  padding: var(--spacing);
+  padding: var(--spacing-small);
   display: grid;
   grid-template-columns: repeat(17, 1fr);
   grid-template-rows: repeat(6, 1fr);
@@ -408,15 +448,15 @@ fieldset {
   display: flex;
   justify-content: space-around;
   position: absolute;
-  bottom: var(--spacing);
-  left: var(--spacing);
+  bottom: var(--spacing-small);
+  left: var(--spacing-small);
 }
 
 .misc-button {
   /* margin-left: 30px; */
   padding: 10px 30px;
   color: white;
-  margin: var(--spacing);
+  margin: var(--spacing-small);
 }
 /* END OF MISC BUTTONS */
 
@@ -475,7 +515,7 @@ fieldset {
   }
 
 .credits-section {
-  margin-bottom: calc(var(--spacing) * 3)
+  margin-bottom: calc(var(--spacing-small) * 3)
 }
 /* END OF CREDITS AND INSTRUCTIONS */
 
@@ -507,7 +547,7 @@ fieldset {
   align-items: center;
   /* flex-direction: column; */
   height: 100%;
-  padding: calc(var(--spacing)* 2) 0;
+  padding: var(--spacing-med) 0;
 }
 
 .modal-text {
@@ -534,7 +574,7 @@ fieldset {
 .realm-buttons-outer {
   position: absolute;
   right: 0;
-  bottom: var(--spacing);
+  bottom: var(--spacing-small);
   filter: var(--shadow);
 
   background: url(../assets/realm-buttons-bg.png);
@@ -584,6 +624,11 @@ fieldset {
 
 
 /* Z-INDEXES */
+
+.mobile-only {
+  z-index: 100;
+}
+
 .preloader {
   z-index: 80;
 }
