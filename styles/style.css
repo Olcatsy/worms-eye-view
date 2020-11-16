@@ -218,10 +218,16 @@ fieldset {
   color: black;
   text-shadow: none;
   opacity: 1;
+  text-align: center;
+}
+
+.preloader h2 {
+  font-size: 3rem;
 }
 
 .preloader img {
   width: 30%;
+  margin: var(--spacing-med);
 }
 
 .land-ackn {
@@ -631,11 +637,7 @@ fieldset {
   opacity: 1;
   transition: opacity 1s;
 }
-.faded-out-preloader {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 1s, opacity 1s;
-}
+
 
 
 /* Z-INDEXES */
