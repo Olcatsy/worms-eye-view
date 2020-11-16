@@ -220,6 +220,15 @@ const app = {
   },
 
 
+  // fits the image drawn on canvas to fit the canvas dimension
+  scaleCanvasImg: (canvas, ctx, img) => {
+    //get scale
+    const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+    const x = (canvas.width / 2) - (img.width / 2) * scale;
+    const y = (canvas.height / 2) - (img.height / 2) * scale;
+    ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+  },
+
 
   // Sets ups a layer: draws an overlay image on the canvas, sets up drawing functions, and deals with finding items on the layer
   layerSetup: (scene, layerNum) => {
@@ -228,12 +237,14 @@ const app = {
     const ctx = canvas.getContext('2d');
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
+    
 
 
     // Load overlay image
     const img = new Image();
     img.addEventListener('load', () => {
-      ctx.drawImage(img, 0, 0);
+      // ctx.drawImage(img, 0, 0);
+      app.scaleCanvasImg(canvas, ctx, img);
     })
     img.src = `./assets/overlays/layer_${scene}_${layerNum}.jpg`
 
