@@ -110,7 +110,13 @@ fieldset {
   width: 70%;
   margin: 0 auto;
   max-width: 1200px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
+  .wrapper::-webkit-scrollbar {
+    display: none;
+  }
 
 .close {
   background: none;
@@ -171,6 +177,7 @@ fieldset {
 
 
 /* LOADING SCREEN STYLES */
+/* Preloader */
 .preloader {
   background: white;
   color: black;
@@ -183,6 +190,7 @@ fieldset {
   width: 30%;
 }
 
+/* Land Acknowledgement */
 .land-ackn {
   background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url(../assets/loading1.jpg);
   color: var(--yellow);
@@ -190,6 +198,7 @@ fieldset {
   background-position: center;
 }
 
+/* Title */
 .title {
   background:  url(../assets/loading2.jpg);
   font-size: 5rem;
@@ -198,6 +207,7 @@ fieldset {
   background-position: center;
 }
 
+/* Intro */
 .intro {
   background: linear-gradient(rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0.4)), url(../assets/loading1.jpg);
   background-size: cover;
@@ -224,7 +234,7 @@ fieldset {
 
 
 
-/* CONTAINER/INVENTORY */
+/* CONTAINER / INVENTORY */
 .container {
   height: 100vh;
   width: 100%;
@@ -491,7 +501,6 @@ fieldset {
 }
 
 .modal-content {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
