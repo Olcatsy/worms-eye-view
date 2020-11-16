@@ -209,7 +209,6 @@ const app = {
         if (layersArr[l-1].allItemsFound) {
           sceneData.clearedAllLayers = true;
           const moveOn = document.querySelector(`#move-on-${scene}`)
-          console.log(moveOn);
           moveOn.classList.add('faded-in')
         };
 
@@ -302,9 +301,15 @@ const app = {
   moveonButtonHandler: () => {
     app.moveonButtons.forEach(button => {
       button.addEventListener('click', () => {
+        const val = button.dataset.scene;
+        const radio = document.querySelector(`.realm-button[value=${val}]`)
+        console.log(radio);
+        console.log(val);
+
         const currentScene = document.querySelector('.current-scene');
-        const nextScene = document.querySelector(`#${button.dataset.scene}`)
+        const nextScene = document.querySelector(`#${val}`)
         app.switchScene(currentScene, nextScene, 'current-scene');
+        radio.checked = true;
       })
     })
   },
