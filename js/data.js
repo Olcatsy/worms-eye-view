@@ -16,7 +16,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_a_03.gif',
             copy: `
-            <p>Cyberspace influenced how humans engaged and interacted with the environment by connecting computers, digital media, animals, and things as a living system <a href="https://quod.lib.umich.edu/o/ohp/12329362.0001.001/1:9/--death-of-the-posthuman-essays-on-extinction-volume-one?rgn=div1;view=toc" class="copy-link">(Colebrook 2014)</a>.</p>`
+            <p>Cyberspace influenced how humans engaged and interacted with the environment by connecting computers, digital media, animals, and things as a living system <a target="_blank" href="https://quod.lib.umich.edu/o/ohp/12329362.0001.001/1:9/--death-of-the-posthuman-essays-on-extinction-volume-one?rgn=div1;view=toc" class="copy-link">(Colebrook 2014)</a>.</p>`
           },
         ],
       },
@@ -61,7 +61,7 @@ const data = {
             e-waste was a major external consequence of the digital revolution.
             </p>  
             <p >
-            In 2019, a record 53.6 million metric tonnes of electronic waste was generated worldwide. 17.4% of this e-waste was collected and recycled <a href="http://ewastemonitor.info/" class="copy-link">(United Nations Institute for Training and Research, 2020)</a>. As time passed, higher consumption rates of electric and electronic equipment, devices with short life cycles, and new designs with few options for repair
+            In 2019, a record 53.6 million metric tonnes of electronic waste was generated worldwide. 17.4% of this e-waste was collected and recycled <a target="_blank" href="http://ewastemonitor.info/" class="copy-link">(United Nations Institute for Training and Research, 2020)</a>. As time passed, higher consumption rates of electric and electronic equipment, devices with short life cycles, and new designs with few options for repair
             propelled the electronic waste stream.
             </p>`
           },
@@ -82,7 +82,7 @@ const data = {
             copy: `
             <p>A physical record containing data about an arboretum… a portion of the text reads:</p>
             <p>“each organism has germinated within a social and technological setting, its care and curation managed through the instruments and information structures deployed during its lifetime”</p>
-            <p>Place-based practices and the documents they produced reflected what was valued about individual organisms and also exposed shifting values over time <a href="https://journals.sagepub.com/doi/10.1177/2053951716661365" class="copy-link">(Loukissas, 2016)</a>.</p>`
+            <p>Place-based practices and the documents they produced reflected what was valued about individual organisms and also exposed shifting values over time <a target="_blank" href="https://journals.sagepub.com/doi/10.1177/2053951716661365" class="copy-link">(Loukissas, 2016)</a>.</p>`
           },
         ],
       },
@@ -100,7 +100,7 @@ const data = {
             src: './assets/objects/object_a_07.gif',
             copy: `
             "<p>Structures of feeling were rendered and re-organized by the soft and networked architectures of online media
-            <a href="https://www.tandfonline.com/doi/full/10.1080/1369118X.2015.1109697" class="copy-link">(Papacharissi, 2016)</a>.</p>`
+            <a target="_blank" href="https://www.tandfonline.com/doi/full/10.1080/1369118X.2015.1109697" class="copy-link">(Papacharissi, 2016)</a>.</p>`
           },
           {
             //* Brush
@@ -133,7 +133,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_09.png',
-            copy: `<p>The nature of gifts: the value of the gift grew as it was shared. This notion was difficult to grasp in neoliberal societies whose paradigms surrounded private property <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            copy: `<p>The nature of gifts: the value of the gift grew as it was shared. This notion was difficult to grasp in neoliberal societies whose paradigms surrounded private property <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
           {
@@ -170,7 +170,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_08.png',
-            copy: `<p>A decolonial shift from viewing the land as private property to an understanding of the land as a library and home to nonhuman neighbours prompted the realization that the land was not a commodity but rather a gift <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            copy: `<p>A decolonial shift from viewing the land as private property to an understanding of the land as a library and home to nonhuman neighbours prompted the realization that the land was not a commodity but rather a gift <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
           {
@@ -181,7 +181,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_03.png',
-            copy: `<p>Humans were not the only creatures who lived on the edge of the wild. To some extent, every hive-building, nest-making, lodge-building and burrow-digging creature lived a liminal existence. None of them, however, lived their entire life in the burrow, nest, or hive <a href="https://nyupress.org/9780889775633/learning-to-die/" class="copy-link">(Bringhurst & Zwicky, 2018)</a>.</p>`
+            copy: `<p>Humans were not the only creatures who lived on the edge of the wild. To some extent, every hive-building, nest-making, lodge-building and burrow-digging creature lived a liminal existence. None of them, however, lived their entire life in the burrow, nest, or hive <a target="_blank" href="https://nyupress.org/9780889775633/learning-to-die/" class="copy-link">(Bringhurst & Zwicky, 2018)</a>.</p>`
           },
         ]
       },
@@ -197,7 +197,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_10.png',
-            copy: `<p>Living animals once again situated the earth as a moral reference point. The act of thinking like an ecosystem brought individuals closer to disobedience from both cultural and biological late-capitalist paradigms <a href="https://nyupress.org/9780889775633/learning-to-die/" class="copy-link">(Bringhurst & Zwicky, 2018)</a></p>`
+            copy: `<p>Living animals once again situated the earth as a moral reference point. The act of thinking like an ecosystem brought individuals closer to disobedience from both cultural and biological late-capitalist paradigms <a target="_blank" href="https://nyupress.org/9780889775633/learning-to-die/" class="copy-link">(Bringhurst & Zwicky, 2018)</a></p>`
           },
           {
             //* Centipede
@@ -207,7 +207,7 @@ const data = {
             inInventory: false,
             isTransparent: false,
             src: './assets/objects/object_b_12.gif',
-            copy: `<p>A relational set of discourses and practices around empathy, sympathy, and fellow feeling between people, environments, and objects counteracted a common disregard towards other-than-human species <a href="https://read.dukeupress.edu/social-text/article/38/1%20(142)/1/160171/Radical-CareSurvival-Strategies-for-Uncertain" class="copy-link">(Hobart & Kneese, 2020)</a>.</p>`
+            copy: `<p>A relational set of discourses and practices around empathy, sympathy, and fellow feeling between people, environments, and objects counteracted a common disregard towards other-than-human species <a target="_blank" href="https://read.dukeupress.edu/social-text/article/38/1%20(142)/1/160171/Radical-CareSurvival-Strategies-for-Uncertain" class="copy-link">(Hobart & Kneese, 2020)</a>.</p>`
           },
         ],
       },
@@ -252,7 +252,7 @@ const data = {
             src: './assets/objects/object_b_02.gif',
             copy: `<p>Emerging rituals prompted reciprocity.
             A selection of mundane and sacred objects, whose values were determined by more-than human beings, were burned for ancestors such as fish, rodents, and small birds.
-            These ceremonies were a means of connecting to close and distant ancestors as well as to the land <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            These ceremonies were a means of connecting to close and distant ancestors as well as to the land <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
           {
@@ -299,7 +299,7 @@ const data = {
             <p></p>No species of placental mammal has lived more than a few million years. Coming to the realization that the planet too
             was mortal, humans started to think about how to maximize their future. Taking a broader vernacular view, they began
             planning not just as individuals--or even as a species, but for the nieces and nephews of the descendants of their
-            species <a href="https://nyupress.org/9780889775633/learning-to-die/" class="copy-link">(Bringhurst & Zwicky, 2018)</a>.
+            species <a target="_blank" href="https://nyupress.org/9780889775633/learning-to-die/" class="copy-link">(Bringhurst & Zwicky, 2018)</a>.
             </p>`
           },
         ],
@@ -318,7 +318,7 @@ const data = {
             src: './assets/objects/object_c_12.png',
             copy: `<p>Influenced primarily by technical advancements, a human’s temporal sense overlooked the intrinsic deep-timescales of the
             earth. As conceptions of time sped up, so too did the decomposition of earth’s capital such as the layers of gasses in
-            the atmospheric system <a class="copy-link" href="https://press.princeton.edu/books/paperback/9780691202631/timefulness">(Bjornerud, 2020)</a>.</p>`
+            the atmospheric system <a target="_blank" class="copy-link" href="https://press.princeton.edu/books/paperback/9780691202631/timefulness">(Bjornerud, 2020)</a>.</p>`
           },
         ],
       },
@@ -351,7 +351,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_26.png',
             copy: `<p>Learning the pronouns of the living world:</p>
-            <p>Adopting a grammar of animacy led to new methods of survival in the world <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            <p>Adopting a grammar of animacy led to new methods of survival in the world <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
         ],
@@ -380,7 +380,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_13.png',
             copy: `<p>Nationalism was obscured by winds and waters that knew no boundaries. Speaking to the natural world as a member of the
-            democracy of species, generated a transfer of gratitude. <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            democracy of species, generated a transfer of gratitude. <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
         ],
@@ -411,7 +411,7 @@ const data = {
             src: './assets/objects/object_c_22.png',
             copy: `<p>The Animal Computer Interaction (ACI) manifesto displayed a confidence in techno-utopianism. The manifesto defined ACI’s
             benefit to both animals and humans, describing animals’ use of technology as enabling them to work and communicate with
-            humans <a href="https://dl.acm.org/doi/10.1145/1978822.1978836" class="copy-link">(Mancini, 2011)</a>.</p>`
+            humans <a target="_blank" href="https://dl.acm.org/doi/10.1145/1978822.1978836" class="copy-link">(Mancini, 2011)</a>.</p>`
           },
           
         ],
@@ -440,7 +440,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_18.png',
             copy: `<p>The grammar of animacy:</p>
-            <p>“Listening in wild places, we are audience to conversations in a language not our own” <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            <p>“Listening in wild places, we are audience to conversations in a language not our own” <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
               class="copy-link">(Kimmerer, 2013)</a></p>`
           },
         ],
@@ -458,7 +458,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_16.gif',
             copy: `<p>Using the grammar of the earth, rocks were not nouns but verbs, an evidence of processes: the growth of a mountain belt,
-            a volcanic eruption. Rocks were witnesses to events that unfolded over long stretches of time <a class="copy-link" href="https://press.princeton.edu/books/paperback/9780691202631/timefulness"></a>(Bjornerud, 2020)</a>.</p>`
+            a volcanic eruption. Rocks were witnesses to events that unfolded over long stretches of time <a target="_blank" class="copy-link" href="https://press.princeton.edu/books/paperback/9780691202631/timefulness"></a>(Bjornerud, 2020)</a>.</p>`
           },
         ],
       },
@@ -578,7 +578,7 @@ const data = {
             copy: `<p>Human-environmental relations were embedded in every aspect of life.
             The wisdom of other animals was apparent in the way that they lived. Animals taught by example.
             “They’ve been on the earth far longer than we have been, and have had time to figure things out. They live both above
-            nd below ground, joining Skyworld to the earth” <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            nd below ground, joining Skyworld to the earth” <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
         ],
@@ -596,7 +596,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_10.gif',
             copy: `<p>Forest trees were interconnected through subterranean fungal networks, a web of survival and reciprocity that benefited
-            the trees, fungus, soil and extended to other earthly beings <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955" class="copy-link">(Kimmerer, 2013)</a>.</p>`
+            the trees, fungus, soil and extended to other earthly beings <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955" class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
         ],
       },
@@ -625,7 +625,7 @@ const data = {
             isTransparent: false,
             src: './assets/objects/object_c_27.png',
             copy: `<p>“In Native ways of knowing, human people were often referred to as ‘the younger brothers of Creation.’ We say that
-            humans have the least experience with how to live and thus the most to learn—we must look to our teachers among the other species for guidance” <a href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
+            humans have the least experience with how to live and thus the most to learn—we must look to our teachers among the other species for guidance” <a target="_blank" href="https://www.bookdepository.com/Braiding-Sweetgrass-Robin-Wall-Kimmerer/9780141991955"
             class="copy-link">(Kimmerer, 2013)</a>.</p>`
           },
         ],
