@@ -97,7 +97,7 @@ fieldset {
 
 
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   .mobile-only {
     display: flex;
     justify-content: center;
