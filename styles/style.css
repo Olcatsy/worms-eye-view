@@ -334,6 +334,7 @@ fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .in-inventory {
@@ -350,7 +351,26 @@ fieldset {
   transform: scale(1.1);
 }
 
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  max-width: 120px;
+  background-color: var(--black);
+  /* background-color: olivedrab; */
+  color: white;
+  text-align: center;
+  padding: 5px;
+  position: absolute;
+  top: 100px;
+  transition: opacity 0.3s;
+  border-radius: 5px;
+  z-index: 41;
+}
 
+.in-inventory:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
 /* END OF OBJECTS */
 
 
