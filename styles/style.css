@@ -439,10 +439,14 @@ fieldset {
   opacity: 0;
 }
 
-.move-on p {
-  margin-bottom: 20px;
+.move-on h3 {
   font-size: 3rem;  
   color: var(--yellow);
+
+}
+
+.move-on p {
+  margin-bottom: 20px;
 }
 
 .you-worm {
