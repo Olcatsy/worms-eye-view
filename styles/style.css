@@ -347,6 +347,12 @@ fieldset {
   filter: grayscale(0);
 }
 
+.in-inventory:hover,
+.in-inventory:focus {
+  z-index: 50;
+
+}
+
 .in-inventory img {
   filter: var(--shadow);
 }
@@ -355,7 +361,6 @@ fieldset {
 .in-inventory:focus img {
   filter: var(--selection-effect-inventory);
   transform: scale(1.1);
-  z-index: 50;
 }
 
 .tooltip {
