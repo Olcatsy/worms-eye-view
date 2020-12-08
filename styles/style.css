@@ -581,7 +581,6 @@ fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: column; */
   height: 100%;
   padding: var(--spacing-med) 0;
 }
@@ -671,6 +670,12 @@ fieldset {
 
 .land-ackn {
   z-index: 61;
+}
+
+.note {
+  margin-top: 20px;
+  width: 70%;
+  text-align: center;
 }
 
 .loading > *,
