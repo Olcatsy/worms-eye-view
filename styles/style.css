@@ -355,6 +355,7 @@ fieldset {
 .in-inventory:focus img {
   filter: var(--selection-effect-inventory);
   transform: scale(1.1);
+  z-index: 50;
 }
 
 .tooltip {
@@ -369,7 +370,6 @@ fieldset {
   top: 100px;
   transition: opacity 0.3s;
   border-radius: 5px;
-  z-index: 41;
 }
 
 .in-inventory:hover .tooltip {
