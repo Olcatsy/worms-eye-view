@@ -1,5 +1,6 @@
 node_modules
 design
-# .vscode
+.vscode
+# *.pdf
 .DS_Store
 *.zip
