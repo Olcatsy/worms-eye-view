@@ -63,7 +63,7 @@ const data = {
               <p >
                 In 2019, a record 53.6 million metric tonnes of electronic waste was generated worldwide. 17.4% of this e-waste was
                 collected and recycled. As time passed, higher consumption rates of electric equipment, devices with short life cycles,
-                and designs with few options for repair propelled the electronic waste stream <a href="http://ewastemonitor.info/" class="copy-link">(United Nations Institute for Training and Research, 2020)</a>.
+                and designs with few options for repair propelled the electronic waste stream. <a href="http://ewastemonitor.info/" class="copy-link">(United Nations Institute for Training and Research, 2020)</a>
               </p>`
           },
         ],
@@ -491,7 +491,7 @@ const data = {
             inventoryId: "cat-nest2",
             inInventory: false,
             isTransparent: false,
-            src: './assets/objects/object_c_08.png',
+            src: './assets/objects/object_c_08.gif',
             copy: `<p>Care as an affective and connective tissue between an inner self and an outer world offered the visceral, material, and
         emotional heft toward the preservation of localities such as: selves, communities, and more-than-human social worlds
         (Hobart & Kneese, 2020).</p>`
