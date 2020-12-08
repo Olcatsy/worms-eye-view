@@ -437,6 +437,7 @@ fieldset {
   transform: translate(-50%, -50%);
   text-align: center;
   opacity: 0;
+  width: 75%;
 }
 
 .move-on h3 {
@@ -453,11 +454,16 @@ fieldset {
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  width: 70%;
+  width: 90%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.you-worm img {
+  width: 100%;
+}
+/* Keeping these styles in case we add text to the winning screen in the future */
 /* 
 .you-worm-inner {
   position: absolute;
