@@ -388,8 +388,12 @@ const app = {
 
   // Preloader 
   preloader: () => {
-    window.addEventListener('load',() => {
-      const preloader = document.querySelector('#preloader');
+    const preloader = document.querySelector('#preloader');
+    if (document.readyState === "complete") {
+      preloader.classList.add('faded-out');
+      preloader.querySelector('img').style.display = 'none'
+    }
+    window.addEventListener('load', () => {
       preloader.classList.add('faded-out');
       preloader.querySelector('img').style.display = 'none'
     })
@@ -397,7 +401,6 @@ const app = {
 
   //* INIT
   init: () => {
-    app.preloader();
     
     for (const scene in data) {
       const letter = data[scene].letter;
@@ -422,6 +425,7 @@ const app = {
     app.loadingButtonHandler();
     app.closeMiscScreen();
     app.openMiscScreen();
+    app.preloader();
   },
 }
 
